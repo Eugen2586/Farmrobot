@@ -1,5 +1,6 @@
 package Functions;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import java.io.File;
 import java.io.FileReader;
@@ -9,13 +10,11 @@ import java.util.ArrayList;
 
 public class Log {
 
-    void Log( Koodinates k) {
-        try {
-            File myObj = new File(k.getID() + ".txt");
-            myObj.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private static boolean containsString( String s, String subString ) {
+        return s.indexOf( subString ) > -1 ? true : false;
+    }
+
+   public Log( Koodinates k) {
         JSONObject obj = new JSONObject();
         obj.put("ID",String.valueOf(k.getID()));
         obj.put("X",String.valueOf(k.getX()) );
@@ -24,33 +23,66 @@ public class Log {
         obj.put("T",String.valueOf(k.getT()) );
         obj.put("V",String.valueOf(k.getV()) );
         try {
-            FileWriter myWriter = new FileWriter(k.getID() + ".txt", true);
+            FileWriter myWriter = new FileWriter(k.getID() + ".farmrobo", true);
             myWriter.write(obj.toString());
+            myWriter.flush();
             myWriter.close();
+
         }catch(Exception e){
             e.printStackTrace();
-        }
-        try{
-            File myObj = new File("0.txt");
-            myObj.createNewFile();
-        }catch(Exception e){
-
         }
     }
 
 
-    ArrayList<Koodinates> getLog(){
+    public static ArrayList<Koodinates> getLog(){
         ArrayList<Koodinates> kod = new ArrayList<Koodinates>();
-        File f = new File("0.txt");
+        File f = new File( System.getProperty("user.dir") );
         File[] fileArray = f.listFiles();
-        for (Object obj : fileArray ) {
-            try{
+        for (File t : fileArray ) {
+            if( containsString(  t.getName(), ".farmrobo")) {
+                try {
+                    FileReader rw = new FileReader(t.toString());
+                    JSONParser parser = new JSONParser();
+                    int c;
+                    StringBuffer r = new StringBuffer();
+                    rw = new FileReader(t);
+                    while ((c = rw.read()) != -1) {
+                        r.append((char) c);
+                    }
+                    rw.close();
+                    JSONObject obj = (JSONObject) parser.parse(r.toString());
+                    try {
+                        Koodinates k = new Koodinates(
+                                Integer.decode( obj.get("X").toString()),
+                                Integer.decode( obj.get("Y").toString()),
+                                Integer.decode( obj.get("Z").toString()) ,
+                                obj.get("T").toString(),
+                                obj.get("V").toString()
+                        );
+                        kod.add(k);
 
-            }catch(Exception e){
 
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
         return kod;
     }
+
+    public static void deleteOlder(){
+        File f = new File( System.getProperty("user.dir") );
+        File[] fileArray = f.listFiles();
+        for (File t : fileArray ) {
+            if( containsString(  t.getName(), ".farmrobo")) {
+                t.delete();
+            }
+        }
+    }
+
 }

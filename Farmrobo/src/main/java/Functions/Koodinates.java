@@ -36,7 +36,7 @@ public class Koodinates {
 
     public String getV() { return v; }
 
-    Koodinates(int x, int y, int z, String t, String v){
+    public Koodinates(int x, int y, int z, String t, String v){
         id  = st_id;
         st_id++;
         this.x = x;
