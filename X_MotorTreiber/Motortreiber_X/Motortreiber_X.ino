@@ -36,10 +36,14 @@ void loop() {
       wifiServer.begin();
       WiFiClient client = wifiServer.available();
       // Hier das JSON Object senden!
-      client.println("")
-      String h = client.read();
-      //Implementiere hier weitere Logik! Schau ob irgendwas in h vorhanden ist!
-
-    
-  }
+      String h = "";
+      while (client.connected()) {
+          while (client.available()>0) {
+              char c = client.read();
+              h = h + c;
+          }
+          client.println("");
+      }
+   }
+   //Implementiere hier weitere Logik! Schau ob irgendwas in h vorhanden ist!
 }
