@@ -1,5 +1,8 @@
 package Functions.Communictaion;
 
+import Constants.DATABASE;
+import Functions.Koodinates;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -21,6 +24,14 @@ public class Database {
             throwables.printStackTrace();
         }
     }
+
+    public void eintragMessdaten(Koodinates k ) throws SQLException {
+        Statement myStat = myConn.createStatement();
+        ResultSet reSe = myStat.executeQuery("INSERT INTO `" + DATABASE.messdaten + "` (`K`, `Date`, `X`, `Y`, `Z`, `T`, `Value_1`, `Value_2`, `Value_3`, `Value_4`) VALUES (NULL, CURRENT_TIMESTAMP, '30', '80', '150', 'Temp', '30', 'C', '-', '-');");
+
+
+    }
+    //INSERT INTO `Messdaten` (`K`, `Date`, `X`, `Y`, `Z`, `T`, `Value_1`, `Value_2`, `Value_3`, `Value_4`) VALUES (NULL, CURRENT_TIMESTAMP, '30', '80', '150', 'Temp', '30', 'C', '-', '-');
 
     public Object[] readAllFromTable(String table){
         try{
