@@ -1,5 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
+#include "Motortreiber.h"
 
 // Constant Zone
 const char* ssid = "Chr.Network";
@@ -12,7 +13,7 @@ WiFiServer wifiServer(9012);
 
 void setup() {
   Serial.begin(115200);
-  delay(10);
+  delay(100);
 
   Serial.print("Connect to Wifi ");
 
@@ -31,6 +32,7 @@ void setup() {
 
 void loop() {
   WiFi.begin( ssid, password);
+    delay(100);
   while (WiFi.status() == WL_CONNECTED) {
       //Open a Socket sever to Communicate with Pi. :)
       wifiServer.begin();
@@ -41,7 +43,7 @@ void loop() {
           while (client.available()>0) {
               char c = client.read();
               h = h + c;
-          }
+          }          
           client.println("");
       }
    }
