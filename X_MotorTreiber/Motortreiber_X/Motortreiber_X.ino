@@ -1,49 +1,78 @@
 #include <ESP8266WiFi.h>
-#include <WiFiClient.h>
+#include <ArduinoJson.h>
 
 // Constant Zone
 const char* ssid = "Chr.Network";
 const char* password = "2570419532734084";
-
-//Deklaration Zone
+StaticJsonDocument<200> doc;
+ 
 WiFiServer wifiServer(9012);
-
-
-
+ 
 void setup() {
+  pinMode(D0, OUTPUT); //Enable
+  pinMode(D1, OUTPUT); //Direction
+  pinMode(D2, OUTPUT); //Pulse
+
+  digitalWrite(D0,LOW); 
+  digitalWrite(D1,LOW);
+
+  
+  //Com Serial
   Serial.begin(115200);
-  delay(10);
-
-  Serial.print("Connect to Wifi ");
-
-  WiFi.begin( ssid, password);
-
+  Serial.print("Motor initialisiert!"); 
+  delay(1000);
+  //Wifi and Communication
+  WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
-    Serial.print(".");
+    Serial.println("Connecting..");
   }
-
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
+  Serial.print("Connected to WiFi. IP:");
   Serial.println(WiFi.localIP());
-}
+  wifiServer.begin();
+  //MotorStuff
 
+}
+ 
 void loop() {
-  WiFi.begin( ssid, password);
-  while (WiFi.status() == WL_CONNECTED) {
-      //Open a Socket sever to Communicate with Pi. :)
-      wifiServer.begin();
-      WiFiClient client = wifiServer.available();
-      // Hier das JSON Object senden!
-      String h = "";
-      while (client.connected()) {
-          while (client.available()>0) {
-              char c = client.read();
-              h = h + c;
+ 
+  WiFiClient client = wifiServer.available();
+ 
+  if (client) {
+ 
+    while (client.connected()) {
+ 
+      while (client.available()>0) {
+        char c = client.read();
+        if(c == 'D'){
+          //Hier zum Beispiel 
+          doc["sensor"] = "gps";
+          doc["time"] = 1351824120;
+          char message[200];
+          serializeJson(doc, message);
+          client.println(message);
           }
-          client.println("");
+        else if(c == 'A'){
+          Serial.write("Ich will deinen Scheiß befehl nicht ausführen");
+        }else if(c = 'L'){
+          for(int index = 0; index < 10000; index++){
+            digitalWrite(D2,HIGH);
+            delayMicroseconds(300);
+            digitalWrite(D2,LOW);
+            delayMicroseconds(300);
+          }
+          client.println(c);
+        }else{
+         Serial.write(c);
+        }
+
       }
-   }
-   //Implementiere hier weitere Logik! Schau ob irgendwas in h vorhanden ist!
+ 
+      delay(10);
+    }
+ 
+    client.stop();
+    Serial.println("Client disconnected");
+ 
+  }
 }

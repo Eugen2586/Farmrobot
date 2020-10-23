@@ -1,26 +1,31 @@
 package Functions.Communictaion;
 
 import java.io.*;
-import java.net.ServerSocket;
+import java.net.Socket;
 
 public class toServer {
 
 
     //Deklarations
-    java.net.ServerSocket serverSocket;
+    static Socket X_Ray_ComPort;
+    static Socket Y_Ray_ComPort;
+    static Socket Z_Ray_ComPOrt;
 
     //Method Areas
 
-    public toServer(int port) throws IOException {
+    public toServer(String ip, int port) throws IOException {
 
 
-        serverSocket = new java.net.ServerSocket(port);
+        X_Ray_ComPort = new Socket(ip, port);
+        System.out.println(X_Ray_ComPort.toString());
 
     }
-    public java.net.Socket warteAufAnmeldung(java.net.ServerSocket serverSocket) throws IOException {
+    /*
+    public java.net.Socket warteAufAnmeldung(Socket serverSocket) throws IOException {
         java.net.Socket socket = serverSocket.accept(); // blockiert, bis sich ein Client angemeldet hat
         return socket;
     }
+    */
 
     public String leseNachricht(java.net.Socket socket) throws IOException{
         BufferedReader bufferedReader =
@@ -43,7 +48,7 @@ public class toServer {
     }
 
     //Getter and Setter Methods
-    public ServerSocket getServerSocket() {
-        return serverSocket;
+    public Socket getX_Ray_ComPort() {
+        return X_Ray_ComPort;
     }
 }
