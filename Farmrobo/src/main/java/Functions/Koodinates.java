@@ -1,5 +1,7 @@
 package Functions;
 
+import org.json.simple.JSONObject;
+
 public class Koodinates {
 
     /* This class is an Expression for sending to the Chips an do the
@@ -44,6 +46,19 @@ public class Koodinates {
         this.z = z;
         this.t = t;
         this.v = v;
+    }
+    @Override
+    public String toString(){
+        String s = null;
+        JSONObject obj = new JSONObject();
+        obj.put("ID",String.valueOf(this.getID()));
+        obj.put("X",String.valueOf(this.getX()) );
+        obj.put("Y",String.valueOf(this.getY()) );
+        obj.put("Z",String.valueOf(this.getZ()) );
+        obj.put("T",String.valueOf(this.getT()) );
+        obj.put("V",String.valueOf(this.getV()) );
+        s = obj.toString();
+        return s;
     }
 
 
