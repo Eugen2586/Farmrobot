@@ -44,7 +44,7 @@ void loop() {
  
       while (client.available()>0) {
         char c = client.read();
-        if(c == 'D'){
+        if(c == 'W'){
           //Hier zum Beispiel 
           doc["sensor"] = "gps";
           doc["time"] = 1351824120;
