@@ -25,7 +25,7 @@ public class TestCommunication {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(int i = 0; i < 3000; i++) {
+        for(int i = 0; i < 10; i++) {
             String st = null;
             try {
                 t.schreibeNachricht(t.getX_Ray_ComPort(), "W");
