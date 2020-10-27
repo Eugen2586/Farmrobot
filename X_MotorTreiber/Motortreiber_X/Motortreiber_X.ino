@@ -12,11 +12,12 @@ void setup() {
   pinMode(D0, OUTPUT); //Enable
   pinMode(D1, OUTPUT); //Direction
   pinMode(D2, OUTPUT); //Pulse
+  pinMode(A0, INPUT);
 
   digitalWrite(D0,LOW); 
   digitalWrite(D1,LOW);
-
   
+    
   //Com Serial
   Serial.begin(115200);
   Serial.print("Motor initialisiert!"); 
@@ -45,9 +46,9 @@ void loop() {
       while (client.available()>0) {
         char c = client.read();
         if(c == 'W'){
-          //Hier zum Beispiel 
-          doc["sensor"] = "gps";
-          doc["time"] = 1351824120;
+          //Hier zum Beispiel
+          doc["T"] = "Wassersensor";
+          doc["V"] = analogRead(A0);
           char message[200];
           serializeJson(doc, message);
           client.println(message);

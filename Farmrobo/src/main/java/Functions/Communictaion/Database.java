@@ -1,6 +1,8 @@
 package Functions.Communictaion;
 
+import Constants.AktualKoodinates;
 import Constants.DATABASE;
+import Constants.NETWORK;
 import Functions.Koodinates;
 
 import java.sql.*;
@@ -9,28 +11,56 @@ import java.util.ArrayList;
 public class Database {
 
     //Constants for Connection
-    final String toTable =  "localhost:3306/test";
-    final String user = "root";
-    final String password = "password";
+    final String toTable =  DATABASE.db_ip + ":3300/Farmrobo";
+    final String user = DATABASE.username;
+    final String password = DATABASE.password;
 
     //Member Variables
     Connection myConn;
 
+
+
     public Database() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         //Connect
         try {
-            myConn = DriverManager.getConnection("jdbc:mysql://" + toTable, user, password);
+      //      System.out.println("jdbc:mysql:/" + toTable);
+            myConn = DriverManager.getConnection("jdbc:mysql://"+ toTable +"?" + "user=" + user + "&password="+password +"");//DriverManager.getConnection("jdbc:mysql:/" + toTable, user, password);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
-
+    
     public void eintragMessdaten(Koodinates k ) throws SQLException {
+
+        String unit = getUnit(k);
+        String sensorValue = getRay(k.getT());
+
+        String t = "INSERT INTO `Messdaten` (`K`, `Date`, `X`, `Y`, `Z`, `T`, `Value_1`, `Value_2`, `Value_3`, `Value_4`) VALUES (NULL, CURRENT_TIMESTAMP, '"+ AktualKoodinates.getX() +"', '"+ AktualKoodinates.getY() +"', '"+ AktualKoodinates.getZ() +"', '" + k.getT() + "', '" + k.getV() +"', 'V', 'V', 'V');";
+        System.out.println(k.getV());
         Statement myStat = myConn.createStatement();
-        ResultSet reSe = myStat.executeQuery("INSERT INTO `" + DATABASE.messdaten + "` (`K`, `Date`, `X`, `Y`, `Z`, `T`, `Value_1`, `Value_2`, `Value_3`, `Value_4`) VALUES (NULL, CURRENT_TIMESTAMP, '30', '80', '150', 'Temp', '30', 'C', '-', '-');");
+        int reSe = myStat.executeUpdate(t);
+        System.out.println(reSe);
 
 
     }
+
+    private String getRay(String t) {
+        return NETWORK.X_RAY_IP + NETWORK.X_RAY_PORT;
+    }
+
+    private String getUnit(Koodinates k) {
+        return "%";
+    }
+
     //INSERT INTO `Messdaten` (`K`, `Date`, `X`, `Y`, `Z`, `T`, `Value_1`, `Value_2`, `Value_3`, `Value_4`) VALUES (NULL, CURRENT_TIMESTAMP, '30', '80', '150', 'Temp', '30', 'C', '-', '-');
 
     public Object[] readAllFromTable(String table){
