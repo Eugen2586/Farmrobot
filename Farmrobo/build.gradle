@@ -1,6 +1,7 @@
 plugins {
     id 'java'
 }
+apply plugin: 'java'
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -21,3 +22,5 @@ dependencies {
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 
 }
+
+
