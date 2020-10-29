@@ -1,4 +1,6 @@
 \BOOKMARK [1][-]{section.1}{Vorwort}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Motivation f\374r das Farmrobo Projekt}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{Systemarchitektur}{}% 3
-\BOOKMARK [2][-]{subsection.2.1}{\334berlegungen}{section.2}% 4
+\BOOKMARK [1][-]{section.2}{Aufbau}{}% 3
+\BOOKMARK [1][-]{section.3}{Systemarchitektur}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Datenfluss im inneren des Roboters}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.2}{Wassersensor}{section.3}% 6
