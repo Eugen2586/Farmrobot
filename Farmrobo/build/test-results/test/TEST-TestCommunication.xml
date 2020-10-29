@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestCommunication" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-29T13:23:13" hostname="DESKTOP-TU109S3" time="10.628">
+<testsuite name="TestCommunication" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-29T18:43:04" hostname="DESKTOP-TU109S3" time="0.972">
   <properties/>
-  <testcase name="communicationsTest" classname="TestCommunication" time="10.628"/>
-  <system-out><![CDATA[Socket[addr=/192.168.178.38,port=9012,localport=56178]
+  <testcase name="communicationsTest" classname="TestCommunication" time="0.972"/>
+  <system-out><![CDATA[Socket[addr=/192.168.178.38,port=9012,localport=59561]
 
-738
+687
 1
 
-738
+688
 1
 
-738
+687
 1
 
-738
+687
 1
 
-738
+688
 1
 
-737
+687
 1
 
-737
+687
 1
 
-738
+687
 1
 
-738
+688
 1
 
-735
+688
 1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
