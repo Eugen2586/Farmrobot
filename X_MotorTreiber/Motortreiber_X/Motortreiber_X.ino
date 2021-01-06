@@ -12,6 +12,7 @@ WiFiServer wifiServer(9012);
 
 
 void setup() {
+  LEDsetup();
   Serial.begin(115200);
   delay(100);
 
@@ -31,6 +32,7 @@ void setup() {
 }
 
 void loop() {
+        LEDloop();/*
   WiFi.begin( ssid, password);
     delay(100);
   while (WiFi.status() == WL_CONNECTED) {
@@ -46,6 +48,7 @@ void loop() {
           }          
           client.println("");
       }
-   }
+
+   }*/
    //Implementiere hier weitere Logik! Schau ob irgendwas in h vorhanden ist!
 }
