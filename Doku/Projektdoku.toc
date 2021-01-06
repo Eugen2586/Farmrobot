@@ -1,0 +1,7 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Vorwort}{2}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Motivation f\IeC {\"u}r das Farmrobo Projekt}{4}{subsection.1.1}% 
+\contentsline {section}{\numberline {2}Aufbau}{4}{section.2}% 
+\contentsline {section}{\numberline {3}Systemarchitektur}{6}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Datenfluss im inneren des Roboters}{6}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Wassersensor}{6}{subsection.3.2}% 
