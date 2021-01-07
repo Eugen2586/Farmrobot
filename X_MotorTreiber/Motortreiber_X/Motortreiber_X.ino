@@ -56,13 +56,13 @@ void loop() {
         else if(c == 'A'){
           Serial.write("Ich will deinen Scheiß befehl nicht ausführen");
         }else if(c = 'L'){
-          for(int index = 0; index < 10000; index++){
-            digitalWrite(D2,HIGH);
-            delayMicroseconds(300);
-            digitalWrite(D2,LOW);
-            delayMicroseconds(300);
-          }
-          client.println(c);
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dir0(20); 
+        }else if(c == 'R'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dir1(20);
         }else{
          Serial.write(c);
         }
