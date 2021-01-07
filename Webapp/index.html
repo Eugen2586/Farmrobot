@@ -24,18 +24,55 @@
 
 <body>
 
-  <!-- Add your site or application content here -->
+<div>
+<header>
+  <h1 style="background-color: lawngreen">
+    <p><label class="h1" style="padding-right: 3em; color: forestgreen">Farmrobo-Steuerung </label><img src="DeckblattFarmrobo.jpg" alt="Logo" class="img" ></p>
+    <div class="button" align="left" style="background: lightskyblue; color: whitesmoke" ><p class="hem">Funktionsauswahl :<Button id="manuell">Manuell</Button><Button id="automatik">Automatik</Button><Button id="credits">Credits</Button></p></div>
+    <script>
+        // HTML-Button über JavaScript eine Funktion zuweisen
+
+        // Funktion beim laden der Seite aufrufen
+        window.addEventListener("load", function() {
+            // Überprüfen ob die ID (Button) auf der Seite vorhanden ist (Optional).
+            if (document.getElementById("manuell") != null) {
+                document.getElementById("manuell").addEventListener("click", manuell);
+            }
+            if (document.getElementById("automatik") != null) {
+                document.getElementById("automatik").addEventListener("click", automatik);
+            }
+            if (document.getElementById("credits") != null) {
+                document.getElementById("credits").addEventListener("click", credits);
+            }
+        });
+
+        function manuell() {
+            document.getElementById("credits")
+        }
+        function automatik(){
+            document.getElementById("credits")
+        }
+        function credits(){
+            document.getElementById("credits")
+        }
+    </script>
+  </h1>
+</header>
+</div>
+<div>
+  <article>
+    <div id="">
+
+
+    </div>
+  </article>
+</div>
+<!-- Add your site or application content here -->
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
 </html>
