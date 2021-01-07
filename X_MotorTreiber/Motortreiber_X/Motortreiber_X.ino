@@ -45,7 +45,7 @@ void loop() {
  
       while (client.available()>0) {
         char c = client.read();
-        if(c == 'W'){
+        if(c == 'V'){
           //Hier zum Beispiel
           doc["T"] = "Wassersensor";
           doc["V"] = analogRead(A0);
@@ -53,16 +53,32 @@ void loop() {
           serializeJson(doc, message);
           client.println(message);
           }
-        else if(c == 'A'){
+        else if(c == 'L'){
           Serial.write("Ich will deinen Scheiß befehl nicht ausführen");
-        }else if(c = 'L'){
+        }else if(c = 'A'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
-          dir0(20); 
-        }else if(c == 'R'){
+          dirA(20); 
+        }else if(c == 'D'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
-          dir1(20);
+          dirD(20);
+        }else if(c = 'S'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirS(20); 
+        }else if(c == 'W'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirW(20);
+        }else if(c = 'Q'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirQ(20); 
+        }else if(c == 'E'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirE(20);
         }else{
          Serial.write(c);
         }
