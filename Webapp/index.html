@@ -429,6 +429,32 @@
       <a style="color: whitesmoke; padding: 1em; margin: 1em;">Ich bin ein Link zur Uni Seite von Zipf</a>
     </div>
   </footer>
+  <script>
+    var msg = {
+      type: "befehl"
+    };
+
+    let socket = new WebSocket("ws://localhost:9010");
+    socket.onopen = function(e) {
+
+    };
+
+    socket.onmessage = function(event) {
+      var string = event;
+      string = string + string;
+    };
+
+    socket.onclose = function(event) {
+      if (event.wasClean) {} else {
+        // e.g. server process killed or network down
+        // event.code is usually 1006 in this case
+      }
+    };
+
+    socket.onerror = function(error) {
+      alert(`[error] ${error.message}`);
+    };
+  </script>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
