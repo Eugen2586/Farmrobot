@@ -27,8 +27,8 @@
 <div>
 <header>
   <h1 style="background-color: lawngreen">
-    <p><label class="h1" style="padding-right: 3em; color: forestgreen">Farmrobo-Steuerung </label><img src="DeckblattFarmrobo.jpg" alt="Logo" class="img" ></p>
-    <div class="button" align="left" style="background: lightskyblue; color: whitesmoke" ><p class="hem">Funktionsauswahl :<Button id="manuell">Manuell</Button><Button id="automatik">Automatik</Button><Button id="credits">Credits</Button></p></div>
+    <p><label class="h1" style="padding-right: 3em; color: forestgreen;">Farmrobo-Steuerung </label><img src="DeckblattFarmrobo.jpg" alt="Logo" class="img" ></p>
+    <div class="button" align="left" style="background: rosybrown; color: whitesmoke" ><p class="hem" style="color: black; padding: 0.75em">Funktionsauswahl :<Button id="manuell" style="background-color: #cccccc">Manuell</Button><Button id="automatik" style="background-color: #cccccc">Automatik</Button><Button id="credits" style="background-color: #cccccc">Credits</Button></p></div>
     <script>
         // HTML-Button über JavaScript eine Funktion zuweisen
 
@@ -47,31 +47,86 @@
         });
 
         function manuell() {
-            document.getElementById("credits")
+            document.getElementById("manuell").style.backgroundColor = 'lawngreen';
+            document.getElementById("credits").style.backgroundColor = '#cccccc';
+            document.getElementById("automatik").style.backgroundColor = '#cccccc';
         }
         function automatik(){
-            document.getElementById("credits")
+            document.getElementById("automatik").style.backgroundColor = 'lawngreen';
+            document.getElementById("credits").style.backgroundColor = '#cccccc';
+            document.getElementById("manuell").style.backgroundColor = '#cccccc';
         }
         function credits(){
-            document.getElementById("credits")
+            document.getElementById("credits").style.backgroundColor = 'lawngreen';
+            document.getElementById("manuell").style.backgroundColor = '#cccccc';
+            document.getElementById("automatik").style.backgroundColor = '#cccccc';
         }
     </script>
   </h1>
 </header>
 </div>
-<div>
-  <article>
-    <div id="">
+<HBox>
+<div style="margin: 2em">
+  <table style="background-color: #cccccc">
+    <tr>
+      <th><br></th>
+      <th><Button>x ></Button></th>
+      <th><br></th>
+    </tr>
+    <tr>
+      <td> <Button>y <</Button></td>
+      <td> <br> </td>
+      <td> <Button>y ></Button></td>
+    </tr>
+    <tr>
+      <td><br></td>
+      <td><Button>x <</Button></td>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td><Button>z <</Button></td>
+      <td><br></td>
+      <td><Button>z ></Button></td>
+    </tr>
+  </table>
 
-
-    </div>
-  </article>
 </div>
-<!-- Add your site or application content here -->
-
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <div style="width: 300px; height: 300px">
+    <svg viewBox="0 0 500 500" enable-background="true" style="fill: saddlebrown">
+      <rect height="50" width="50" x="0" y="0" style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="50" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="100" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="150" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="200" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="250" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="300" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="350" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="400" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="450" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+      <rect height="50" width="50" x="500" y="0" style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+      </rect>
+    </svg>
+  </div>
+</HBox>
+  <footer style="background-color: darkgreen">
+  <div style="margin: 1em; padding: 1em">
+    <a style="color: whitesmoke; padding: 1em; margin: 1em;">Ich bin ein Link zur Bedienungsanleitung</a>
+    <a style="color: whitesmoke; padding: 1em; margin: 1em;">Ich bin ein Link zur Uni Seite von Zipf</a>
+  </div>
+</footer>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
