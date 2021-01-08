@@ -13,6 +13,14 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+hem {
+  font-size: 2em;
+  color: white;
+  background-color: lawngreen;
+  text-align: center;
+  padding: 0;
+
+}
 /* Sections
    ========================================================================== */
 
@@ -39,7 +47,10 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0.2em 0;
+  padding: 0.2em;
+  background-color: lawngreen;
+  text-align: center;
 }
 
 /* Grouping content
@@ -146,7 +157,12 @@ sup {
  */
 
 img {
-  border-style: none;
+  border-style: solid;
+  caret-color: forestgreen;
+  width: 3em;
+  height: 2.5em;
+  padding: 0.25em;
+  alignment: right;
 }
 
 /* Forms
@@ -163,10 +179,11 @@ optgroup,
 select,
 textarea {
   font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  font-size: 0.7em; /* 1 */
+  line-height: 1.15em; /* 1 */
+  margin: 0.5em; /* 2 */
 }
+
 
 /**
  * Show the overflow in IE.
