@@ -112,8 +112,30 @@
           </td>
         </tr>
       </table>
-
+      <ol id="plantdat">
+      </ol>
+      <div style="width: max-content; height: auto; background-color: #b3d4fc">
+        <table style="padding: 0.5em">
+          <tr>
+            <td><Label style="padding: 0.5em">Sorte:</Label></td>
+            <td><Label id="pflanzeeins" style="padding: 0.5em"></Label></td>
+          </tr>
+          <tr>
+            <td><Label style="padding: 0.5em">Bodenbeschaffenheit:</Label></td>
+            <td><Label id="pflanzezwei" style="padding: 0.5em"></Label></td>
+          </tr>
+          <tr>
+            <td><Label style="padding: 0.5em">Wachstumsdauer min/max:</Label></td>
+            <td><Label id="pflanzedrei" style="padding: 0.5em"></Label></td>
+          </tr>
+          <tr>
+            <td><Label style="padding: 0.5em">Aussaatzeitpunkt von/bis</Label></td>
+            <td><Label id="pflanzevier" style="padding: 0.5em"></Label></td>
+          </tr>
+        </table>
+      </div>
     </div>
+
     <div style="width: 300px; height: 500px; padding: 3em">
       <svg viewBox="0 0 300 500" enable-background="true" style="fill: saddlebrown">
         <!--Hier beginnt die erste Zeile der Anzeige des Beetes -->
@@ -429,32 +451,7 @@
       <a style="color: whitesmoke; padding: 1em; margin: 1em;">Ich bin ein Link zur Uni Seite von Zipf</a>
     </div>
   </footer>
-  <script>
-    var msg = {
-      type: "befehl"
-    };
-
-    let socket = new WebSocket("ws://localhost:9010");
-    socket.onopen = function(e) {
-
-    };
-
-    socket.onmessage = function(event) {
-      var string = event;
-      string = string + string;
-    };
-
-    socket.onclose = function(event) {
-      if (event.wasClean) {} else {
-        // e.g. server process killed or network down
-        // event.code is usually 1006 in this case
-      }
-    };
-
-    socket.onerror = function(error) {
-      alert(`[error] ${error.message}`);
-    };
-  </script>
+  <script src="js/WebSocketData.js"></script>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
