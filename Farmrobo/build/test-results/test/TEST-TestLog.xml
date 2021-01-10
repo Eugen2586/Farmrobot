@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestLog" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-29T18:43:05" hostname="DESKTOP-TU109S3" time="0.027">
-  <properties/>
-  <testcase name="testLogs" classname="TestLog" time="0.027"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,6 +1,13 @@
 #include <ESP8266WiFi.h>
 #include <ArduinoJson.h>
 
+const int ENABLE = D0;
+const int PULS = D2;
+const int DIR =  D1;
+const int AnschlagA = D6;
+const int AnschlagD = D7;
+#include "Motortreiber.h"
+
 // Constant Zone
 const char* ssid = "Chr.Network";
 const char* password = "2570419532734084";
@@ -9,11 +16,9 @@ StaticJsonDocument<200> doc;
 WiFiServer wifiServer(9012);
  
 void setup() {
-  pinMode(D0, OUTPUT); //Enable
-  pinMode(D1, OUTPUT); //Direction
-  pinMode(D2, OUTPUT); //Pulse
+  initMotors();
   pinMode(A0, INPUT);
-
+  
   digitalWrite(D0,LOW); 
   digitalWrite(D1,LOW);
   
@@ -42,10 +47,12 @@ void loop() {
   if (client) {
  
     while (client.connected()) {
- 
+         Serial.write(client.available());
       while (client.available()>0) {
+        
         char c = client.read();
-        if(c == 'V'){
+        Serial.write(c);
+        if(c == 'V'){ //-> Anpassung der Variable auf die Reagiert werden soll auf V
           //Hier zum Beispiel
           doc["T"] = "Wassersensor";
           doc["V"] = analogRead(A0);
@@ -55,15 +62,17 @@ void loop() {
           }
         else if(c == 'L'){
           Serial.write("Ich will deinen Scheiß befehl nicht ausführen");
-        }else if(c = 'A'){
+        }else if(c == 'A'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
-          dirA(20); 
+          dirA(200);
+            client.println("A");
         }else if(c == 'D'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
-          dirD(20);
-        }else if(c = 'S'){
+          dirD(200);
+          client.println("D");
+        }else if(c == 'S'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirS(20); 
@@ -71,7 +80,7 @@ void loop() {
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirW(20);
-        }else if(c = 'Q'){
+        }else if(c == 'Q'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirQ(20); 
@@ -82,7 +91,6 @@ void loop() {
         }else{
          Serial.write(c);
         }
-
       }
  
       delay(10);

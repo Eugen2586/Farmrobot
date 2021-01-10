@@ -5,7 +5,6 @@ import java.net.Socket;
 
 public class toServer {
 
-
     //Deklarations
     static Socket X_Ray_ComPort;
     static Socket Y_Ray_ComPort;
@@ -51,4 +50,6 @@ public class toServer {
     public Socket getX_Ray_ComPort() {
         return X_Ray_ComPort;
     }
+
+
 }

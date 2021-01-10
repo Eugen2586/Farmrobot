@@ -28,7 +28,7 @@ public class TestCommunication {
         for(int i = 0; i < 10; i++) {
             String st = null;
             try {
-                t.schreibeNachricht(t.getX_Ray_ComPort(), "W");
+                t.schreibeNachricht(t.getX_Ray_ComPort(), "V");
                 st = t.leseNachricht(t.getX_Ray_ComPort());
                 System.out.print(t.leseNachricht(t.getX_Ray_ComPort()));
             } catch (IOException e) {
