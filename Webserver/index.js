@@ -2,7 +2,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 
 const wss = new WebSocket.Server({ port: 9010});
-var int = 0;
+let int = 0;
 wss.on('connection', function connection(ws) {
   let plants = " ";
   console.log("New Connection");
@@ -14,12 +14,8 @@ wss.on('connection', function connection(ws) {
     ws.send(plants);
   });
   ws.on('message', function incoming(message) {
-    console.log('received: %s', message);
-    var obj = JSON.parse(message)
-    fs.writeFile( int + 'form.dat', message, function (err) {
-      if (err) throw err;
-    });
-    fs.writeFile( obj.Firma + obj.Ansprechpartner + ".res", message, function (err) {
+    int++;
+    fs.writeFile( int.toString() + '.control', message.data, function (err) {
       if (err) throw err;
     });
   });
