@@ -14,8 +14,9 @@ wss.on('connection', function connection(ws) {
     ws.send(plants);
   });
   ws.on('message', function incoming(message) {
+    console.log(message);
     int++;
-    fs.writeFile( int.toString() + '.control', message.data, function (err) {
+    fs.writeFile( int.toString() + '.control', message, function (err) {
       if (err) throw err;
     });
   });
