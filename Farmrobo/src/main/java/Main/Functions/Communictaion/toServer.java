@@ -1,4 +1,4 @@
-package Functions.Communictaion;
+package Main.Functions.Communictaion;
 
 import java.io.*;
 import java.net.Socket;

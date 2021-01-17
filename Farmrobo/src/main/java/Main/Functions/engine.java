@@ -1,4 +1,4 @@
-package Functions;
+package Main.Functions;
 
 import java.util.Objects;
 import java.util.Observable;

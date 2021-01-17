@@ -1,8 +1,10 @@
+package Main;
+
 import Constants.AktualKoodinates;
 import Constants.NETWORK;
-import Functions.Communictaion.Database;
-import Functions.Communictaion.toServer;
-import Functions.Koodinates;
+import Main.Functions.Communictaion.Database;
+import Main.Functions.Communictaion.toServer;
+import Main.Functions.Koodinates;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -13,6 +15,7 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args){
+        System.out.println("Farmrobo startet");
 
         toServer t = null;
         Database db = new Database();

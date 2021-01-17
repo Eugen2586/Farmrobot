@@ -1,5 +1,5 @@
-import Functions.Koodinates;
-import Functions.Log;
+import Main.Functions.Koodinates;
+import Main.Functions.Log;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package Functions.logic;
+package Main.Functions.logic;
 
 import java.util.TimerTask;
 import java.util.Timer;

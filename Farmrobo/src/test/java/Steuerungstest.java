@@ -1,6 +1,6 @@
 import Constants.NETWORK;
-import Functions.Communictaion.Database;
-import Functions.Communictaion.toServer;
+import Main.Functions.Communictaion.Database;
+import Main.Functions.Communictaion.toServer;
 import org.junit.Test;
 
 import java.io.IOException;

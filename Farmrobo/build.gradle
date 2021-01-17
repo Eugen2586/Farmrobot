@@ -18,7 +18,7 @@ task BuildJar(type: Jar) {
         )
     }
     classifier = 'all'
-    baseName = 'MyJar'
+    baseName = 'Farmrobo'
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }

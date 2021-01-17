@@ -1,9 +1,9 @@
-package Functions.Communictaion;
+package Main.Functions.Communictaion;
 
 import Constants.AktualKoodinates;
 import Constants.DATABASE;
 import Constants.NETWORK;
-import Functions.Koodinates;
+import Main.Functions.Koodinates;
 
 import java.sql.*;
 import java.util.ArrayList;
