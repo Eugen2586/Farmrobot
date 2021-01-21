@@ -1,10 +1,10 @@
 package Main.Functions;
 
 import java.util.Objects;
-import java.util.Observable;
+//import java.util.Observable;
 import java.util.Observer;
 
-public class engine implements Observer {
+public class engine {
     int X;
     int Y;
     int Z;
@@ -23,7 +23,7 @@ public class engine implements Observer {
                 ", Z=" + Z +
                 '}';
     }
-
+    //get/set:
     public int getX() {
         return X;
     }
@@ -63,15 +63,4 @@ public class engine implements Observer {
         return Objects.hash(X, Y, Z);
     }
 
-
-    public void setValue(int x) {
-
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-                /*int someVariable = ((Flux) o).getSomeVariable();
-        System.out.println("All is flux!  Some variable is now " + someVariable);
-        */
-    }
 }

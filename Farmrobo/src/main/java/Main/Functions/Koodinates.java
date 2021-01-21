@@ -7,13 +7,13 @@ public class Koodinates {
     /* This class is an Expression for sending to the Chips an do the
      *  exsistential Work for a expression.
      */
-    static long st_id = 0;
-    long id;
-    int x;
-    int y;
-    int z;
-    String t;
-    String v;
+    static long st_id = 0;  //globaler ID Zähler (rondo)
+    long id;    //aktuelle ID
+    int x;      //Koordinate (ist)
+    int y;      //Koordinate (ist)
+    int z;      //Koordinate (ist)
+    String t;   //Aktion
+    String v;   //Wert
 
 
     public int getX() {

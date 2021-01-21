@@ -6,14 +6,13 @@ import java.util.ArrayList;
 
 public class Tasks {
 
-    ArrayList tasks;
-    public Tasks(){
-        tasks = new ArrayList();
-    }
+    static ArrayList tasks = new ArrayList();
+
     public void add(Koodinates k){
         tasks.add(k);
     }
-    public Koodinates getnext(){
+
+    public Koodinates getNext(){
         if(tasks.size()< 1){
             return null;
         }
