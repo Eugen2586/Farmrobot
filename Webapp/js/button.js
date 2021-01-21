@@ -8,6 +8,7 @@ document.getElementById("A").onmousedown = function(){
   while(bufferA) {
     i++;
     socket.send("A"+i.toString());
+    setTimeout(() => {  console.log("Fahr!"); }, 1000);
   }
 }
 document.getElementById("D").onclick = function() {

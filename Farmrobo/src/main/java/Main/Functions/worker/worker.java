@@ -15,8 +15,6 @@ import Main.Functions.Communictaion.toServer;
 import Main.Functions.Koodinates;
 import Main.Functions.engine;
 import Main.Model.Tasks;
-import com.sun.xml.internal.ws.api.pipe.Engine;
-import sun.security.krb5.internal.crypto.NullEType;
 
 import java.io.IOException;
 
@@ -29,7 +27,9 @@ public class worker {
 
     boolean engineStop = false;
 
+
     public void work() {
+        System.out.println("Das System wurde gestartet!");
         Runnable task = () -> {
             toServer x = null;
             try {
@@ -37,13 +37,14 @@ public class worker {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
-            while(!engineStop) {
+            while(ifWork()) {
                 getNext();
                 if(k != null) {
 
                     if (compX() != 0) {
                         try {
                             x.schreibeNachricht(x.getX_Ray_ComPort(), compX() < 0 ? "S":"W");
+                            System.out.println(x.leseNachricht(x.getX_Ray_ComPort()));
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                             System.out.println("X ist Scheisse");
@@ -68,7 +69,7 @@ public class worker {
         };
 
         task.run();
-
+        System.out.println("Das System wurde gestartet!");
         Thread thread = new Thread(task);
         thread.start();
 
@@ -98,14 +99,10 @@ public class worker {
         }
         return k.getZ() - e.getZ();
     }
+    public boolean ifWork(){
+        return true;
+    }
+    public void stopWorker(){
 
-
-
-
-
-
-
-
-
-
+    }
 }

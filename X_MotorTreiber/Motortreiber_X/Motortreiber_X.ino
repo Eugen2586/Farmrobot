@@ -75,19 +75,23 @@ void loop() {
         }else if(c == 'S'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
-          dirS(20); 
+          dirS(20);
+          client.println("S"); 
         }else if(c == 'W'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirW(20);
+          client.println("W");
         }else if(c == 'Q'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirQ(20); 
+          client.println("Q");
         }else if(c == 'E'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirE(20);
+          client.println("E");
         }else{
          Serial.write(c);
         }
