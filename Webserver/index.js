@@ -16,7 +16,7 @@ wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
     console.log(message);
     int++;
-    fs.writeFile( int.toString() + '.control', message, function (err) {
+    fs.writeFile( int.toString() + '.control', message.toString(), function (err) {
       if (err) throw err;
     });
   });
