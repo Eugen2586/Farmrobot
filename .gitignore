@@ -22,3 +22,6 @@
 hs_err_pid*
 Doku/Projektdoku.pdf
 *.xml
+Farmrobo/.gradle/checksums/sha1-checksums.bin
+Farmrobo/.gradle/checksums/md5-checksums.bin
+Farmrobo/.gradle/checksums/checksums.lock
