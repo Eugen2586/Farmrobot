@@ -1,5 +1,14 @@
-document.getElementById("A").onclick = function(){
-  socket.send("A");
+let bufferA = false;
+let i = 0;
+document.getElementById("A").onmouseup = function(){
+  bufferA  = false;
+}
+document.getElementById("A").onmousedown = function(){
+  bufferA = true;
+  while(bufferA) {
+    i++;
+    socket.send("A"+i.toString());
+  }
 }
 document.getElementById("D").onclick = function() {
  socket.send("D");

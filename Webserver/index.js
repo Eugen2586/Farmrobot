@@ -14,13 +14,22 @@ wss.on('connection', function connection(ws) {
     ws.send(plants);
   });
   ws.on('message', function incoming(message) {
+    let doneBefore = false;
     console.log(message);
     int++;
-    fs.writeFile( int.toString() + '.control', message.toString(), function (err) {
+    for (let i = 0; i < int; i++) {
+      fs.readFile('./' + i.toString() + '.control', function (err, data) {
+        if (data.toString().contains(message.toString())) {
+          doneBefore = true;
+        }
+      })
+    }
+    if (!doneBefore) {
+    fs.writeFile(int.toString() + '.control', message.toString(), function (err) {
       if (err) throw err;
     });
+  }
   });
-
 });
 
 
