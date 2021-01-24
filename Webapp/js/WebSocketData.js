@@ -46,13 +46,4 @@ socket.onmessage = function(event) {
   }
 };
 
-socket.onclose = function(event) {
-  if (event.wasClean) {} else {
-    // e.g. server process killed or network down
-    // event.code is usually 1006 in this case
-  }
-};
 
-socket.onerror = function(error) {
-  alert(`[error] ${error.message}`);
-};

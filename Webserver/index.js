@@ -13,22 +13,19 @@ wss.on('connection', function connection(ws) {
     plants = data.toString();
     ws.send(plants);
   });
+  let nopcounter = 1;
   ws.on('message', function incoming(message) {
-    let doneBefore = false;
+    if(message == 'nop'){
+      console.log(nopcounter);
+      nopcounter++;
+      return;
+    }
     console.log(message);
     int++;
-    for (let i = 0; i < int; i++) {
-      fs.readFile('./' + i.toString() + '.control', function (err, data) {
-        if (data.toString().contains(message.toString())) {
-          doneBefore = true;
-        }
-      })
-    }
-    if (!doneBefore) {
+    console.log(new Date().toJSON().toString());
     fs.writeFile(int.toString() + '.control', message.toString(), function (err) {
-      if (err) throw err;
+    if (err) throw err;
     });
-  }
   });
 });
 
