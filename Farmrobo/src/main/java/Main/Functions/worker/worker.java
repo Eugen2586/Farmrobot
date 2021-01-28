@@ -38,6 +38,7 @@ public class worker {
                 ioException.printStackTrace();
             }
             while(ifWork()) {
+                System.out.println("einen Task abgearbeitet!");
                 getNext();
                 if(k != null) {
 

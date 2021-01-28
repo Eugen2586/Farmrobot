@@ -4,8 +4,10 @@
 const int ENABLE = D0;
 const int PULS = D2;
 const int DIR =  D1;
+const int Ausgabe = D4;
 const int AnschlagA = D6;
 const int AnschlagD = D7;
+const int analogPin = A0;
 #include "Motortreiber.h"
 
 // Constant Zone
@@ -21,7 +23,7 @@ void setup() {
   
   digitalWrite(D0,LOW); 
   digitalWrite(D1,LOW);
-  
+
     
   //Com Serial
   Serial.begin(115200);
@@ -65,8 +67,8 @@ void loop() {
         }else if(c == 'A'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
-          dirA(200);
-            client.println("A");
+          dirA(1000);
+          client.println(position);
         }else if(c == 'D'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021

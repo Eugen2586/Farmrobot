@@ -1,11 +1,10 @@
 package Main.Model;
 
+import Constants.AktualKoodinates;
 import Main.Functions.Koodinates;
+import Main.Functions.engine;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
@@ -29,9 +28,16 @@ public class Tasks {
         return k;
     }
     public void getControls(){
+        System.out.println("Erreiche get Controls.");
         Runnable task = () -> {
+            AktualKoodinates g = new AktualKoodinates();
+            int x = g.getX();
+            int y = g.getY();
+            int z = g.getZ();
             int dat = 0;
+            schreibeDatei("OrdnerZurDateiEinlesung.con");
             while(true) {
+                System.out.println("Taskeingelesen!");
                 try {
                     String control = ladeDatei(dat+".control");
                     dat++;
@@ -39,6 +45,25 @@ public class Tasks {
                         dat = 0;
                     }
                     //Todo Implementiere hier die verstrickung zu den einzelnen Tasks hin und wie sie arbeiten sollen.
+                    if( control == "A"){
+                        x++;
+                    }
+                    if( control == "D"){
+                        x--;
+                    }
+                    if( control == "W"){
+                        y++;
+                    }
+                    if( control == "S"){
+                        y--;
+                    }
+                    if( control == "Q"){
+                        z++;
+                    }
+                    if( control == "E"){
+                        z--;
+                    }
+                   tasks.add(new Koodinates(x,y,z,"manuell", "true"));
                 }catch(Exception e){
                     dat = 0;
                 }
@@ -74,5 +99,13 @@ public class Tasks {
                 }
         }
         return inFile;
+    }
+    private void schreibeDatei(String dat){
+        File file = new File(dat);
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true)); //Text wird ans Dateiende angehangen
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

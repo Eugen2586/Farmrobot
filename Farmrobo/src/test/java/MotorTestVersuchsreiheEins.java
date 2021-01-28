@@ -13,7 +13,7 @@ public class MotorTestVersuchsreiheEins {
     @Test
     public void MotorTestVersuchsreiheEins() {
         toServer t = null;
-        Database db = new Database();
+        //Database db = new Database();
 
 
         try {
@@ -28,11 +28,13 @@ public class MotorTestVersuchsreiheEins {
                     t.schreibeNachricht(t.getX_Ray_ComPort(), "A");
                     t.leseNachricht(t.getX_Ray_ComPort());
                     i++;
+                    sleep(200);
                 }
                 while (i > 0) {
                     t.schreibeNachricht(t.getX_Ray_ComPort(), "D");
                     t.leseNachricht(t.getX_Ray_ComPort());
                     i--;
+                    sleep(200);
                 }
             }
         }catch(Exception e){

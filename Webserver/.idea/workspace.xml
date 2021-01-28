@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4aba1bcb-e1e4-4e53-b20a-010ec8db8d06" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Webapp/js/WebSocketData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/js/WebSocketData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webapp/js/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/js/button.js" afterDir="false" />
-    </list>
+    <list default="true" id="4aba1bcb-e1e4-4e53-b20a-010ec8db8d06" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +60,7 @@
       <workItem from="1611230052195" duration="1182000" />
       <workItem from="1611495534903" duration="2518000" />
       <workItem from="1611511250257" duration="3482000" />
+      <workItem from="1611615901777" duration="303000" />
     </task>
     <servers />
   </component>

@@ -10,8 +10,6 @@ public class Steuerungstest {
     @Test
     public void manuelleSteuerung() {
         toServer t = null;
-        Database db = new Database();
-
 
         try {
             t = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
@@ -19,24 +17,48 @@ public class Steuerungstest {
             e.printStackTrace();
         }
         try {
-            while(true) {
+            int j = 0;
+            while(j < 100) {
                 int i = 0;
                 while (i < 30) {
                     t.schreibeNachricht(t.getX_Ray_ComPort(), "A");
-                    t.leseNachricht(t.getX_Ray_ComPort());
+                    System.out.println(t.leseNachricht(t.getX_Ray_ComPort()));
                     i++;
                 }
                 while (i > 0) {
                     t.schreibeNachricht(t.getX_Ray_ComPort(), "D");
-                    t.leseNachricht(t.getX_Ray_ComPort());
+                    System.out.println(t.leseNachricht(t.getX_Ray_ComPort()));
                     i--;
                 }
+                j++; //Abbruchkriterium
             }
+            System.out.println("Test manuelleSteuerung durchgelaufen");
 
         } catch (Exception e) {
 
         }
 
     }
+
+    @Test
+    public void manuelleSteuerungEinStep() {
+        toServer t = null;
+        //Database db = new Database();
+
+        try {
+            t = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            t.schreibeNachricht(t.getX_Ray_ComPort(), "A");
+            System.out.println(t.leseNachricht(t.getX_Ray_ComPort()));
+            System.out.println("Test manuelleSteuerung durchgelaufen");
+            } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+
 
 }

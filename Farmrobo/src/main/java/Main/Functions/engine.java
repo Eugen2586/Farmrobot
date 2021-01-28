@@ -5,14 +5,17 @@ import java.util.Objects;
 import java.util.Observer;
 
 public class engine {
-    int X;
-    int Y;
-    int Z;
+    static int X;
+    static int Y;
+    static int Z;
 
     public engine(int x, int y, int z) {
         X = x;
         Y = y;
         Z = z;
+    }
+    public engine(){
+
     }
 
     @Override
