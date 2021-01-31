@@ -6,9 +6,8 @@ int lastAnalog = 0;
 int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
 // Idee: int primSteps = 100; // Laenge eines Steps / Rechteckwellenanzahl (waere denkbar)
 
- const int PERIODLENGHT = 800; //Periodlenght of one rectangular wave (estimated)
+ const int PERIODLENGHT = 500; //Periodlenght of one rectangular wave (estimated)
  const int LENGTHUNIT = 1000; //Defines a standard length
-
 
  int alt = 0;
 long pos(int dir){
@@ -17,7 +16,7 @@ long pos(int dir){
     lastAnalog = now;
     return position;
   }
-  if( now - lastAnalog > 6 || lastAnalog - now > 6  ){
+  if(lastAnalog - now > 5 || now - lastAnalog > 5){
       position = position + dir;
       if(alt == 1) {
         digitalWrite(Ausgabe, LOW);
@@ -32,6 +31,13 @@ long pos(int dir){
   return position;
 }
 
+void positionFunction(){
+   if(digitalRead(D1) != 0){
+      pos(1);
+   }else{
+      pos(-1);
+    }
+}
 
 void dirA(int steps) {
   Serial.println(digitalRead(AnschlagA));
@@ -44,19 +50,10 @@ void dirA(int steps) {
       if(digitalRead(AnschlagA) == 0){
         break;
       }
-      //if(posAlt != pos(1)){
-      //  break;  
-      //}
       digitalWrite(PULS,HIGH);
-      pos(1);
-      delayMicroseconds(PERIODLENGHT/4);
-      pos(1);
-      delayMicroseconds(PERIODLENGHT/4);
+      delayMicroseconds(PERIODLENGHT/2);
       digitalWrite(PULS,LOW);
-      pos(1);
-      delayMicroseconds(PERIODLENGHT/4);
-      pos(1);
-      delayMicroseconds(PERIODLENGHT/4);
+      delayMicroseconds(PERIODLENGHT/2);
     }
     digitalWrite(ENABLE,HIGH);
     digitalWrite(DIR,LOW);

@@ -39,7 +39,8 @@ void setup() {
   Serial.println(WiFi.localIP());
   wifiServer.begin();
   //MotorStuff
-
+  attachInterrupt(digitalPinToInterrupt(7), positionFunction, CHANGE);
+ 
 }
  
 void loop() {
