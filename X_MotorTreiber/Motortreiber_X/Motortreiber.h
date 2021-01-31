@@ -6,7 +6,7 @@ int lastAnalog = 0;
 int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
 // Idee: int primSteps = 100; // Laenge eines Steps / Rechteckwellenanzahl (waere denkbar)
 
- const int PERIODLENGHT = 700; //Periodlenght of one rectangular wave (estimated)
+ const int PERIODLENGHT = 800; //Periodlenght of one rectangular wave (estimated)
  const int LENGTHUNIT = 1000; //Defines a standard length
 
 
@@ -17,7 +17,7 @@ long pos(int dir){
     lastAnalog = now;
     return position;
   }
-  if(lastAnalog - now > 5 || now - lastAnalog > 5){
+  if( now - lastAnalog > 6 || lastAnalog - now > 6  ){
       position = position + dir;
       if(alt == 1) {
         digitalWrite(Ausgabe, LOW);
