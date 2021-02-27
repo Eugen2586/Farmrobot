@@ -1,7 +1,18 @@
 #ifndef Motortreiber_h
 #define Motortreiber_h
-int now;
+
+//EingabeVariablen der Lichtschranke
+boolean loch = false;
+int trigger = 0;
 long position = 0;
+unsigned long prevMillis = 0; //Zeitpunkt der letzten Zeitmessung
+unsigned long currMillis = 0; //aktuelle Zeitmessung
+const long intervalI = 500; //Uebergabeintervalllaenge
+long interval = 0;
+unsigned long prevMillisI = 0; //Zeitpunkt der letzten Zeitmessung
+unsigned long currMillisI = 0; //aktuelle Zeitmessung
+
+int now;
 int lastAnalog = 0;
 int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
 // Idee: int primSteps = 100; // Laenge eines Steps / Rechteckwellenanzahl (waere denkbar)
@@ -9,71 +20,94 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
  const int PERIODLENGHT = 500; //Periodlenght of one rectangular wave (estimated)
  const int LENGTHUNIT = 1000; //Defines a standard length
 
- int alt = 0;
-long pos(int dir){
-  now = analogRead(analogPin);
-  if(lastAnalog == 0){
-    lastAnalog = now;
-    return position;
+ void doStuff(){
+  if(digitalRead(DIR) != 0){
+    position++;  
+  }else{
+    position--;
   }
-  if(lastAnalog - now > 5 || now - lastAnalog > 5){
-      position = position + dir;
-      if(alt == 1) {
-        digitalWrite(Ausgabe, LOW);
-        alt--;
-      }else{
-        digitalWrite(Ausgabe, HIGH);  
-        alt++;
-    }
+  
   }
-  lastAnalog = now;
-  Serial.println(position);
-  return position;
-}
 
-void positionFunction(){
-   if(digitalRead(D1) != 0){
-      pos(1);
-   }else{
-      pos(-1);
-    }
+ ICACHE_RAM_ATTR void positionFunction(){
+  yield();
+  currMillis = millis(); //
+  interval = currMillis - prevMillis;
+    
+    if(interval < 6){
+      return;
+      }
+    if( interval > 70 && loch == false ){  //Intervallprüfung
+      loch = true;
+      doStuff();  //Aufbage machen bzw. Infos weitergeben     
+    } 
+    if( interval < 70 && loch == true ){
+      doStuff();  //Aufgabe machen bzw. Infos weitergeben
+      loch = false;
+      }
+   prevMillis = currMillis;
 }
 
 void dirA(int steps) {
-  Serial.println(digitalRead(AnschlagA));
+  yield();
   if(!digitalRead(AnschlagA) == 0){  
-    Serial.println("Stimmt");
     digitalWrite(ENABLE,LOW);
     digitalWrite(DIR,LOW); //Direction
-    int posAlt = pos(1);
+    unsigned long cc = 0;
     for(int stepCount = 0; stepCount <= steps; stepCount++){ //Create rectangular wave //Create rectangular wave 
       if(digitalRead(AnschlagA) == 0){
         break;
       }
+      
       digitalWrite(PULS,HIGH);
-      delayMicroseconds(PERIODLENGHT/2);
+      cc = millis();
+      unsigned long d = cc + PERIODLENGHT/2;
+      while(d < millis()){
+        yield();
+        // Wird genutzt um Zeiten abzuwarten ohne das System zu sperren.
+        }
+      
       digitalWrite(PULS,LOW);
-      delayMicroseconds(PERIODLENGHT/2);
+      cc = millis();
+      d = cc + PERIODLENGHT/2;
+      while(d < millis()){
+        yield();
+        // Wird genutzt um Zeiten abzuwarten ohne das System zu sperren.
+        }
     }
     digitalWrite(ENABLE,HIGH);
     digitalWrite(DIR,LOW);
   }
 }
 void dirD(int steps) {
-  Serial.println(digitalRead(AnschlagD));
+  yield();
   if(!digitalRead(AnschlagD) == 0){ 
     digitalWrite(DIR,HIGH); //Direction
     digitalWrite(ENABLE,LOW);
-    Serial.println("DirD");
+    unsigned long cc = 0;
+    
     for(int stepCount = 0; stepCount <= steps; stepCount++){ //Create rectangular wave
+      yield();
       if(digitalRead(AnschlagD) == 0){
         break;
       }
+
+       
       digitalWrite(PULS,HIGH);
-      delayMicroseconds(PERIODLENGHT/2);
+      cc = millis();
+      unsigned long d = cc + PERIODLENGHT/2;
+      while((d) < millis()){
+        // Wird genutzt um Zeiten abzuwarten ohne das System zu sperren.
+        yield();
+        }
+      
       digitalWrite(PULS,LOW);
-      delayMicroseconds(PERIODLENGHT/2);
-      pos(-1);
+      cc = millis();
+      d = cc + PERIODLENGHT/2;
+      while((cc + PERIODLENGHT/2) < millis()){
+        yield();
+        // Wird genutzt um Zeiten abzuwarten ohne das System zu sperren.
+        }
     }
     digitalWrite(ENABLE,HIGH);
     digitalWrite(DIR,LOW);

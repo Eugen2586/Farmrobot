@@ -11,6 +11,8 @@ const int analogPin = A0;
 #include "Motortreiber.h"
 
 // Constant Zone
+//const char* ssid = "Galaxy S1065b3";
+//const char* password = "123456789";
 const char* ssid = "Chr.Network";
 const char* password = "2570419532734084";
 StaticJsonDocument<200> doc;
@@ -20,6 +22,7 @@ WiFiServer wifiServer(9012);
 void setup() {
   initMotors();
   pinMode(A0, INPUT);
+  pinMode(D3, INPUT);
   
   digitalWrite(D0,LOW); 
   digitalWrite(D1,LOW);
@@ -39,7 +42,7 @@ void setup() {
   Serial.println(WiFi.localIP());
   wifiServer.begin();
   //MotorStuff
-  attachInterrupt(digitalPinToInterrupt(7), positionFunction, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(D4), positionFunction, CHANGE);
  
 }
  
@@ -54,7 +57,6 @@ void loop() {
       while (client.available()>0) {
         
         char c = client.read();
-        Serial.write(c);
         if(c == 'V'){ //-> Anpassung der Variable auf die Reagiert werden soll auf V
           //Hier zum Beispiel
           doc["T"] = "Wassersensor";
@@ -73,7 +75,7 @@ void loop() {
         }else if(c == 'D'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
-          dirD(200);
+          dirD(1000);
           client.println("D");
         }else if(c == 'S'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
