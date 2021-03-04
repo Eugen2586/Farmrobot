@@ -11,7 +11,13 @@ import static java.lang.Thread.sleep;
 
 public class Tasks {
 
-    static ArrayList tasks = new ArrayList();
+    static ArrayList  tasks;
+
+    public Tasks(){
+        if( tasks == null){
+            tasks = new ArrayList();
+        }
+    }
 
     public void add(Koodinates k){
         System.out.println(k.toString());
@@ -19,11 +25,11 @@ public class Tasks {
     }
 
     public Koodinates getNext(){
-        if(tasks.size()< 1){
+        if(tasks.size() < 1){
             return null;
         }
         Koodinates k = (Koodinates) tasks.get(0);
-        tasks.remove(k);
+        tasks.remove(k); //Todo Vorsichtig hier wird eigentlich der Wert heraus gelöscht.
         System.out.println(k.toString());
         return k;
     }

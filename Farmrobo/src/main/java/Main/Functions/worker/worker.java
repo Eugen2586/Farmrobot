@@ -13,15 +13,17 @@ package Main.Functions.worker;
 import Constants.NETWORK;
 import Main.Functions.Communictaion.toServer;
 import Main.Functions.Koodinates;
+import Main.Functions.Read;
 import Main.Functions.engine;
 import Main.Model.Tasks;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
 
-public class worker {
-    Tasks tasks = new Tasks();
+public class worker{
+    Tasks tasks;
     Koodinates k = null;
     engine e = new engine(0,0,0);
 
@@ -29,8 +31,10 @@ public class worker {
 
 
     public void work() {
+        this.tasks = new Tasks();
         System.out.println("Das System wurde gestartet!");
-        Runnable task = () -> {
+        dateieinlesenWorker();
+        Runnable task1 = () -> {
             toServer x = null;
             try {
                 x = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
@@ -38,17 +42,16 @@ public class worker {
                 ioException.printStackTrace();
             }
             while(ifWork()) {
-                System.out.println("einen Task abgearbeitet!");
-                getNext();
-                if(k != null) {
 
+                k = getNext();
+                if(k != null) {
+                    System.out.println("einen Task abgearbeitet!");
                     if (compX() != 0) {
                         try {
                             x.schreibeNachricht(x.getX_Ray_ComPort(), compX() < 0 ? "S":"W");
-                            System.out.println(x.leseNachricht(x.getX_Ray_ComPort()));
+                            System.out.println("" + x.leseNachricht(x.getX_Ray_ComPort()));
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
-                            System.out.println("X ist Scheisse");
                         }
                     }
                     if (compY() != 0) {
@@ -69,13 +72,59 @@ public class worker {
             }
         };
 
-        task.run();
+        task1.run();
         System.out.println("Das System wurde gestartet!");
-        Thread thread = new Thread(task);
+        Thread thread = new Thread(task1);
+        try {
+            thread.join();
+        } catch (InterruptedException interruptedException) {
+            interruptedException.printStackTrace();
+        }
         thread.start();
 
     }
 
+    protected void dateieinlesenWorker(){
+        Runnable task2 = () -> {
+            ArrayList<String> tasklist = new ArrayList<>();
+            while(true) {
+                for (int i = 1; i < 7; i++) {
+                    String h = new Read().ladeDatei(String.valueOf(i) + ".control");
+                    System.out.println(h);
+                    if(!h.equals("")) {
+                        int x = 0, y = 0, z = 0;
+                        if(h.equals("A")) {
+                            x = 1;
+                        }if(h.equals("D")){
+                            x = -1;
+                        }
+                        dotasking(new Koodinates((e.getX() + x), e.getY()+y, e.getZ()+z, "", ""));
+                    }
+                    i++;
+                    try {
+                        sleep(100);
+                    } catch (InterruptedException interruptedException) {
+                        interruptedException.printStackTrace();
+                        System.out.println("Ich wurde beim Schlafen gestört.");
+                    }
+                }
+            }
+        };
+        //task2.run();
+        System.out.println("Das System wurde gestartet!");
+        Thread thread = new Thread(task2);
+        try {
+            thread.join();
+        } catch (InterruptedException interruptedException) {
+            interruptedException.printStackTrace();
+        }
+        thread.start();
+
+    }
+
+    private void dotasking(Koodinates koodinates) {
+       tasks.add(koodinates);
+    }
 
     protected Koodinates getNext() {
         Koodinates k = tasks.getNext();

@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4aba1bcb-e1e4-4e53-b20a-010ec8db8d06" name="Default Changelist" comment="" />
+    <list default="true" id="4aba1bcb-e1e4-4e53-b20a-010ec8db8d06" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Farmrobo/src/main/java/Main/Functions/Read.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Farmrobo/src/test/java/ManuelleSteuerungDatenEinlesen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/build/reports/tests/test/classes/MotorTestVersuchsreiheEins.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Farmrobo/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Farmrobo/build/test-results/test/binary/output.bin" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +78,7 @@
       <workItem from="1611495534903" duration="2518000" />
       <workItem from="1611511250257" duration="3482000" />
       <workItem from="1611615901777" duration="303000" />
+      <workItem from="1614862417990" duration="4699000" />
     </task>
     <servers />
   </component>
