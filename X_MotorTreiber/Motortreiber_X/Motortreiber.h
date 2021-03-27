@@ -90,7 +90,8 @@ void dirD(int steps) {
     for(int stepCount = 0; stepCount <= steps; stepCount++){ //Create rectangular wave
       yield();
       if(digitalRead(AnschlagD) == 0){
-        break;
+       // break;
+       Serial.print("Ich werde erreicht!");
       }
 
        
@@ -101,7 +102,7 @@ void dirD(int steps) {
         // Wird genutzt um Zeiten abzuwarten ohne das System zu sperren.
         yield();
         }
-      
+      Serial.print("Wechsel!");
       digitalWrite(PULS,LOW);
       cc = millis();
       d = cc + PERIODLENGHT/2;
