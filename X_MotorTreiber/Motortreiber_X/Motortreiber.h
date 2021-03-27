@@ -32,11 +32,11 @@ long pos(int dir){
   return position;
 }
 
-
 void dirA(int steps) {
   Serial.println(digitalRead(AnschlagA));
   if(!digitalRead(AnschlagA) == 0){  
     Serial.println("Stimmt");
+    //Wir haben auf Anschlag geprüft und befinden uns auf der Strecke. Bereit zum fahren.
     digitalWrite(ENABLE,LOW);
     digitalWrite(DIR,LOW); //Direction
     int posAlt = pos(1);
