@@ -32,7 +32,7 @@ public class Database {
         }
         //Connect
         try {
-      //      System.out.println("jdbc:mysql:/" + toTable);
+           System.out.println("jdbc:mysql:/" + toTable);
             myConn = DriverManager.getConnection("jdbc:mysql://"+ toTable +"?" + "user=" + user + "&password="+password +"");//DriverManager.getConnection("jdbc:mysql:/" + toTable, user, password);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
