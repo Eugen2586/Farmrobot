@@ -49,8 +49,6 @@ public class Database {
         Statement myStat = myConn.createStatement();
         int reSe = myStat.executeUpdate(t);
         System.out.println(reSe);
-
-
     }
 
     private String getRay(String t) {

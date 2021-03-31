@@ -25,19 +25,31 @@ public class TestCommunication {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3000; i++) {
             String st = null;
             try {
                 t.schreibeNachricht(t.getX_Ray_ComPort(), "V");
-                t.leseNachricht(t.getX_Ray_ComPort());
-                System.out.print(t.leseNachricht(t.getX_Ray_ComPort()));
+                st = t.leseNachricht(t.getX_Ray_ComPort());
+                System.out.print(st);
             } catch (IOException e) {
                e.printStackTrace();
             }
              JSONParser parser = new JSONParser();
              JSONObject obj = null;
+             String help = new String();
+             for(int j = 0; j < st.length(); j++){
+                 char r = st.charAt(j);
+                 if( r != '\r' && r != '\n') {
+                     help = help + r;
+                     continue;
+                 }
+
+             }
+             if(help.equals("")){
+                 continue;
+             }
             try {
-                obj = (JSONObject) parser.parse(st.toString());
+                obj = (JSONObject) parser.parse(help.toString());
             } catch (ParseException e) {
                 e.printStackTrace();
             }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Circle fx:id="db_status" fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Circle>
+                  <Label text="Datenbankstatus" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ProgressBar prefHeight="18.0" prefWidth="603.0" progress="0.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="messwert" text="Label" />
+                        <Label fx:id="art" text="Label" />
+                        <Label fx:id="time" text="Label" />
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btn" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="86.0" prefWidth="181.0" text="Messpunkt aufnehmen..!" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
