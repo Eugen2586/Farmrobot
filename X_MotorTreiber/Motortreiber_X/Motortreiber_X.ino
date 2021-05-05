@@ -43,7 +43,6 @@ void setup() {
   wifiServer.begin();
   //MotorStuff
   attachInterrupt(digitalPinToInterrupt(D4), positionFunction, CHANGE);
- 
 }
  
 void loop() {
@@ -57,6 +56,7 @@ void loop() {
       while (client.available()>0) {
         
         char c = client.read();
+        Serial.println(c);
         if(c == 'V'){ //-> Anpassung der Variable auf die Reagiert werden soll auf V
           //Hier zum Beispiel
           doc["T"] = "Wassersensor";
@@ -64,6 +64,8 @@ void loop() {
           char message[200];
           serializeJson(doc, message);
           client.println(message);
+          Serial.println("Feuchtigkeit gemessen: ");
+          Serial.println(analogRead(A0));
           }
         else if(c == 'L'){
           Serial.write("Ich will deinen Scheiß befehl nicht ausführen");
@@ -101,12 +103,9 @@ void loop() {
          Serial.write(c);
         }
       }
- 
-      delay(10);
+      //delay(10);
     }
- 
     client.stop();
     Serial.println("Client disconnected");
- 
   }
 }
