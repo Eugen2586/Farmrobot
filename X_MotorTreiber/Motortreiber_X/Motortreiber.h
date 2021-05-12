@@ -49,7 +49,7 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
    
 }
 
-void dirA(int steps) {
+void dirA(int steps) { //nach Links fahren
   yield();
   if(!digitalRead(AnschlagA) == 0){  
     digitalWrite(ENABLE,LOW);
@@ -161,7 +161,7 @@ void dirE(int steps) {
   pinMode(AnschlagA, INPUT);// Anschlag linke Seite
   pinMode(AnschlagD, INPUT);// Anschlag rechte Seite
   //while(digitalRead(AnschlagA) == 0){
-  //    dirA(20);
+  //    dirA(20);   <-------------------------muss wieder reinwarum? weil wir linksanschlag haben wollen
   //}
   position = 0;
   
