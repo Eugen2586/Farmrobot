@@ -1,0 +1,471 @@
+%Praeambel
+%----------------------------------------------
+\documentclass[a4paper,12pt,titlepage]{article} %article, beamer, book, report, scrartcl, scrbook, scrreprt, slides
+\usepackage[utf8]{inputenc} %Zeichensatz waehlen
+%\usepackage[latin1]{inputenc}
+\usepackage{amsmath} %mathemaitscher Formelsatz
+\usepackage{amssymb} %mathematische Symbole
+\usepackage{ngerman} % Schriftsprache
+\usepackage{blindtext} %Blindtexgenerierung
+\usepackage{eurosym} %Eurozeichen
+\usepackage{textcomp} %Textkomponenten
+\usepackage{graphicx} %Bildeinbettung
+\usepackage{url} %belaesst Leerzeichen in Text
+\usepackage{verbatim} %Text im Original setzen (ohne Deutung)
+\usepackage{makeidx} %Stichwortverzeichnis
+\usepackage{color} %Farben
+\usepackage{colortbl} %Tabellenfarbmanipulation
+\usepackage{booktabs} %Tabellen, horizontale Linien
+\usepackage{multicol} %mehrere Spalten im Text
+\usepackage{lscape} %Hoch und Querformat Wechsel
+%----------------------------------------------
+\makeindex %nach Stichworten suchen,spaeter dann \printindex
+\RequirePackage{hhline} %Doppellinie in Tabelle
+%\pagestyle{headings} %Kapitel und Seitennummer am Rand
+\hyphenation{Stau-becken} %immer diese Trennung nutzen
+%----------------------------------------------
+%Absatzmanipulation
+\parskip 1ex %Höhenabstand in ex oder cm (standard 0ex)
+\parindent 0em %Breitenabstand in em oder cm (standard 1em)
+%verhindern mit \noindent
+% Tabellenmanipulation
+\newcolumntype{G}[1]{>{\small \columncolor[gray]{0.8}}p{#1}}
+\newcolumntype{P}[1]{>{\small \hspace{0pt}}p{#1}}
+
+
+
+\begin{document}
+%Titelseite
+\title{{\textsf{Meine Vorbereitung auf die\\ 
+\glqq Einf"uhrung in das wissenschaftliche Arbeiten mit dem Textsatzprogramm \LaTeX\grqq \\
+\vspace{1ex}
+bei Jochen Wulfhorst}}}
+\author{Jonas Kallweidt}
+\date{Kassel, den \today}
+\maketitle       %Titelseite
+\tableofcontents %Inhaltsverzeichnis
+\listoffigures   %Abbildungsverzeichnis
+\listoftables    %Tabellenverzeichnis
+
+\section{Formatierungen}
+\subsection{Schriftarten}
+\textbf{erstes Wort} Fettdruck\\
+\textsc{erstes Wort} Kapitälchen\\
+\textit{erstes Wort} Kursiv\\
+\textsf{erstes Wort} serifenlos\\
+\texttt{erstes Wort} Schreibmaschine\\
+
+\begin{bfseries}
+ fetter Text \\
+\end{bfseries}
+\begin{itshape}
+ kursiver Text \\
+\end{itshape}
+
+\subsection{Gr"o"sen}
+{\tiny winzig} \\
+{\scriptsize sehrklein} \\
+{\footnotesize fussnotengr"osse} \\
+{\small klein} \\
+{\normalsize normal} \\
+{\large gross} \\
+{\Large gr"osser} \\
+{\LARGE nochgr"osser} \\
+{\huge riesig} \\
+
+\subsection{Aufz"ahlungen}
+Vorbereitung auf Pr"ufungen:
+\begin{enumerate}
+ \item Durcharbeiten des Skripts
+ \item Entspannungstechniken:
+ \begin {itemize}
+  \item autogenes Training
+  \item Yoga
+  \item Progressiv
+ \end {itemize}
+  \item Lerngrppen bilden
+\end{enumerate}
+Entspannungstechniken:
+\begin {itemize}
+ \item autogenes Training
+ \item Yoga
+ \item Progressiv
+\end {itemize}
+
+\subsection{Fu"snoten}
+Fu"snote\footnote[1]{eine Fu"snote}
+
+\subsection{Anf"uhrungsstriche}
+\glqq Beginn des Zitats \grqq{} und Text geht weiter.\\
+\glq Contract\grq - Verfahren
+
+\subsection{Absatzformatierungen}
+Vermerk und Benutzung in Pr"aambel.\\
+Standardma"se: \\
+$\backslash$parskip 0ex \\
+$\backslash$parindent 1em \\
+$\backslash$noindent (auch m"oglich)\\
+
+\subsection{Horizontale Abst"ande}
+Wort\negthickspace Wort\\
+Wort\negmedspace Wort\\
+Wort\negthinspace Wort\\
+Wort\thinspace Wort\\
+Wort\medspace Wort\\
+Wort Wort\\
+Wort\thickspace Wort\\
+Wort\quad Wort\\
+Wort\qquad Wort\\
+0123\,4567\,8910\\
+z.\,B.\\
+B.\,Sc.\\
+
+\subsection{Verticale Abst"ande}
+Wort
+\vspace{1ex}
+Wort
+
+\subsection{Trennstriche}
+Trennstrich: Contracting-Verfahren\\
+Bindestrich: Kraft-- und Saftlos\\
+Streckenstrich: S.~32--46\\
+Gedankenstrich: Meine Darstellung, dies wird auch von \textsc{Schulz} (1999) best"atigt -- bewei"st, dass \ldots
+
+\subsection{Ligaturen}
+bei \glqq ff\grqq, \glqq fi\grqq, \glqq fl\grqq \\
+Unterdr"ucken durch, z.\,B.: \\
+\glqq Auf"|lage\grqq
+
+\subsection{Silbentrennung}
+Silbentrennung:\\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Wach\-stube\\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Wachs\-tube\\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Stau\-becken\\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Staub\-ecken\\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Klein\-eng\-lis\\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+\mbox{UNESCO}\\
+
+\subsection{Querverweise}\label{Querverweise}
+Im Abschnitt~\ref{Querverweise} geht es um Querverweise.
+Dies ist der Text, auf den ich verweisen\label{marke S.117} m"ochte.\\
+Wie schon bereits auf S.~\pageref{marke S.117}, beschrieben wurde
+Keine Sonderzeichen in den Markentext.
+
+
+\subsection{Randnotizen}
+Randnotizen werden mit $\backslash$marginpar\{\} 
+\marginpar{\tiny Tipp f"ur Klausur: Skript ausdrucken und durcharbeiten}
+gesetzt.
+
+\subsection{Beibehaltung der ursprünglichen Formatierung}
+\verb:Originalformatierung (Schreibmaschine):
+\begin{verbatim}
+ein gro"ser Textbereich, \\
+der so gestaltet ist, wie \\
+das Original, \\
+z.\,B. \LaTeX-Befehle
+\end{verbatim}
+
+\subsection{Kommentare}
+Kommentare werden mit \% gesetzt. \\
+oder: \\
+$\backslash$begin\{comment\} \\
+Text \\
+$\backslash$end\{comment\} \\
+
+\subsection{Sonderzeichen}
+\subsubsection{Befehlszeichen}
+\{ \\
+\} \\
+\# \\
+\& \\
+\_\\ %-
+\% \\
+\$ \\
+\textbackslash \\ %\
+\textasciitilde \\ %~
+
+\subsubsection{Akzente}
+%für alle Buchstaben: 
+citt\'{a}capitale \\%aigu 
+st\`{e}rile \\%grave
+\^{o} \\%circonflex
+fran\c{c}ois \\%c cedille
+\~{n} \\
+\v{s} \\
+{\L} \\
+%für skandinavische Sprachen:
+{\aa} \\
+{\o} \\
+{\ae} \\
+{\oe} \\
+%französisch:
+Lo\'{\i}r
+
+\subsubsection{Textsymbole}
+\S \\
+\P \\
+\texteuro \\
+\officialeuro \\
+\euro \\
+\textyen \\
+\pounds \\
+
+\newpage
+\section{Objekte}
+1) feststehendes (nicht verschiebbares) Objekte: \\
+  a) Formeln \\
+  b) Tabellen \\
+2) Gleitende (verschiebbare) Objekte: \\
+  a) Formeln \\
+  b) Tabellen \\
+  c) Bilder / Grafiken \\
+  
+Entscheiden:
+
+\subsection{feststehende Objekte}
+\subsubsection{Tabellen}
+%(1.)minimalistisch, zentriert, ohne Linien
+\begin{tabular}{cc} %alternativ: l, r
+ Ordnungsbegriffe &
+ Schl"usselkompetenz, ENV, \LaTeX \\
+ Zielgruppe &
+ StudentInnen der Elektrotechnik \\
+ Termine & Freitag, jeweils 6--9 Uhr \\
+\end{tabular}
+
+%(2.) wie (1.) mit vertikalen Linien 
+\begin{tabular}{|c|c|} %alternativ: l, r
+ Ordnungsbegriffe &
+ Schl"usselkompetenz, ENV, \LaTeX \\
+ Zielgruppe &
+ StudentInnen der Elektrotechnik \\
+ Termine & Freitag, jeweils 6--9 Uhr \\
+\end{tabular}
+
+%(3.) wie (2.) mit horizontalen Linien
+\begin{tabular}{|c|c|} %alternativ: l, r
+ \hline
+ Ordnungsbegriffe &
+ Schl"usselkompetenz, ENV, \LaTeX \\
+ Zielgruppe &
+ StudentInnen der Elektrotechnik \\
+ Termine & Freitag, jeweils 6--9 Uhr \\
+ \hline
+\end{tabular}
+
+%(4.) wie (3.) Tabelle zentriert
+\begin{center}
+ \begin{tabular}{|c|c|} %alternativ: l, r
+ \hline
+ Ordnungsbegriffe &
+ Schl"usselkompetenz, ENV, \LaTeX \\
+ Zielgruppe &
+ StudentInnen der Elektrotechnik \\
+ Termine & Freitag, jeweils 6--9 Uhr \\
+ \hline
+\end{tabular}
+\end{center}
+\vspace*{2ex}
+
+%(5.) wie (4.) mit Doppellinie
+\begin{center}
+ \begin{tabular}{|c|c|} %alternativ: l, r
+ \hline
+ Ordnungsbegriffe &
+ Schl"usselkompetenz, ENV, \LaTeX \\
+ \hhline{|=|=|} %oder {|=+=|}
+ Zielgruppe &
+ StudentInnen der Elektrotechnik \\
+ Termine & Freitag, jeweils 6--9 Uhr \tabularnewline[3ex]
+ \hline
+\end{tabular}
+\end{center}
+\vspace*{2ex}
+
+%(6.) wie (5.) mit Leerzeilen
+\begin{center}
+ \begin{tabular}{|c|c|} %alternativ: l, r
+ \hline
+ &
+ \tabularnewline[1ex]
+ Ordnungsbegriffe &
+ Schl"usselkompetenz, ENV, \LaTeX \\
+ \hhline{|=|=|} %oder {|=+=|}
+  &
+ \tabularnewline[1ex]
+ Zielgruppe &
+ StudentInnen der Elektrotechnik \\
+  &
+ \tabularnewline[1ex]
+ Termine & Freitag, jeweils 6--9 Uhr \tabularnewline[3ex]
+ \hline
+\end{tabular}
+\end{center}
+\vspace*{2ex}
+
+\subsubsection{feststehende Formeln}
+Die Formel $a = b\textsuperscript{3} + c\textsuperscript{2}$ wird grafisch abgesetzt vom Text.\\
+Mehr abgesetzt:
+\begin{math}
+ a = b\textsuperscript{3} + c\textsuperscript{2}
+\end{math}
+Vom Text wird diese Formel, abgekürzt
+\(
+a = b\textsuperscript{3} + c\textsuperscript{2}
+\)
+\subsection{Formelzeichen}
+Integrale:
+\begin{math}
+ \int^b_a f(x)\,dx 
+\end{math}
+
+Summenzeichen:
+\begin{math}
+ \sum_{i=1}^n a_x +2z 
+\end{math}
+
+Grenzwerte:
+\begin{math}
+\lim_{x \rightarrow \infty} x=0
+\end{math}
+
+\subsection{Gleitende Objekte}
+Formeln\\
+Tabellen\\
+Grafiken\\
+
+\subsubsection{gleitende Tabellen}
+\begin{table}[ht!] %alternativ b (=bottom)
+\centering
+\caption[Kurzform]{Langform ... Text Text Text}
+\label{Tab.1}
+\vspace*{2ex}
+  \begin{tabular}{|c|c|} %alternativ: l, r
+ \hline
+ Ordnungsbegriffe &
+ Schl"usselkompetenz, ENV, \LaTeX \\
+ \hhline{|=|=|} %oder {|=+=|}
+ Zielgruppe &
+ StudentInnen der Elektrotechnik \\
+ Termine & Freitag, jeweils 6--9 Uhr \tabularnewline[3ex]
+ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Gleitende Formeln}
+nummeriert | nicht nummeriert \\
+einzeilig | mehrzeilig \\
+Eine einzeilge und nummerierte Formel:
+\begin{equation}
+ a = b^3 + c^2
+\end{equation}
+
+Eine nicht nummerierte und einzeilige gleitende Formel:
+\begin{displaymath}
+ a = b^3 + c^2
+\end{displaymath}
+
+Nummerierte mehrzeilige Formeln: %mit & Basteln
+\begin{align}
+ f(x)& =\cos x \\
+ f'(x) &=& \sin x \\
+ \int_{0}^1 f(x)\,dx& = &\tan b 
+\end{align}
+
+Nicht nummerierte mehrzeilige Formeln:
+\begin{align*}
+f(y)& = &\tan c \\
+f'(2)& = &a\textsuperscript{2c} \\
+\end{align*}
+
+Zeilenumbruch:
+\begin{equation}
+ a = b + c + d + e + f + g + h + i + j + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z + z + z + z + z + z + z + z + z + z + z + z + z
+\end{equation}
+
+\begin{align}
+ \sin x = 2 - (2^2\cdot (a+b)) + (2^5 \cdot (b + c)) - \nonumber\\
+ (2^6 \cdot (d+e))
+\end{align}
+
+Bruchstriche:
+\begin{equation}
+\label{Gleichung.1b}
+ A = \frac{Z"ahler}{Nenner}
+\end{equation}
+In der Gleichung~\ref{Gleichung.1b} wird bewiesen, dass ... \\
+In der Gleichung~\eqref{Gleichung.1b} wird bewiesen, dass ... \\
+
+\subsection{Grafiken}
+
+\begin{comment}
+ 
+\begin{figure}
+ \includegraphics{eigene-grafik}
+\end{figure}
+
+\end{comment}
+
+\section{Bibliografie und Index}
+\subsection{Index}
+Die Formel \index{Formel} $y=mx + b$ wird umgeformt zu
+\begin{displaymath}
+ x = \frac{y - b}{m}
+\end{displaymath}
+Diese Masterarbeeit enth"alt viele Formeln 
+\index{Formel}, also viel Mathematik \\
+\index{Mathematik!Formel}
+Wegen ihrer L"ange hat sie viele "Uberschriften \\
+\index{Ueberschrift@Überschrift}
+"Uberf"uhrungn\index{Ueberfuehrung@Überführung} \\
+\LaTeX - Befehle \index{LaTeX@\textbackslash LaTeX}
+die Messtelle \glqq Ing. Schule\grqq \\
+\index{Ing.Schule@\glqq Ing.Schule\grqq}
+
+%\printindex %hier steht der Index
+
+\subsection{Literaturverzeichnis}
+
+1. Import aus externen Datenbanken $\rightarrow$ ASCII \\
+2. BibTex \\
+3. in tex-Datei Literaturdaten \\
+
+\cite{Stenger} beschrieb Gedächtsnistraining
+\cite[Seite 53]{edmonson 1984} gab Hinweise zum Weg einer Veröffentlichung bis zum gedruckten Erzeugnis.
+
+\subsection{Literatur Bibliografie}
+\begin{thebibliography}{99}
+ \bibitem{Stenger}
+ \textsc{Stenger}, C.2013;
+ \emph{Ged"achtnistraining mit der Jugendweltmeisterin.} 6.Auflage, M"unchen Heyne, 232 Seiten.
+ \bibitem[TU]{Turk 1991}
+ \textsc{Turk}, C.1991:
+ \emph{Effective speaking: communication in science.} 1.Auflage,London: Spon, IX+270 Seiten.
+ \bibitem{edmonson 1984}
+ \textsc{Edmonson}, Y.H.1984:
+ \emph{The natural history of a manscript.} .-- Limnology \& Oceanolography, \textbf{29} (5): 1145--1148.
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+\printindex
+
+\end{document}
+
+
+
+Ende der Musterdatei
