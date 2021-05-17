@@ -1,0 +1,46 @@
+%----------------------------------------------
+%Präambel
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{ngerman}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\pagestyle{headings}
+\usepackage{blindtext} %Zusatzpackage Blindtext
+\usepackage{amsmath} %mathemaitscher Formelsatz
+\usepackage{amssymb} %mathematische Symbole
+\hyphenation{Stau-becken} %immer diese Trennung
+\usepackage{verbatim}%Text im Original setzen (ohne Deutung)
+%\usepackage{comment}
+\usepackage{eurosym} 
+\usepackage{textcomp} %Textkomponenten
+\usepackage{hhline} %Tabellenmodifikation
+\usepackage{graphicx}
+\usepackage{makeidx} %Stichwortverzeichnis
+\usepackage{colortbl} %Tabellenfarbmanipulation
+\usepackage{lscape} %Hoch und Querformat Wechsel
+
+
+%\parskip 2.1ex %höhenabstand
+%\parindent 1.9 em %breitenabstand
+\makeindex % ab hier nach Stichwörtern suchen
+%----------------------------------------------
+
+\begin{document}
+ %Titelseite
+\title{{\textsf{Projektarbeit\\
+	\glqq Automatisierung von Abläufen der Agrarwirtschaft mittels roboterisierten Werkzeugen\grqq \\
+	\vspace{1ex}
+	Dozent: Peter Zipf}}}
+\author{Christian Küllmer, Jonas Kallweidt\\
+	35202882}
+\date{Kassel, den \today}
+
+%Verzeichnisse
+\maketitle       %Titelseite
+\tableofcontents %Inhaltsverzeichnis
+\listoffigures   %Abbildungsverzeichnis
+\listoftables    %Tabellenverzeichnis
+
+\input{Einleitung}
+
+\end{document}
