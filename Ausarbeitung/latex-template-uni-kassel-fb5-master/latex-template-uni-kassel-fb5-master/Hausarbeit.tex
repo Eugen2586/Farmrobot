@@ -1,0 +1,31 @@
+\input{Config}
+\newcommand{\Studiengang}{Soziologie}
+\newcommand{\Veranstaltung}{Seminar}
+\newcommand{\TypDerArbeit}{Essay}
+\newcommand{\DozentIn}{Vorname Nachname}
+\newcommand{\TitelDerArbeit}{Titel}
+\newcommand{\Aufgabe}{Aufgabenstellung hier eintragen}
+
+\newcommand{\StudentMail}{mail@student.uni-kassel.de}
+\newcommand{\StudentName}{Mein Name}
+\newcommand{\Matrikelnummer}{A123456}
+
+
+
+\begin{document}
+% ----------------------------------------------------------------------------
+		\thispagestyle{empty} % remove headers and footers
+
+		\input{Deckblatt} % include title page
+		\clearpage % no page number
+		\setcounter{page}{1} % reset page counter
+		\pagebreak % continue on new page
+% ----------------------------------------------------------------------------
+	%\tableofcontents % generate table of content
+% ----------------------------------------------------------------------------
+	\input{inhalt} % generate table of content
+
+	\pagebreak
+	\bibliography{Literatur}   
+\end{document}
+

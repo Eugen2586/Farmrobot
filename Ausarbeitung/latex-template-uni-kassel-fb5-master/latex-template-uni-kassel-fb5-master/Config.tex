@@ -1,0 +1,80 @@
+\documentclass[12pt,enabledeprecatedfontcommands]{scrartcl}
+\usepackage[a4paper]{geometry}
+
+\usepackage{lipsum}
+\usepackage{svg}
+% Hurenkinder und Schusterjungen verhindern
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+% better typography
+\usepackage{microtype}
+% hyphenation
+\usepackage{hyphenat}
+	%\hyphenation{Zu-stän-dig-keits-ver-teil-ung}
+
+\usepackage{iftex}
+	\ifPDFTeX
+	   \usepackage[utf8]{inputenc}
+	   \usepackage[T1]{fontenc}
+	   %\usepackage{libertine} % set font to linux libertine
+	   %\usepackage{libertinust1math} % set font to linux libertine
+	   \usepackage{lmodern} % set font to latin modern
+	\else
+	   \ifXeTeX
+	     \usepackage{fontspec}
+	      \setmainfont[Mapping=tex-text, ItalicFeatures={Alternate = 0}, Ligatures={Common,Rare},Alternate=1]{Avenir}
+	       \else 
+	     \usepackage{luatextra}
+	   \fi
+	\fi
+
+% set headlines to serif 
+\addtokomafont{disposition}{\rmfamily}
+
+\usepackage[ngerman]{babel} % set to german
+\usepackage{bibgerm} % german apa style
+\usepackage{natbib} % enable citep
+	\bibliographystyle{gerapali} % set bibliography to apa like german
+
+\usepackage{setspace} % set spacinging to 1.5
+	\onehalfspacing
+
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usepackage[hidelinks,breaklinks]{hyperref} 
+\usepackage{url}
+\usepackage[figure]{hypcap} 
+
+% code blocks monokai https://gist.github.com/nhtranngoc/88b72d9bfb656a3de227eea38ed80627
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{background}{RGB}{39, 40, 34}
+\definecolor{string}{RGB}{230, 219, 116}
+\definecolor{comment}{RGB}{117, 113, 94}
+\definecolor{normal}{RGB}{248, 248, 242}
+\definecolor{identifier}{RGB}{166, 226, 46}
+
+\lstset{
+  numbers=left,                   		% where to put the line-numbers
+  stepnumber=1,                   		% the step between two line-numbers.        
+  numbersep=5pt,                  		% how far the line-numbers are from the code
+  numberstyle=\tiny\color{black}\ttfamily,
+  backgroundcolor=\color{background},  		% choose the background color. You must add \usepackage{color}
+  showspaces=false,               		% show spaces adding particular underscores
+  showstringspaces=false,         		% underline spaces within strings
+  showtabs=false,                 		% show tabs within strings adding particular underscores
+  tabsize=4,                      		% sets default tabsize to 2 spaces
+  captionpos=b,                   		% sets the caption-position to bottom
+  breaklines=true,                		% sets automatic line breaking
+  breakatwhitespace=true,         		% sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 		% show the filename of files included with \lstinputlisting;
+  basicstyle=\color{normal}\ttfamily,					% sets font style for the code
+  keywordstyle=\color{magenta}\ttfamily,	% sets color for keywords
+  stringstyle=\color{string}\ttfamily,		% sets color for strings
+  commentstyle=\color{comment}\ttfamily,	% sets color for comments
+  emph={format_string, eff_ana_bf, permute, eff_ana_btr},
+  emphstyle=\color{identifier}\ttfamily
+}
+
