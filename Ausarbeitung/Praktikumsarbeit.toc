@@ -1,7 +1,7 @@
 \contentsline {section}{\numberline {1}Einleitungs}{1}% 
 \contentsline {subsection}{\numberline {1.1}Motivation}{1}% 
-\contentsline {subsection}{\numberline {1.2}aktueller Stand}{1}% 
-\contentsline {subsection}{\numberline {1.3}Projektbeschreibung}{1}% 
-\contentsline {section}{\numberline {2}Aufbau und Funktionsweise}{1}% 
-\contentsline {subsection}{\numberline {2.1}Allgemeiner Aufbau}{1}% 
+\contentsline {subsection}{\numberline {1.2}aktueller Stand}{2}% 
+\contentsline {subsection}{\numberline {1.3}Projektbeschreibung}{2}% 
+\contentsline {section}{\numberline {2}Aufbau und Funktionsweise}{2}% 
+\contentsline {subsection}{\numberline {2.1}Allgemeiner Aufbau}{2}% 
 \contentsline {subsection}{\numberline {2.2}Aufbau des Bewegungsapparats}{2}% 
