@@ -1,0 +1,12 @@
+Mit makeindex.exe lassen sich die Einträge der Verzeichnisse sortieren. 
+Die Befehle müssen im Ausgabeprofil unter Nachbearbeitung des TeX-Programms definiert werden.
+
+Anwendung C:\Program Files\MiKTeX 2.9\miktex\bin\x64\makeindex.exe
+
+Argumente:
+Glossaries: 	-s "%tm.ist" -t "%tm.glg" -o "%tm.gls" "%tm.glo"
+Abkürzungen: 	-s "%tm.ist" -t "%tm.alg" -o "%tm.acr" "%tm.acn"
+Symbole: 	-s "%tm.ist" -t "%tm.slg" -o "%tm.syi" "%tm.syg"
+Indizes: 	-s "%tm.ist" -t "%tm.ilg" -o "%tm.ini" "%tm.ing"
+Latein:		-s "%tm.ist" -t "%tm.lsg" -o "%tm.lsi" "%tm.lso"
+Griechisch:	-s "%tm.ist" -t "%tm.gsg" -o "%tm.gsi" "%tm.gso"

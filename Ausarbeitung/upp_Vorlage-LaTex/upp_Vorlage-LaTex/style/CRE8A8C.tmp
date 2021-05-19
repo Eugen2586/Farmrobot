@@ -1,0 +1,201 @@
+%::: Koma-Script Buch Klasse
+\documentclass[
+DIV=14, 						% Wert zur Blattaufteilung bei der Berechnung des Satzspiegels
+BCOR=15mm, 					% Bindekorrektur
+fontsize=12pt, 			% Schriftgröße 
+a4paper, 						% Blattgröße
+oneside,						% Einseitiges Dokument für Abgabe bei Prüfen							
+%twoside,						% Zweiseitiges Dokument für Abgabe zur Veröffentlichung
+openany, 						% Verhindert leere Seiten nach \input{} Befehl
+toc=listof,					% Abbildungs- und Tabellenverzeichnis ins Inhaltsverzeichnis
+toc=bibliography		% Literaturverzeichnis (Schriftum) ins Inhaltsverzeichnis
+]
+{scrbook}
+
+%::: Anpassung an deutsche Regeln
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage[ansinew]{inputenc}  % Umlaute mit Ansi Codierung
+\usepackage[utf8]{inputenc} % UTF Codierung, Vorraussetzung: alle Dateien als utf 8 abspeichern
+
+%::: Darstellung aller Verzeichnisse
+%\usepackage{morewrites} % erlaubt mehr Streams, löst Fehler "No room for a new \write"
+
+\usepackage{eurosym} 	% Eurosymbol
+\usepackage{textcomp} % Symbole wie copyright, bullet, yen
+
+%::: Textsatzbibliotheken & Einstellungen
+\usepackage{lmodern} 														% Schriftart, da das andere Paket probleme macht
+
+%\usepackage{ae}																% Optimierte Schriftart für PDF, Teilweise wird von der Verwendung abgeraten
+\usepackage{a4wide}															% Einstellen der Seitenränder
+\usepackage[onehalfspacing]{setspace}						% Bereiche mit anderen Zeilenabstände definieren
+\parindent 0pt																	% Kein Einrücken nach Absatz
+\usepackage{scrpage2}														% KOMA-Script Ergänzungspaket für Kopf- und Fußzeilen
+\pagestyle{scrheadings}													% KOMA-Script Ergänzungspaket für Kopf- und Fußzeilen
+\setheadsepline{.4pt}														% Linie in der Kopfzeile
+%\setfootsepline{.4pt}													% Linie in der Fußzeile
+\setlength{\headheight}{1.1\baselineskip}
+\addtokomafont{captionlabel}{\bfseries} % caption labels fett drucken
+\setcapindent{0em} 											% kein Einzug bei captions
+% \setkomafont{chapter}{\normalfont\bfseries\huge}
+% \setkomafont{section}{\normalfont\bfseries\Large}
+% \setkomafont{subsection}{\normalfont\bfseries\large}
+\newcommand*\mytextregistered{\textsuperscript{\raisebox{1.7pt}{%
+\scalebox{0.6}{\sffamily\textregistered}}}\xspace} 
+%\setkomafont{subsubsection}{\normalfont\bfseries}
+\cfoot[]{}																		% Fußzeile Seitennummer rechts unten, Abschalten bei zweisetigem Druck
+\ofoot[\pagemark]{\pagemark} 
+\chead[]{}
+\ohead{\headmark}															% Kopfzeile
+%\leftmark[chapter]{chapter}
+\automark[chapter]{chapter}
+
+\makeatletter													% Layout der Kapitelüberschriften mit Dank an Alexander Schlüter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{
+ \vspace*{80\p@}
+  {\parindent \z@ \raggedleft \reset@font
+            \scshape \@chapapp{} \thechapter
+        \par\nobreak
+        \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    %\vspace*{1\p@}%
+    \hrulefill
+    \par\nobreak
+    \vskip 20\p@
+  }
+}
+\def\@makeschapterhead#1{							% Layout der Kapitelüberschriften mit Dank an Alexander Schlüter
+ \vspace*{100\p@}
+  {\parindent \z@ \raggedleft \reset@font
+            \scshape \vphantom{\@chapapp{} \thechapter}
+        \par\nobreak
+        \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    %\vspace*{1\p@}%
+    \hrulefill
+    \par\nobreak
+    \vskip 20\p@
+  }
+}
+
+%::: Grafikbibliotheken
+\usepackage{graphicx} 					% Zum Laden von Grafiken
+\usepackage{subfig} 						% Zwei Abbildungen lassen sich nebeneinander darstellen
+\usepackage{here} 							% Erzwingt feste Grafikposition mit der Angabe eines großen H: \begin{figure}{H}
+%\usepackage{wrapfig}						% Erlaubt Bildern und Tabellen das sie Teil von Textumgeben sind
+\pdfoptionpdfminorversion=6     % Vermeidet Warnungen zu PDF Versionen beim Einbinden von Grafiken
+
+%::: Tabellenbibliotheken 
+\usepackage{tabularx}						% Tabellen mit definierter Breite
+\usepackage{multirow}						% Zellen zusammenfassen
+\usepackage{longtable}					% Für lange Tabellen auch über mehrere Seiten
+%\usepackage{colortbl}					% Paket u.a. für Schrafur in Tabellen
+\usepackage{booktabs}						% Für Linien in Tabellen z. B. \toprule
+
+%::: Mathematik- und Phyisikbibliotheken
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[thinspace, thinqspace, squaren, textstyle]{SIunits} % Einheiten, ggf. hier in Zukunft zu Paket siuntix wechslen
+
+%::: Zitations- und Referenzierungsbibliotheken
+%\usepackage[authoryear]{natbib} 					% Zitationsbibliothek, alte Version
+%\bibliographystyle{dcu} 									% Biliografiestil
+%\usepackage[natbib=true, style=authoryear-comp, backend=biber, maxcitenames=1 , maxbibnames=99, uniquename=$%false, uniquelist=false, sortcites = true]{biblatex}
+\renewcommand*{\nameyeardelim}{\addspace} % Kein Komma zwischen Autor und Jahr in der Ziation
+%\bibliography{Dissertation}
+%\addbibresource{CitaviExportManuell.bib} 	% Beim Export von Citavi das URL Package deaktivieren!
+\DefineBibliographyStrings{ngerman}{ 			% Beschriftung in Tags mit et al. statt u.a.
+   andothers = {{et\,al\adddot}},            
+}
+\usepackage[german=quotes]{csquotes}
+\renewcommand*{\finalnamedelim}{,\space} 	% Trennzeichen zwischen den Autoren im Literaturverzeichnis
+\usepackage{enumitem}											% Für individuelle Einstellungen der Umgebungen enumerate, itemize und description
+\usepackage{url}													% Für die Angabe von URLs
+\usepackage{chngcntr} 										% Durchnummerierung der Fußnoten
+\counterwithout{footnote}{chapter}				% Durchnummerierung der Fußnoten
+
+
+\usepackage[															% Verlinkungen im Dokument aktivieren
+	bookmarks=true,
+	plainpages=false,
+	pdfpagelabels,
+	hypertexnames=false,
+	pdfborder={0 0 0}, 			% Keine roten Rahmenlinien
+	colorlinks=false, 			% Allgemeine Einstellung zu Farbe
+	urlcolor=black, 				% Farbe der URL Links zu Web oder Mail
+	linkcolor=black,  			% Farbe der allgemeinen Links
+	citecolor=black] 				% Farbe für Quelllinks aus dem Schriftum
+{hyperref} 
+\usepackage{url}
+\newcommand*\oldurlbreaks{} 					% bricht lange urls an der richtigen Stelle
+\let\oldurlbreaks=\UrlBreaks
+\renewcommand{\UrlBreaks}{\oldurlbreaks\do\a\do\b\do\c\do\d\do\e%
+  \do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q%
+  \do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\?\do\&}
+\hypersetup{ % Meta Informationen für PDF Datei
+  pdftitle={\thesistitle}, %%
+  pdfauthor={\vornamenachname}, %%
+  pdfsubject={Dissertation}, %%
+  pdfcreator={\vornamenachname}, %% 
+  pdfproducer={}, %%
+  pdfkeywords={Universität Kassel, Fachgebiet Umweltgerechte Produkte und Prozesse}, %%
+	}
+
+\usepackage{todonotes} 		% Kommentare für Korrekturen
+\usepackage{currvita} 		% Paket für Lebenslauf
+
+\usepackage[nonumberlist,acronym,section]{glossaries}
+\newglossary[slg]{symbolslist}{syi}{syg}{Symbolverzeichnis} 	%Ein eigenes Symbolverzeichnis erstellen
+\newglossary[lsg]{Latein}{lsi}{lso}{Lateinische Symbole} 			%Ein eigenes Symbolverzeichnis erstellen
+\newglossary[gsg]{Griechisch}{gsi}{gso}{Griechische Symbole} 	%Ein eigenes Symbolverzeichnis erstellen
+\newglossary[ilg]{indizeslist}{ini}{ing}{Indizeverzeichnis} 	%Ein eigenes Indizeverzeichnis erstellen
+\renewcommand*{\glspostdescription}{} 					%Den Punkt am Ende jeder Beschreibung deaktivieren
+
+% STYLE FÜR TABELlE OHNE EINHEITEN (ABKÜRZUNGEN UND INDIZES)
+\newglossarystyle{Einfach}{ % Definition eines neuen Styles
+  \renewenvironment{theglossary}% 
+    {\begin{longtable}[l]{@{}lp{10cm}}}% [l]= linksbündige longtable, %@{}= kein Abstand vor erster Spalte 
+    {\end{longtable}}%
+ \renewcommand*{\glossaryheader}{%
+    \bfseries Symbol&\bfseries\descriptionname\tabularnewline\endhead
+		}% 
+		\renewcommand*{\glsgroupheading}[1]{}% 
+  \renewcommand{\glossentry}[2]{% 
+    \glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} & \glossentrydesc{##1}\tabularnewline 
+  }% 
+  \renewcommand*{\glsgroupskip}{% 
+    \ifglsnogroupskip\else &\tabularnewline\fi
+		}% 
+}
+% STYLE FÜR TABELlE MIT EINHEITEN (LATEINISCHE UND GRIECHISCHE ZEICHEN)
+\newglossarystyle{Tabelle}{% 
+  \renewenvironment{theglossary}% 
+    {\begin{longtable}[l]{@{}lp{10cm}l}}% [l]= linksbündige longtable, %@{}= kein Abstand vor erster Spalte 
+    {\end{longtable}}% 
+  \renewcommand*{\glossaryheader}{% 
+    \bfseries Symbol&\bfseries\descriptionname& 
+    \bfseries Einheit\tabularnewline\endhead
+		}% 
+  \renewcommand*{\glsgroupheading}[1]{}% 
+  \renewcommand{\glossentry}[2]{% 
+    \glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} & 
+    \glossentrydesc{##1} & \glossentrysymbol{##1}\tabularnewline 
+  }% 
+  \renewcommand{\subglossentry}[3]{% evtl noch anpassen 
+     & 
+     \glssubentryitem{##2}% 
+     \glstarget{##2}{\strut}\glossentrydesc{##2} & 
+     ##3\tabularnewline 
+  }% 
+  \renewcommand*{\glsgroupskip}{% 
+    \ifglsnogroupskip\else & &\tabularnewline\fi
+		}% 
+} 
+
+\makeglossaries
+%\usepackage[xindy]{imakeidx}
+%\makeindex
+%\usepackage{glossaries-german}
