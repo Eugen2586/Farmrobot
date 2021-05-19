@@ -1,25 +1,29 @@
 %----------------------------------------------
 %Präambel
-\documentclass[a4paper,12pt,titlepage]{article}
+\documentclass[a4paper,12pt,titlepage]{scrartcl}
 \usepackage{ngerman}
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
-\pagestyle{headings}
+%\pagestyle{headings}
 \usepackage{blindtext} %Zusatzpackage Blindtext
 \usepackage{amsmath} %mathemaitscher Formelsatz
 \usepackage{amssymb} %mathematische Symbole
-\hyphenation{Stau-becken} %immer diese Trennung
+%\hyphenation{Stau-becken} %immer diese Trennung
 \usepackage{verbatim}%Text im Original setzen (ohne Deutung)
 %\usepackage{comment}
 \usepackage{eurosym} 
 \usepackage{textcomp} %Textkomponenten
-\usepackage{hhline} %Tabellenmodifikation
+%\usepackage{hhline} %Tabellenmodifikation
 \usepackage{graphicx}
 \usepackage{makeidx} %Stichwortverzeichnis
 \usepackage{colortbl} %Tabellenfarbmanipulation
 \usepackage{lscape} %Hoch und Querformat Wechsel
 
-
+%Kopf und Fußzeile
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ohead{\includegraphics[width=1.5cm]{graphics/DeckblattFarmrobo.jpg}}
 %\parskip 2.1ex %höhenabstand
 %\parindent 1.9 em %breitenabstand
 \makeindex % ab hier nach Stichwörtern suchen
@@ -27,21 +31,29 @@
 
 \begin{document}
  %Titelseite
+\begin{comment}
+% 1. Deckblattentwurf
 \title{{\textsf{Projektarbeit\\
-	\glqq Automatisierung von Prozessen der Agrarwirtschaft mittels roboterisierten Werkzeugen\grqq \\
-	\vspace{1ex}
-	Dozent: Peter Zipf}}}
+\glqq Automatisierung von Prozessen der Agrarwirtschaft mittels roboterisierten Werkzeugen\grqq \\
+\vspace{1ex}
+Dozent: Peter Zipf}}}
 \author{Christian Küllmer, Jonas Kallweidt\\
-	35202882}
+35216135 35202882}
 \date{Kassel, den \today}
+\end{comment}
+
+% 2. Deckblattentwurf
+\input{PraktikumsDeckblatt}
 
 %Verzeichnisse
-\maketitle       %Titelseite
+%\maketitle       %Titelseite
 \tableofcontents %Inhaltsverzeichnis
 \listoffigures   %Abbildungsverzeichnis
 \listoftables    %Tabellenverzeichnis
-
+%Kapitel und deren Inhalt
 \input{Einleitung}
 \input{AufbauUndFunktion}
+
+
 
 \end{document}

@@ -1,0 +1,80 @@
+%::: Universität Kassel
+%::: Institut für Produktion und Logistik (IPL)
+%::: Fachgebiet Umweltgerechte Produkte und Prozesse (upp)
+%::: Prof. Dr.-Ing. Jens Hesselbach
+%::: LaTeX Vorlage von Matthias Philipp
+%::: Modifiziert von Conrad Hannen
+%::: Version "Abschlussarbeit" 1.1 / 2017-07-07
+
+%::: Laden der Befehlsabkürzungen
+%\include{style/NeueKommandos}
+
+%::: Laden der Präambel
+%\include{style/Praeambel}
+
+\begin{document}
+%::: Anfang des Vorspanns
+	\pagenumbering{Roman}
+	\setcounter{page}{1}
+	\input{style/Deckblatt}
+	\clearpage
+	\input{txt/Abstract}
+	\clearpage
+	\input{style/Vereinbarung}
+	\clearpage
+	\input{style/Erklaerung}
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+%::: Abkürzungsverzeichnisse
+	\input{idx/glossaries}
+	\chapter*{Nomenklatur}
+	\addcontentsline{toc}{chapter}{Nomenklatur}
+	%\glsaddall[types=\acronymtype]				% komplettes Verzeichnis wird ausgeben, unabhängig der Nennung
+	\printglossary[type=\acronymtype, title=Abkürzungen und Akronyme, style=Einfach] 		% Abkürzungen ausgeben
+	%\glsaddall[types=Latein]
+	\printglossary[type=Latein, title=Lateinische Symbole, style=Tabelle] 							% lat. Symbole ausgeben
+	%\newpage
+	%\glsaddall[types=Griechisch]
+	\printglossary[type=Griechisch, title=Griechische Symbole, style=Tabelle] 					% grie. Symbole ausgeben
+	%\glsaddall[types=indizeslist]
+	\printglossary[type=indizeslist, title=Indizes, style=Einfach] 											% Indizes ausgeben
+	\clearpage	
+	
+%::: Hauptteils
+	\setcounter{savepage}{\arabic{page}}
+	\pagenumbering{arabic}
+	\input{txt/Einleitung}
+	\clearpage
+	\input{txt/Kapitel1}
+	\clearpage
+	\input{txt/Kapitel2}
+	\clearpage
+	\input{txt/Kapitel3}
+	\clearpage
+	\input{txt/Kapitel4}
+	\clearpage
+	\input{txt/Kapitel5}
+	\clearpage
+	\input{txt/Schluss}
+	\clearpage	
+	
+%::: Schlussverzeichnisse
+	\pagenumbering{Roman}
+	\setcounter{page}{\thesavepage}
+	\clearpage
+	\listoffigures 														% Abbildungsverzeichnis
+	\clearpage
+	\listoftables 															% Tabellenverzeichnis
+	\clearpage
+	\chapter*{Schrifttum} 											% Überschrift
+	\addcontentsline{toc}{chapter}{Schrifttum}	% Eintrag ins Inhaltsverzeichnis
+	\markboth{Schrifttum}{Schrifttum} 					% Kopfzeile ändern
+	\setlength{\bibitemsep}{0.8em} 							% Abstand zwischen Einträgen
+	\urlstyle{same} 														% Gleiche Schrift für URLS
+  \printbibliography[heading=none]
+	\clearpage
+	\input{apdx/Anhang}													% Anhang
+
+\end{document}

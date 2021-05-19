@@ -1,0 +1,111 @@
+\chapter{Grundlagen und Rahmenbedingungen}
+\label{cptr:Kapitel2}
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Man muss wissen, was man tut, war eine der Grundvoraussetzungen. Die Grundkenntnisse über die unterschiedlichen Produktionsprozesse setzen wir voraus, schließlich ist das Buch für Produktionstechniker und diejenigen, die es werden wollen, konzipiert. Aber wir benötigen auch einige Begrifflichkeiten und formelmäßige Zusammenhänge aus der Thermodynamik, der Wärmeübertragung, der Strömungslehre und der Elektrotechnik. Ohne dieses Handwerkszeug ist es nicht möglich, Energieströme zu messen, zu berechnen oder über Modelle abzubilden. Genau dies war ja aber eine weitere Grundvoraussetzung für erfolgreiches Energiemanagement:
+die solide Datenbasis.\par\bigskip				% par: neuer Absatz
+
+Aber keine Angst, wir werden in diesem Buch nicht die Grundlagen der Thermodynamik in voller Breite abhandeln, hierzu sei auf die einschlägige Literatur verwiesen  \parencites{Baehr.2008}{Iben.1999}{Schmidt.1975}. Es geht einerseits darum, die wichtigsten Berechnungsgrundlagen wieder parat zu haben und andererseits zu wissen, wie Energieströme formelmäßig bilanziert und bestimmt werden können.\par\bigskip
+
+
+
+\section{Begriffe}
+\label{sec:Begriffe}
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Gemäß der Physik ist Energie die Menge an Arbeit, die ein physikalisches System verrichten kann. Sie kann weder verbraucht noch erzeugt werden. Wenn wir also in einem Produktionsbetrieb einen mittleren Leistungsbedarf von 1 MW Strom haben und keine Kühlanlagen oder die gefertigten Produkte die Wärme nach außen abführen, dann entspricht dies letztlich einer elektrischen 1 MW-Heizung. Im Winter spart dies Heizwärme, ist also nicht gänzlich verloren, führt aber im Sommer ohne Klimatisierung schnell zu Temperaturen am Arbeitsplatz von über 40 °C.\par\bigskip
+
+Energie lässt sich jedoch von einer Form in eine andere wandeln. Je nach Energie und Wandlungsprozess verläuft die Umwandlung verlustbehaftet. Dabei verlieren wir aber keine Energie im streng physikalischen Sinne, sondern verkleinern den nutzbaren Anteil im Hinblick auf die Verwendung. Insbesondere bei der Umwandlung von Wärme in andere Energieformen geht davon aufgrund der thermodynamischen Zusammenhänge viel verloren. Hier eine Auswahl möglicher Energieformen:
+
+%::: Beispiel für eine Aufzählung
+\begin{itemize}																	% beginne Aufzählung mit Punkten
+	\item{potenzielle Energie (Lageenergie oder Spannenergie bei Federn)}
+	\item{kinetische Energie (translatorisch, rotatorisch, Schwingungen)}
+	\item{chemische Energie}
+	\item{Kernenergie}
+	\item{Druck-Volumen-Energie}
+	\item{elektrische Energie}
+	\item{thermische Energie (Wärme)}
+\end{itemize}
+
+......\\
+......\\
+......\\
+
+%::: Beispiel für eine Formel
+Der maximal in Arbeit umwandelbare Teil der Wärme ist nicht vom Arbeitsstoff abhängig und berechnet sich zu \parencite[S. 153ff]{Labuhn.2009}:
+\begin{equation}																						% Formel
+		{|W|}_{max} = (1-\frac{{T}_{amb}}{T_0}) \cdot Q_0				% \frac wird als Bruch geschrieben
+		\label{eq:W_max}
+\end{equation}
+
+\clearpage
+
+......\\
+......\\
+......\\
+
+%::: Beispiel für eine nummerierte Aufzählung
+\textbf{Thermodynamische Systeme}\par
+Für thermodynamische Betrachtungen muss zunächst ein Bilanzraum definiert werden. Dieser ist 
+\begin{enumerate}
+\item abgeschlossen, wenn es keine Wechselwirkung mit der Umgebung gibt;
+\item geschlossen, wenn nur Arbeit und/oder Wärme, aber keine Masse übertragen werden;
+\item offen, wenn ein Stoff- und Energieaustausch mit der Umgebung möglich ist;
+\item adiabat, wenn keine thermische Energie über die Bilanzgrenze ausgetauscht wird.
+\end{enumerate}
+
+Als Beispiel werden in den Lehrbüchern gerne Kolben und Zylinder verwendet. In Produktionssystemen können dies jedoch vollständige Maschinen, Produktionsbereiche oder auch die gesamte Fabrik sein. Hier ist es wichtig, die richtigen Bilanzgrenzen zu definieren. Am besten benutzt man zur Darstellung einfach Rechtecke oder Kreise und zeichnet die relevanten Energieströme ein.\par\bigskip
+
+Zur physikalischen Beschreibung des Zustandes von thermodynamischen Systemen werden bevorzugt Zustandsgrößen verwendet. Diese sind unabhängig vom Weg, auf dem das System einen Zustand erreicht hat. Das reduziert den Aufwand oftmals auf eine quasistationäre, also zeitunabhängige Bilanzierung eines Endzustandes (2) im Vergleich zu einem Anfangszustand (1), um einen Prozess zu beschreiben. Äußere Zustandsgrößen wie z. B. Lagekoordinaten oder die Geschwindigkeit beschreiben den mechanischen Zustand eines Systems. Innere Zustandsgrößen wiederum beschreiben den makroskopischen Zustand der Materie. Diese lassen sich einteilen in thermische Zustandsgrößen (z. B. Druck, Temperatur, Volumen) und energetische Zustandsgrößen (z. B. Innere Energie, Enthalpie, Entropie). Intensive Zustandsgrößen wie \gls{p} und
+\gls{T} sind dabei von der Systemmasse unabhängig.\par\bigskip
+
+\clearpage
+
+\section{Thermodynamik}
+\label{sec:Thermodynamik}
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Die nachfolgende Tabelle gibt für ideale Gase die wichtigsten Größen für die jeweiligen Zustandsänderungen an. Sie können insbesondere zur Beurteilung von Prozessen mit Druckluft verwendet werden.
+
+%::: Beispiel für eine Tabelle mit Rahmen, innen und außen
+\begin{table}[h]
+  \centering																			% Ausrichtung Mittig
+  \caption{Formelmäßige Zusammenhänge bei Zustandsänderungen von Luft \parencite[S. 79]{Iben.1999}}
+	\renewcommand{\arraystretch}{1.5}								% größere Spaltenbreite, 1,5fach
+    \begin{tabular}{|p{2.8cm}|l|p{2.5cm}|l|}			% |:aktivert Spaltenzwischenstrich
+			\hline																				% Zeilenstriche
+			\rowcolor{upp} Energiestrom & Formelmäßige Basis & Zustands-\newline und Prozess-\newline größen & Bemerkung \\					% rowcolor: Zeile in upp grün
+			\hline
+			{Elektrische\newline Leistung} & $P=U \cdot I \cdot\cos{\varphi}$     & $U(t), I(t)$ & In einem Messgerät integriert \\	% $: aktiviert Matheumgebung, alles 	kursiv
+			\hline
+			Druckluft & $\mathrm{P_{DL}=\dot{V} \cdot p_{DL}}$ & $\mathrm{\dot{V}, p_{DL}}$     & Bei Normalbedingungen \\			% \mathrm: nicht kursiv trotz Matheumgebung
+			\hline
+			Hydraulik & $P_{Hy}=\dot{V} \cdot p_{Hy}$ &  $\dot{V}, p_{Hy}$ & - \\
+			\hline
+			.... & .... & .... & .... \\
+			\hline
+    \end{tabular}%
+  \label{tab:Zustandsgroessen}%
+\end{table}%
+
+%::: Beispiel für eine weitere Tabelle mit anderem Rahmen
+\begin{table}[h]
+  \centering
+  \caption{Formelmäßige Zusammenhänge bei Zustandsänderungen von Luft \parencite[S. 79]{Iben.1999}}
+	\renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{2.8cm}lp{2.5cm}l}			% | aktivert Spaltenzwischenstrich
+		\toprule																				% Zeilenstriche
+    \rowcolor{upp} Energiestrom & Formelmäßige Basis & Zustands-\newline und Prozess-\newline größen & Bemerkung \\					% rowcolor: Zeile in upp grün
+		\midrule
+    {Elektrische\newline Leistung} & $P=U \cdot I \cdot\cos{\varphi}$     & $U(t), I(t)$ & In einem Messgerät integriert \\	% $ aktiviert Matheumgebung, alles kursiv
+		\midrule
+    Druckluft & $\mathrm{P_{DL}=\dot{V} \cdot p_{DL}}$ & $\mathrm{\dot{V}, p_{DL}}$     & Bei Normalbedingungen \\			% \mathrm nicht kursiv trotz Matheumgebung
+		\midrule
+		Hydraulik & $P_{Hy}=\dot{V} \cdot p_{Hy}$ &  $\dot{V}, p_{Hy}$ & - \\
+		\midrule
+		.... & .... & .... & .... \\
+		\bottomrule
+    \end{tabular}%
+  \label{tab:Zustandsgroessen1}%
+\end{table}%
+
