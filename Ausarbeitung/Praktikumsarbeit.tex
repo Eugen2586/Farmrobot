@@ -1,10 +1,10 @@
 %----------------------------------------------
 %Präambel
-\documentclass[a4paper,12pt,titlepage]{article}
+\documentclass[a4paper,12pt,titlepage]{scrartcl}
 \usepackage{ngerman}
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
-\pagestyle{headings}
+%\pagestyle{headings}
 \usepackage{blindtext} %Zusatzpackage Blindtext
 \usepackage{amsmath} %mathemaitscher Formelsatz
 \usepackage{amssymb} %mathematische Symbole
@@ -18,9 +18,12 @@
 \usepackage{makeidx} %Stichwortverzeichnis
 \usepackage{colortbl} %Tabellenfarbmanipulation
 \usepackage{lscape} %Hoch und Querformat Wechsel
-\usepackage[automark]{scrpage2}
 
-
+%Kopf und Fußzeile
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ohead{\includegraphics[width=1.5cm]{graphics/DeckblattFarmrobo.jpg}}
 %\parskip 2.1ex %höhenabstand
 %\parindent 1.9 em %breitenabstand
 \makeindex % ab hier nach Stichwörtern suchen
@@ -47,9 +50,7 @@ Dozent: Peter Zipf}}}
 \tableofcontents %Inhaltsverzeichnis
 \listoffigures   %Abbildungsverzeichnis
 \listoftables    %Tabellenverzeichnis
-
-\includegraphics[width=0.75\textwidth]{graphics/DeckblattFarmrobo.jpg}\par
-
+%Kapitel und deren Inhalt
 \input{Einleitung}
 \input{AufbauUndFunktion}
 
