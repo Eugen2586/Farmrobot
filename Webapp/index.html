@@ -39,47 +39,12 @@
           <Button id="credits" style="background-color: #cccccc">Credits</Button>
         </p>
       </div>
-      <script>
-        // HTML-Button über JavaScript eine Funktion zuweisen
-
-        // Funktion beim laden der Seite aufrufen
-        window.addEventListener("load", function () {
-          // Überprüfen ob die ID (Button) auf der Seite vorhanden ist (Optional).
-          if (document.getElementById("manuell") != null) {
-            document.getElementById("manuell").addEventListener("click", manuell);
-          }
-          if (document.getElementById("automatik") != null) {
-            document.getElementById("automatik").addEventListener("click", automatik);
-          }
-          if (document.getElementById("credits") != null) {
-            document.getElementById("credits").addEventListener("click", credits);
-          }
-        });
-
-        function manuell() {
-          document.getElementById("manuell").style.backgroundColor = 'lawngreen';
-          document.getElementById("credits").style.backgroundColor = '#cccccc';
-          document.getElementById("automatik").style.backgroundColor = '#cccccc';
-        }
-
-        function automatik() {
-          document.getElementById("automatik").style.backgroundColor = 'lawngreen';
-          document.getElementById("credits").style.backgroundColor = '#cccccc';
-          document.getElementById("manuell").style.backgroundColor = '#cccccc';
-        }
-
-        function credits() {
-          document.getElementById("credits").style.backgroundColor = 'lawngreen';
-          document.getElementById("manuell").style.backgroundColor = '#cccccc';
-          document.getElementById("automatik").style.backgroundColor = '#cccccc';
-        }
-        manuell();
-      </script>
     </h1>
   </header>
-  <div style="width: 50em">
-    <div style="margin: 3em; float: right">
-      <table style="background-color: #cccccc">
+
+  <div id="handcontrol" style="width: auto; padding: 0em; background-color: whitesmoke; min-width: 34em; ">
+    <div style="margin-right: 10%; float: right; border: 1px black; clear: revert">
+      <table style="background-color: #cccccc; clear: both">
         <tr>
           <th><br></th>
           <th>
@@ -113,9 +78,9 @@
           </td>
         </tr>
       </table>
-      <ol id="plantdat">
+      <ol id="plantdat" style="clear:both">
       </ol>
-      <div style="width: max-content; height: auto; background-color: #b3d4fc">
+      <div style="width: 100%; height: auto; background-color: #b3d4fc; clear: both;">
         <table style="padding: 0.5em">
           <tr>
             <td><Label style="padding: 0.5em">Sorte:</Label></td>
@@ -137,314 +102,315 @@
       </div>
     </div>
 
-    <div style="width: 300px; height: 500px; padding: 1em; border: 2px solid black;">
-      <svg viewBox="0 0 300 500" enable-background="true" style="fill: saddlebrown">
+    <div style="padding: 3%; margin-left: 5%; width: auto; max-width: 35%;  height: auto; max-height: 60%; border: 2px solid black;background-color: #cccccc; clear: page">
+      <svg viewBox="0 0 300 500" enable-background="true" style="fill: saddlebrown" type="Box">
         <!--Hier beginnt die erste Zeile der Anzeige des Beetes -->
         <rect id="-0,0-" height="50" width="50" x="0" y="0"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-0,1-" height="50" width="50" x="50" y="0"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-0,2-" height="50" width="50" x="100" y="0"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-0,3-" height="50" width="50" x="150" y="0"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-0,4-" height="50" width="50" x="200" y="0"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-0,5-" height="50" width="50" x="250" y="0"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die zweite Zeile der Anzeige des Beetes -->
         <rect id="-1,0-" height="50" width="50" x="0" y="50"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-1,1-" height="50" width="50" x="50" y="50"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-1,2-" height="50" width="50" x="100" y="50"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-1,3-" height="50" width="50" x="150" y="50"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-1,4-" height="50" width="50" x="200" y="50"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-1,5-" height="50" width="50" x="250" y="50"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die dritte Zeile der Anzeige des Beetes -->
         <rect id="-2,0-" height="50" width="50" x="0" y="100"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-2,1-" height="50" width="50" x="50" y="100"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-2,2-" height="50" width="50" x="100" y="100"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-2,3-" height="50" width="50" x="150" y="100"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-2,4-" height="50" width="50" x="200" y="100"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-2,5-" height="50" width="50" x="250" y="100"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die vierte Zeile der Anzeige des Beetes -->
         <rect id="-3,0-" height="50" width="50" x="0" y="150"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-3,1-" height="50" width="50" x="50" y="150"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-3,2-" height="50" width="50" x="100" y="150"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-3,3-" height="50" width="50" x="150" y="150"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-3,4-" height="50" width="50" x="200" y="150"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-3,5-" height="50" width="50" x="250" y="150"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die fünfte Zeile der Anzeige des Beetes -->
         <rect id="-4,0-" height="50" width="50" x="0" y="200"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-4,1-" height="50" width="50" x="50" y="200"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-4,2-" height="50" width="50" x="100" y="200"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-4,3-" height="50" width="50" x="150" y="200"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-4,4-" height="50" width="50" x="200" y="200"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-4,5-" height="50" width="50" x="250" y="200"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die sechste Zeile der Anzeige des Beetes -->
         <rect id="-5,0-" height="50" width="50" x="0" y="250"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-5,1-" height="50" width="50" x="50" y="250"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-5,2-" height="50" width="50" x="100" y="250"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-5,3-" height="50" width="50" x="150" y="250"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-5,4-" height="50" width="50" x="200" y="250"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-5,5-" height="50" width="50" x="250" y="250"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die siebte Zeile der Anzeige des Beetes -->
         <rect id="-6,0-" height="50" width="50" x="0" y="300"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-6,1-" height="50" width="50" x="50" y="300"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-6,2-" height="50" width="50" x="100" y="300"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-6,3-" height="50" width="50" x="150" y="300"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-6,4-" height="50" width="50" x="200" y="300"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-6,5-" height="50" width="50" x="250" y="300"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die achte Zeile der Anzeige des Beetes -->
         <rect id="-7,0-" height="50" width="50" x="0" y="350"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-7,1-" height="50" width="50" x="50" y="350"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-7,2-" height="50" width="50" x="100" y="350"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-7,3-" height="50" width="50" x="150" y="350"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-7,4-" height="50" width="50" x="200" y="350"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-7,5-" height="50" width="50" x="250" y="350"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die neunte Zeile der Anzeige des Beetes -->
         <rect id="-8,0-" height="50" width="50" x="0" y="400"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-8,1-" height="50" width="50" x="50" y="400"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-8,2-" height="50" width="50" x="100" y="400"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-8,3-" height="50" width="50" x="150" y="400"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-8,4-" height="50" width="50" x="200" y="400"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-8,5-" height="50" width="50" x="250" y="400"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die zehnte Zeile der Anzeige des Beetes -->
         <rect id="-9,0-" height="50" width="50" x="0" y="450"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-9,1-" height="50" width="50" x="50" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-9,2-" height="50" width="50" x="100" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-9,3-" height="50" width="50" x="150" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-9,4-" height="50" width="50" x="200" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-9,5-" height="50" width="50" x="250" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die elfte Zeile der Anzeige des Beetes -->
         <rect id="-10,0-" height="50" width="50" x="0" y="450"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-10,1-" height="50" width="50" x="50" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-10,2-" height="50" width="50" x="100" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-10,3-" height="50" width="50" x="150" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-10,4-" height="50" width="50" x="200" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-10,5-" height="50" width="50" x="250" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die zwölfte Zeile der Anzeige des Beetes -->
         <rect id="-11,0-" height="50" width="50" x="0" y="450"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-11,1-" height="50" width="50" x="50" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-11,2-" height="50" width="50" x="100" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-11,3-" height="50" width="50" x="150" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-11,4-" height="50" width="50" x="200" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-11,5-" height="50" width="50" x="250" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die dreizehnte Zeile der Anzeige des Beetes -->
         <rect id="-12,0-" height="50" width="50" x="0" y="450"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-12,1-" height="50" width="50" x="50" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-12,2-" height="50" width="50" x="100" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-12,3-" height="50" width="50" x="150" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-12,4-" height="50" width="50" x="200" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-12,5-" height="50" width="50" x="250" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die vierzehnte Zeile der Anzeige des Beetes -->
         <rect id="-13,0-" height="50" width="50" x="0" y="450"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-13,1-" height="50" width="50" x="50" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-13,2-" height="50" width="50" x="100" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-13,3-" height="50" width="50" x="150" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-13,4-" height="50" width="50" x="200" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-13,5-" height="50" width="50" x="250" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die fünfzehnte Zeile der Anzeige des Beetes -->
         <rect id="-14,0-" height="50" width="50" x="0" y="450"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-14,1-" height="50" width="50" x="50" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-14,2-" height="50" width="50" x="100" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-14,3-" height="50" width="50" x="150" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-14,4-" height="50" width="50" x="200" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-14,5-" height="50" width="50" x="250" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <!--Hier beginnt die zehnte Zeile der Anzeige des Beetes -->
         <rect id="-15,0-" height="50" width="50" x="0" y="450"
-              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill: sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-15,1-" height="50" width="50" x="50" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-15,2-" height="50" width="50" x="100" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-15,3-" height="50" width="50" x="150" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-15,4-" height="50" width="50" x="200" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
         <rect id="-15,5-" height="50" width="50" x="250" y="450"
-              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown">
+              style="fill:sandybrown; stroke-width:1px; stroke:rosybrown; clear: both;">
         </rect>
       </svg>
     </div>
+    <script src="js/FeldFunktionen.js" ></script>
   </div>
   <footer style="background-color: darkgreen">
     <div style="margin: 1em; padding: 1em">
@@ -458,6 +424,48 @@
   <script src="js/main.js"></script>
   <script src="js/button.js"></script>
 </div>
+<script>
+  let x = Math.round(window.screenX / 8 ).
+  document.getElementById("handcontrol").style.minWidth = + 'px';
+</script>
+<script>
+  // HTML-Button über JavaScript eine Funktion zuweisen
+  // Funktion beim laden der Seite aufrufen
+  window.addEventListener("load", function () {
+    // Überprüfen ob die ID (Button) auf der Seite vorhanden ist (Optional).
+    if (document.getElementById("manuell") != null) {
+      document.getElementById("manuell").addEventListener("click", manuell);
+    }
+    if (document.getElementById("automatik") != null) {
+      document.getElementById("automatik").addEventListener("click", automatik);
+    }
+    if (document.getElementById("credits") != null) {
+      document.getElementById("credits").addEventListener("click", credits);
+    }
+  });
+
+  function manuell() {
+    document.getElementById("handcontrol").hidden = false;
+    document.getElementById("manuell").style.backgroundColor = 'lawngreen';
+    document.getElementById("credits").style.backgroundColor = '#cccccc';
+    document.getElementById("automatik").style.backgroundColor = '#cccccc';
+  }
+
+  function automatik() {
+    document.getElementById("handcontrol").hidden = true;
+    document.getElementById("automatik").style.backgroundColor = 'lawngreen';
+    document.getElementById("credits").style.backgroundColor = '#cccccc';
+    document.getElementById("manuell").style.backgroundColor = '#cccccc';
+  }
+
+  function credits() {
+    document.getElementById("handcontrol").hidden = true;
+    document.getElementById("credits").style.backgroundColor = 'lawngreen';
+    document.getElementById("manuell").style.backgroundColor = '#cccccc';
+    document.getElementById("automatik").style.backgroundColor = '#cccccc';
+  }
+  manuell();
+</script>
 </body>
 
 </html>
