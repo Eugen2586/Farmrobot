@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aba1bcb-e1e4-4e53-b20a-010ec8db8d06" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Webapp/js/FeldFunktionen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webapp/js/FeldFunktionen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/js/FeldFunktionen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webapp/js/WebSocketData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/js/WebSocketData.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +84,8 @@
       <workItem from="1611615901777" duration="303000" />
       <workItem from="1614862417990" duration="4699000" />
       <workItem from="1621513944733" duration="1452000" />
+      <workItem from="1621587902267" duration="1912000" />
+      <workItem from="1621595691145" duration="5829000" />
     </task>
     <servers />
   </component>
