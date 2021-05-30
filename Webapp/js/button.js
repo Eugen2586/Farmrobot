@@ -1,6 +1,19 @@
 
 let send = 'nop';
 
+document.getElementById("wasserbtn").onmousedown = function(){
+  socket.send('{"type":"water"}');
+}
+
+document.getElementById("hakbtn").onmousedown = function(){
+  socket.send('{"type":"hake","value":"True"}');
+}
+
+document.getElementById("saatbtn").onmousedown = function(){
+  let value = document.getElementById("frucht").getAttribute('value');
+  socket.send( '{"type":"saat","value":"' + value + '"}');
+}
+
 document.getElementById("A").onmousedown = function(){
     send = 'A';
 }
@@ -40,7 +53,6 @@ document.getElementById("E").onmouseup = function(){
 
 function sendingFunction(){
     socket.send(send);
-    console.log(send);
 }
 
 setInterval(function() {

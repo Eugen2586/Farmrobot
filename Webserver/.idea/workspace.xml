@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/../Webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Webapp/js/FeldFunktionen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/js/FeldFunktionen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Webapp/js/WebSocketData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/js/WebSocketData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webapp/js/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/js/button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Webapp/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,11 +87,26 @@
       <workItem from="1614862417990" duration="4699000" />
       <workItem from="1621513944733" duration="1452000" />
       <workItem from="1621587902267" duration="1912000" />
-      <workItem from="1621595691145" duration="5829000" />
+      <workItem from="1621595691145" duration="7409000" />
+      <workItem from="1622025462504" duration="1669000" />
+      <workItem from="1622128805594" duration="3400000" />
+      <workItem from="1622285048706" duration="2646000" />
+      <workItem from="1622369609452" duration="1247000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/index.js</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -43,7 +43,7 @@
   </header>
 
   <div id="handcontrol" style="width: auto; margin: 2%; padding: 2%; background-color: whitesmoke; min-width: 38em; ">
-    <div style="margin-right: 10%; float: right; border: 1px black; clear: revert; padding: 3%;">
+    <div style="margin-right: 10%; margin-top: 1%; padding-top: 1%; float: right; border: 1px black; clear: revert; ">
       <table style="align-items: center; align-content: center; background-color: lightgrey">
         <tr>
           <th style="align-content: center; align-items: center; align-self: center;" align="center" valign="center">
@@ -87,10 +87,10 @@
         <tr>
           <th>
           <div style="background-color: lightgrey; height: auto; margin-top: 1em; width: 100%;">
-            <Button id="wasserbtn" style="background-color: dodgerblue; color: white; height: 4em; width: 6em; ">
+            <Button id="wasserbtn" style="background-color: dodgerblue; color: white; height: 4em; width: 6em;">
               Wasser
             </Button>
-            <Input type="number" style="height: 3em; width: 6em;"/><Label style="height: 4em; width: 6em;">%
+            <input id="_waternumber" style="height: 3em; width: 6em;" type="number" disabled="true"/><Label style="height: 4em; width: 6em;">%
             Wasser</Label>
             <br>
             <Button id="hakbtn" style="height: 4em; width: 6em;">Harke</Button>
@@ -116,7 +116,7 @@
             <table style="padding: 0.5em">
               <tr>
                 <td><Label style="padding: 0.5em">Sorte:</Label></td>
-                <td><Label id="pflanzeeins" style="padding: 0.5em"></Label></td>
+                <td><Label id="pflanzeeins" style="padding: 0.5em; min-width: fit-content"></Label></td>
               </tr>
               <tr>
                 <td><Label style="padding: 0.5em">Bodenbeschaffenheit:</Label></td>
@@ -137,7 +137,7 @@
       </th>
     </div>
 
-    <div style="padding: 1%; margin-left: 5%; margin-top: 1%; margin-right: 3%; width: auto; max-width: 35%;  height: auto; max-height: 60%; border: 2px solid black;background-color: #cccccc; clear: page;">
+    <div style="padding: 1%; margin-left: 5%; margin-top: 2.2%; margin-right: 3%; width: auto; max-width: 35%;  height: auto; max-height: 60%; border: 2px solid black;background-color: #cccccc; clear: page;">
       <svg viewBox="0 0 300 500" enable-background="true" style="fill: saddlebrown" type="Box">
         <!--Hier beginnt die erste Zeile der Anzeige des Beetes -->
         <rect id="-0,0-" height="50" width="50" x="0" y="0"
@@ -469,14 +469,19 @@
       <a style="color: whitesmoke; padding: 1em; margin: 1em;">Ich bin ein Link zur Uni Seite von Zipf</a>
     </div>
   </footer>
-  <script src="js/WebSocketData.js"></script>
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/button.js"></script>
 </div>
+<script src="js/WebSocketData.js"></script>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script src="js/button.js"></script>
 <script>
+
   // HTML-Button über JavaScript eine Funktion zuweisen
+  function changeWaternumber() {
+    console.log( document.getElementById("_waternumber").nodeValue);
+  }
+
   // Funktion beim laden der Seite aufrufen
   window.addEventListener("load", function () {
     // Überprüfen ob die ID (Button) auf der Seite vorhanden ist (Optional).

@@ -37,9 +37,9 @@ socket.onmessage = function(event) {
           document.getElementById("frucht").setAttribute("value", this.innerText);
         };
         z.appendChild(li);
-        console.log("Pflanzendaten empfangen");
+        //console.log("Pflanzendaten empfangen");
       }else if(obj.type.toString() === "robot_pos"){
-        console.log("Positionsdaten empfangen");
+        //console.log("Positionsdaten empfangen");
           let position_y =  obj.y;
           let position_x =  obj.x;
           document.getElementById("-" + position_x.toString() + "," + position_y.toString() + "-").style.stroke = 'black';
@@ -47,7 +47,7 @@ socket.onmessage = function(event) {
           for (let x_2 = 0; x_2 < 16; x_2++) {
             for (let y_2 = 0; y_2 < 6; y_2++) {
               if ( "-" + x_2 + "," + y_2 + "-" === "-" + obj.x + "," + obj.y + "-") {
-                console.log('ich werde erreicht!');
+                //console.log('ich werde erreicht!');
               } else {
                 document.getElementById("-" + x_2.toString() + "," + y_2.toString() + "-").style.stroke = 'rosybrown';
                 document.getElementById("-" + x_2.toString() + "," + y_2.toString() + "-").style.strokeWidth = '1px';
