@@ -10,7 +10,6 @@ package Main.Functions.worker;
  * 6. Neuen Befehl abarbeiten/erwarten
  */
 
-import Constants.NETWORK;
 import Main.Functions.Communictaion.toServer;
 import Main.Functions.Koodinates;
 import Main.Functions.Read;
@@ -37,7 +36,7 @@ public class worker{
         Runnable task1 = () -> {
             toServer x = null;
             try {
-                x = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+                x = new toServer();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }

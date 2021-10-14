@@ -1,38 +1,101 @@
+#include <ESP8266WiFi.h>
+#include <ArduinoJson.h>
+#include "Pumpensteuerung.h"
+WiFiClient client;
+#include "Datenbank.h"
+#include "Saat.h"
+const char* ssid = "FRITZ!Box 7330";
+const char* password = "03438357071785070961";
 
-void initPinsWaterLimit(){
-  pinMode(D5, OUTPUT);
-  pinMode(D6, INPUT);
-  digitalWrite(D5, HIGH);
-  
-  }
+//const char* ssid = "cku";
+//const char* password = "123456789";
 
-
-float getWaterLimit(){
-    float entfernung=0;
-    long zeit=0;
-      digitalWrite(D5, LOW);
-      delay(3);
-      noInterrupts();
-      digitalWrite(D5, HIGH);
-      delay(10);
-      digitalWrite(D5, LOW);
-      zeit = pulseIn(D6, HIGH);
-      interrupts();
-      entfernung = ((float)zeit * (0.03434/ 2));
-    return(entfernung);
-  }
+// Constant Zone
+//const char* ssid = "Chr.Network";
+//const char* password = "2570419532734084";
+StaticJsonDocument<200> doc;
+ 
+WiFiServer wifiServer(9012);
 
 void setup() {
-  // put your setup code here, to run once:
-  initPinsWaterLimit();
+  //Doing Communication Stuff
   Serial.begin(115200);
-
+  yield(); 
+  delay(1000);
+  //Wifi and Communication
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    yield();
+  }
+  Serial.print("Connected to WiFi. IP:");
+  Serial.println(WiFi.localIP());
+  wifiServer.begin();
+  
+  //Doing Init
+  initPinsWaterLimit();
+  initWaterRelais();
+  initSPins();
+  initDB();
+  
 }
 
 void loop() {
-  String t(getWaterLimit(), 2);
-  Serial.println(t);
-  delay(300);
-  // put your main code here, to run repeatedly:
-
+  yield();
+  boolean geschaltet = false;
+  client = wifiServer.available();
+  if( millis() - db_currMillis > 5000){
+    db_currMillis = millis();
+    insertDaten();
+    yield();
+  }
+  if (client) {
+    while (client.connected()) {
+      yield();
+         Serial.write(client.available());
+      while (client.available()>0) {
+         yield();
+        char c = client.read();
+        Serial.write(c);
+        if(c == 'V'){ //-> Anpassung der Variable auf die Reagiert werden soll auf V
+          //Hier zum Beispiel
+          doc["T"] = "Wassersensor";
+          doc["V"] = analogRead(A0);
+          char message[200];
+          serializeJson(doc, message);
+          client.println(message);
+       }else if(c == 'W'){
+          yield();
+          float water = getWaterLimit();
+          String t(water, 2);
+          Serial.println(t);
+          if( water < 60.0 ){
+            if(geschaltet == true){
+              getW(240);
+            }else{
+              getW(210);
+            }
+          }
+          geschaltet = true;
+          client.println("W");
+       }else if(c == 'S'){
+          //Für den Saat-Prozess
+          yield();
+          if(geschaltet == true){
+            shootS(240);
+          }else{
+            shootS(210);
+          }
+          geschaltet = true;
+       }else{
+       }
+         Serial.write(c);
+        }
+        
+      }
+      yield();
+    }
+ 
+    client.stop();
+    Serial.println("Client disconnected");
+    geschaltet = false;
 }

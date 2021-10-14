@@ -1,7 +1,6 @@
 package Main;
 
 import Constants.AktualKoodinates;
-import Constants.NETWORK;
 import Main.Functions.Communictaion.Database;
 import Main.Functions.Communictaion.toServer;
 import Main.Functions.Koodinates;
@@ -19,7 +18,6 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
@@ -46,7 +44,7 @@ public class Controller  implements Initializable {
             String st = null;
             try {
 
-                t = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+                t = new toServer();
                 t.schreibeNachricht(t.getX_Ray_ComPort(), "V".toString());
                 st = t.leseNachricht(t.getX_Ray_ComPort());
                 System.out.print(st);

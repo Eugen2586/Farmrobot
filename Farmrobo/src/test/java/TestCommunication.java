@@ -1,5 +1,4 @@
 import Constants.AktualKoodinates;
-import Constants.NETWORK;
 import Main.Functions.Communictaion.Database;
 import Main.Functions.Communictaion.toServer;
 import Main.Functions.Koodinates;
@@ -21,7 +20,7 @@ public class TestCommunication {
 
 
         try {
-            t = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+            t = new toServer();
         } catch (IOException e) {
             e.printStackTrace();
         }

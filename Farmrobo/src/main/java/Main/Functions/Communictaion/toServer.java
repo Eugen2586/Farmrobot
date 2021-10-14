@@ -1,23 +1,28 @@
 package Main.Functions.Communictaion;
 
+import Constants.NETWORK;
+
 import java.io.*;
 import java.net.Socket;
 
 public class toServer {
 
     //Deklarations
-    static Socket X_Ray_ComPort;
-    static Socket Y_Ray_ComPort;
-    static Socket Z_Ray_ComPOrt;
+    static Socket X_Ray_ComPort = null;
+    static Socket W_Ray_ComPort = null;
+    static Socket Y_Ray_ComPort = null;
 
     //Method Areas
 
-    public toServer(String ip, int port) throws IOException {
-
-
-        X_Ray_ComPort = new Socket(ip, port);
-        System.out.println(X_Ray_ComPort.toString());
-
+    public toServer() throws IOException {
+        if (X_Ray_ComPort == null || !X_Ray_ComPort.isConnected()){
+            X_Ray_ComPort = new Socket(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+            System.out.println(X_Ray_ComPort.toString());
+        }
+        if (W_Ray_ComPort == null || !W_Ray_ComPort.isConnected()){
+            W_Ray_ComPort = new Socket(NETWORK.W_RAY_IP, NETWORK.W_RAY_PORT);
+            System.out.println(W_Ray_ComPort.toString());
+        }
     }
     /*
     public java.net.Socket warteAufAnmeldung(Socket serverSocket) throws IOException {
@@ -53,4 +58,6 @@ public class toServer {
     }
 
 
+    public Socket getW_Ray_ComPort() { return W_Ray_ComPort;
+    }
 }

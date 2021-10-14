@@ -1,5 +1,3 @@
-import Constants.NETWORK;
-import Main.Functions.Communictaion.Database;
 import Main.Functions.Communictaion.toServer;
 import org.junit.Test;
 
@@ -12,7 +10,7 @@ public class Steuerungstest {
         toServer t = null;
 
         try {
-            t = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+            t = new toServer();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,7 +44,7 @@ public class Steuerungstest {
         //Database db = new Database();
 
         try {
-            t = new toServer(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+            t = new toServer();
         } catch (IOException e) {
             e.printStackTrace();
         }
