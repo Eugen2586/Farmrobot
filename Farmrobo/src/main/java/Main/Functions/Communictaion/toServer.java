@@ -34,7 +34,7 @@ public class toServer {
         char[] buffer = new char[200];
         int anzahlZeichen = bufferedReader.read(buffer, 0, 200); // blockiert bis Nachricht empfangen
         String nachricht = new String(buffer, 0, anzahlZeichen);
-        X_Ray_ComPort.close();
+        //X_Ray_ComPort.close();
         return nachricht;
     }
 

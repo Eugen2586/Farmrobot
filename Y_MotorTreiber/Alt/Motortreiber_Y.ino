@@ -4,22 +4,17 @@
 const int ENABLE = D0;
 const int PULS = D2;
 const int DIR =  D1;
-//const int Ausgabe = D4;
-//const int AnschlagA = D6;
-//const int AnschlagD = D7;
-//const int analogPin = A0;
+const int Ausgabe = D4;
+const int AnschlagA = D6;
+const int AnschlagD = D7;
+const int analogPin = A0;
 #include "Motortreiber.h"
 
 // Constant Zone
-//Orginal Maschine
-const char* ssid = "FRITZ!Box 7330";
-const char* password = "03438357071785070961";
-//In der Smartphone Zone
 //const char* ssid = "Galaxy S1065b3";
 //const char* password = "123456789";
-//Bei Christian
-//const char* ssid = "Chr.Network";
-//const char* password = "2570419532734084";
+const char* ssid = "Chr.Network";
+const char* password = "2570419532734084";
 StaticJsonDocument<200> doc;
  
 WiFiServer wifiServer(9012);
@@ -48,6 +43,7 @@ void setup() {
   wifiServer.begin();
   //MotorStuff
   attachInterrupt(digitalPinToInterrupt(D4), positionFunction, CHANGE);
+ 
 }
  
 void loop() {
@@ -61,7 +57,6 @@ void loop() {
       while (client.available()>0) {
         
         char c = client.read();
-        Serial.println(c);
         if(c == 'V'){ //-> Anpassung der Variable auf die Reagiert werden soll auf V
           //Hier zum Beispiel
           doc["T"] = "Wassersensor";
@@ -69,8 +64,6 @@ void loop() {
           char message[200];
           serializeJson(doc, message);
           client.println(message);
-          Serial.println("Feuchtigkeit gemessen: ");
-          Serial.println(analogRead(A0));
           }
         else if(c == 'L'){
           Serial.write("Ich will deinen Scheiß befehl nicht ausführen");
@@ -83,14 +76,37 @@ void loop() {
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirD(1000);
-          client.println(position);
+          client.println("D");
+        }else if(c == 'S'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirS(20);
+          client.println("S"); 
+        }else if(c == 'W'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirW(20);
+          client.println("W");
+        }else if(c == 'Q'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirQ(20); 
+          client.println("Q");
+        }else if(c == 'E'){
+          //Änderung zur Motor Ansteuerung in Motortreiber.h
+          //Eingepflegt JKA und CKU -> 07.01.2021
+          dirE(20);
+          client.println("E");
         }else{
          Serial.write(c);
         }
       }
-      //delay(10);
+ 
+      delay(10);
     }
+ 
     client.stop();
     Serial.println("Client disconnected");
+ 
   }
 }
