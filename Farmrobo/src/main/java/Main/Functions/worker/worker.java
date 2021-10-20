@@ -35,11 +35,7 @@ public class worker{
         dateieinlesenWorker();
         Runnable task1 = () -> {
             toServer x = null;
-            try {
                 x = new toServer();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
             while(ifWork()) {
 
                 k = getNext();

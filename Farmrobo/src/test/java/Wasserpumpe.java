@@ -12,12 +12,8 @@ public class Wasserpumpe {
     public void Wasserpumpentest() {
         toServer t = null;
         //Database db = new Database();
-
-        try {
             t = new toServer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         try {
             while(true) {
                 int i = 0;

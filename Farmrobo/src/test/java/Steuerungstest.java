@@ -9,11 +9,7 @@ public class Steuerungstest {
     public void manuelleSteuerung() {
         toServer t = null;
 
-        try {
             t = new toServer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         try {
             int j = 0;
             while(j < 100) {
@@ -42,12 +38,7 @@ public class Steuerungstest {
     public void manuelleSteuerungEinStep() {
         toServer t = null;
         //Database db = new Database();
-
-        try {
             t = new toServer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         try {
             t.schreibeNachricht(t.getX_Ray_ComPort(), "A");
             System.out.println(t.leseNachricht(t.getX_Ray_ComPort()));

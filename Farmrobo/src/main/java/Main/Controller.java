@@ -51,27 +51,6 @@ public class Controller  implements Initializable {
             } catch (IOException eg) {
                 eg.printStackTrace();
             }
-            JSONParser parser = new JSONParser();
-            JSONObject obj = null;
-            String help = new String();
-            for(int j = 0; j < st.length(); j++){
-                char r = st.charAt(j);
-                if( r != '\r' && r != '\n') {
-                    help = help + r;
-                    continue;
-                }
-
-            }
-            if(help.equals("")){
-                return;
-            }
-            try {
-                obj = (JSONObject) parser.parse(help.toString());
-            } catch (ParseException ez) {
-                ez.printStackTrace();
-            }
-            mw = obj.get("V").toString();
-            va = "Messreihe";
 
             Platform.runLater(new Runnable() {
                 @Override public void run() {
@@ -80,13 +59,7 @@ public class Controller  implements Initializable {
             });
 
             try {
-                db.eintragMessdaten(
-                        new Koodinates(
-                                AktualKoodinates.getX(),
-                                AktualKoodinates.getY(),
-                                AktualKoodinates.getZ(),
-                                obj.get("T").toString(),
-                                obj.get("V").toString()));
+                db.eintragMessdaten(st);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

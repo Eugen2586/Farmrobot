@@ -20,12 +20,7 @@ public class Main {
         Database db = new Database();
         System.out.println("erreicht!");
 
-
-        try {
             t = new toServer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         for(int i = 0; i < 10; i++) {
             String st = null;
             try {
@@ -35,28 +30,11 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            JSONParser parser = new JSONParser();
-            JSONObject obj = null;
             try {
-                obj = (JSONObject) parser.parse(st.toString());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            try {
-                db.eintragMessdaten(
-                        new Koodinates(
-                                AktualKoodinates.getX(),
-                                AktualKoodinates.getY(),
-                                AktualKoodinates.getZ(),
-                                obj.get("T").toString(),
-                                obj.get("V").toString()));
+                db.eintragMessdaten(st);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
-
-
     }
-
-
 }

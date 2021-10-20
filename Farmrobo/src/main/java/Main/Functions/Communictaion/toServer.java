@@ -7,6 +7,10 @@ import java.net.Socket;
 
 public class toServer {
 
+    public static Socket getY_Ray_ComPort() {
+        return Y_Ray_ComPort;
+    }
+
     //Deklarations
     static Socket X_Ray_ComPort = null;
     static Socket W_Ray_ComPort = null;
@@ -14,14 +18,20 @@ public class toServer {
 
     //Method Areas
 
-    public toServer() throws IOException {
+    public toServer(){
+        try {
         if (X_Ray_ComPort == null || !X_Ray_ComPort.isConnected()){
-            X_Ray_ComPort = new Socket(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
-            System.out.println(X_Ray_ComPort.toString());
+       //     X_Ray_ComPort = new Socket(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+       //     System.out.println(X_Ray_ComPort.toString());
         }
         if (W_Ray_ComPort == null || !W_Ray_ComPort.isConnected()){
-            W_Ray_ComPort = new Socket(NETWORK.W_RAY_IP, NETWORK.W_RAY_PORT);
+
+                W_Ray_ComPort = new Socket(NETWORK.W_RAY_IP, NETWORK.W_RAY_PORT);
+
             System.out.println(W_Ray_ComPort.toString());
+        }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     /*

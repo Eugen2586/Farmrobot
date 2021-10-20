@@ -2,10 +2,12 @@
 #include <ArduinoJson.h>
 #include "Pumpensteuerung.h"
 WiFiClient client;
-#include "Datenbank.h"
 #include "Saat.h"
-const char* ssid = "FRITZ!Box 7330";
-const char* password = "03438357071785070961";
+//const char* ssid = "FRITZ!Box 7330";
+//const char* password = "03438357071785070961";
+
+const char* ssid = "FRITZ!Box 7430 MM";
+const char* password = "36002357151783325689";
 
 //const char* ssid = "cku";
 //const char* password = "123456789";
@@ -35,7 +37,6 @@ void setup() {
   initPinsWaterLimit();
   initWaterRelais();
   initSPins();
-  initDB();
   
 }
 
@@ -43,11 +44,6 @@ void loop() {
   yield();
   boolean geschaltet = false;
   client = wifiServer.available();
-  if( millis() - db_currMillis > 5000){
-    db_currMillis = millis();
-    insertDaten();
-    yield();
-  }
   if (client) {
     while (client.connected()) {
       yield();
@@ -58,10 +54,12 @@ void loop() {
         Serial.write(c);
         if(c == 'V'){ //-> Anpassung der Variable auf die Reagiert werden soll auf V
           //Hier zum Beispiel
-          doc["T"] = "Wassersensor";
+          doc["T"] = "WS_1";
           doc["V"] = analogRead(A0);
+          Serial.println(analogRead(A0));
           char message[200];
           serializeJson(doc, message);
+          Serial.println(message);
           client.println(message);
        }else if(c == 'W'){
           yield();
@@ -93,9 +91,8 @@ void loop() {
         
       }
       yield();
+      client.stop();
+      Serial.println("Client disconnected");
+      geschaltet = false;
     }
- 
-    client.stop();
-    Serial.println("Client disconnected");
-    geschaltet = false;
 }

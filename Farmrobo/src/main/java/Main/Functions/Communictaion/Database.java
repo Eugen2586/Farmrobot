@@ -4,6 +4,9 @@ import Constants.AktualKoodinates;
 import Constants.DATABASE;
 import Constants.NETWORK;
 import Main.Functions.Koodinates;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 public class Database {
 
     //Constants for Connection
-    final String toTable =  DATABASE.db_ip + ":3300/Farmrobo";
+    final String toTable =  DATABASE.db_ip + ":3306/Farmbot";
     final String user = DATABASE.username;
     final String password = DATABASE.password;
 
@@ -22,7 +25,7 @@ public class Database {
 
     public Database() {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -39,13 +42,31 @@ public class Database {
         }
     }
     
-    public void eintragMessdaten(Koodinates k ) throws SQLException {
+    public void eintragMessdaten(String st) throws SQLException {
+        String help = "";
+        for(int j = 0; j < st.length(); j++){
+            char r = st.charAt(j);
+            if( r != '\r' && r != '\n') {
+                help = help + r;
+                continue;
+            }
 
-        String unit = getUnit(k);
-        String sensorValue = getRay(k.getT());
-
-        String t = "INSERT INTO `Messdaten` (`K`, `Date`, `X`, `Y`, `Z`, `T`, `Value_1`, `Value_2`, `Value_3`, `Value_4`) VALUES (NULL, CURRENT_TIMESTAMP, '"+ AktualKoodinates.getX() +"', '"+ AktualKoodinates.getY() +"', '"+ AktualKoodinates.getZ() +"', '" + k.getT() + "', '" + k.getV() +"', 'V', 'V', 'V');";
-        System.out.println(k.getV());
+        }
+        System.out.println(help);
+        if(help.equals("")){
+            return;
+        }
+        JSONObject obj = null;
+        try {
+            JSONParser parser = new JSONParser();
+            obj = (JSONObject) parser.parse(help.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String value = obj.get("V").toString();
+        String sensor = (String) obj.get("T");
+        String t = "INSERT INTO Farmbot.SensorDat (sensor, value, created_at) VALUES ('" + sensor + "'," + value + " ,current_timestamp);";
+        //String t = "INSERT INTO SensorDat ('value', 'sensor') VALUES ("+ value +", '"+sensor+"');";
         Statement myStat = myConn.createStatement();
         int reSe = myStat.executeUpdate(t);
         System.out.println(reSe);

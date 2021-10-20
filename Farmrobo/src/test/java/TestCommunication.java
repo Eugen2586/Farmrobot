@@ -18,12 +18,8 @@ public class TestCommunication {
         toServer t = null;
         Database db = new Database();
 
-
-        try {
             t = new toServer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         for (int i = 0; i < 3000; i++) {
             String st = null;
             try {
@@ -53,13 +49,7 @@ public class TestCommunication {
                 e.printStackTrace();
             }
             try {
-                db.eintragMessdaten(
-                        new Koodinates(
-                                AktualKoodinates.getX(),
-                                AktualKoodinates.getY(),
-                                AktualKoodinates.getZ(),
-                                obj.get("T").toString(),
-                                obj.get("V").toString()));
+                db.eintragMessdaten(st);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
