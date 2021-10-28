@@ -6,7 +6,7 @@ public class DATABASE {
     //public static final String username = "farmrobo";
     //public static final String password = "HzhXxorXRC1h325b";
     //Datenbank bei Jonas
-    public static final String db_ip ="192.168.100.49";
+    public static final String db_ip ="192.168.188.25";
     public static final String username = "me";
     public static final String password = "Alzheimer";
     //Jonas DB

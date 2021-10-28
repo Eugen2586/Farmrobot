@@ -52,7 +52,7 @@ public class Database {
             }
 
         }
-        System.out.println(help);
+
         if(help.equals("")){
             return;
         }
@@ -60,7 +60,7 @@ public class Database {
         try {
             JSONParser parser = new JSONParser();
             obj = (JSONObject) parser.parse(help.toString());
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         String value = obj.get("V").toString();
@@ -69,7 +69,6 @@ public class Database {
         //String t = "INSERT INTO SensorDat ('value', 'sensor') VALUES ("+ value +", '"+sensor+"');";
         Statement myStat = myConn.createStatement();
         int reSe = myStat.executeUpdate(t);
-        System.out.println(reSe);
     }
 
     private String getRay(String t) {

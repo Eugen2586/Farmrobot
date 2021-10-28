@@ -3,10 +3,8 @@
 
 void initWaterRelais(){
     pinMode(D1, OUTPUT);
-    pinMode(D2, OUTPUT);
   
-    digitalWrite(D1,HIGH); 
-    digitalWrite(D2,HIGH); 
+    digitalWrite(D1,HIGH);  
 }
 
 
@@ -33,17 +31,6 @@ float getWaterLimit(){
 
 void getW(int t){
   digitalWrite(D1,LOW);
-  digitalWrite(D2,LOW);  
-  unsigned long currMillis = millis();
-  unsigned long mill = currMillis;
-  while(currMillis - mill < t){
-    currMillis = millis();
-    yield();
-    }
-  digitalWrite(D1,HIGH);
-  digitalWrite(D2,HIGH);  
 }
-
-
 
 #endif

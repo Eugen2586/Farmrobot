@@ -15,12 +15,14 @@ public class Wasserpumpe {
             t = new toServer();
 
         try {
+            System.out.println("Connected");
             while(true) {
                 int i = 0;
+
                 //Test für die Wasserpumpe
                 while (i < 60) {
                     t.schreibeNachricht(t.getW_Ray_ComPort(), "W");
-                    t.leseNachricht(t.getW_Ray_ComPort());
+                    System.out.print(t.leseNachricht(t.getW_Ray_ComPort()));
                     i++;
                     sleep(200);
                 }
@@ -28,13 +30,13 @@ public class Wasserpumpe {
                 //Test für die Saatmaschine
                 while (i < 60) {
                     t.schreibeNachricht(t.getW_Ray_ComPort(), "S");
-                    t.leseNachricht(t.getW_Ray_ComPort());
+                    System.out.print(t.leseNachricht(t.getW_Ray_ComPort()));
                     i++;
                     sleep(200);
                 }
             }
         }catch(Exception e){
-
+            e.printStackTrace();
         }
 
     }

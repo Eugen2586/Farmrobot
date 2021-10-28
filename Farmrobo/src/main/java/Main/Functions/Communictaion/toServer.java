@@ -22,7 +22,7 @@ public class toServer {
         try {
         if (X_Ray_ComPort == null || !X_Ray_ComPort.isConnected()){
        //     X_Ray_ComPort = new Socket(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
-       //     System.out.println(X_Ray_ComPort.toString());
+        //    System.out.println(X_Ray_ComPort.toString());
         }
         if (W_Ray_ComPort == null || !W_Ray_ComPort.isConnected()){
 

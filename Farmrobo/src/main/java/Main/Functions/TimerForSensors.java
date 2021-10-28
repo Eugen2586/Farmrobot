@@ -28,9 +28,7 @@ public class TimerForSensors implements Runnable{
                 public void run() {
                     try {
                         timerDo();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (SQLException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
@@ -39,8 +37,13 @@ public class TimerForSensors implements Runnable{
 
         }
         public void timerDo() throws IOException, SQLException {
+            db = new Database();
+            t = new toServer();
             t.schreibeNachricht(t.getW_Ray_ComPort(), "V");
             String getted =  t.leseNachricht(t.getW_Ray_ComPort());
+            db.eintragMessdaten(getted);
+            t.schreibeNachricht(t.getW_Ray_ComPort(), "A");
+            getted =  t.leseNachricht(t.getW_Ray_ComPort());
             db.eintragMessdaten(getted);
         }
     }
