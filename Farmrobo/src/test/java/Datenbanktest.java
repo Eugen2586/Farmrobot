@@ -6,15 +6,12 @@ import org.junit.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import static java.lang.Thread.sleep;
-
 public class Datenbanktest {
 
     @Test
     public void doEntrance(){
         TimerForSensors tfs = new TimerForSensors();
         tfs.run();
-        for(long d= 1; d > 0; d++ ){};
     }
 
     @Test
@@ -25,10 +22,8 @@ public class Datenbanktest {
             t.schreibeNachricht(t.getW_Ray_ComPort(), "V");
             String getted =  t.leseNachricht(t.getW_Ray_ComPort());
             db.eintragMessdaten(getted);
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
     }
 

@@ -1,6 +1,4 @@
-import Main.Functions.Koodinates;
 import Main.Functions.worker.worker;
-import Main.Model.Tasks;
 import org.junit.Test;
 
 public class Webserversteuerung {

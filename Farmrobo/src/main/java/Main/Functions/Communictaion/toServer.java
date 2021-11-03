@@ -6,11 +6,6 @@ import java.io.*;
 import java.net.Socket;
 
 public class toServer {
-
-    public static Socket getY_Ray_ComPort() {
-        return Y_Ray_ComPort;
-    }
-
     //Deklarations
     static Socket X_Ray_ComPort = null;
     static Socket W_Ray_ComPort = null;
@@ -21,14 +16,16 @@ public class toServer {
     public toServer(){
         try {
         if (X_Ray_ComPort == null || !X_Ray_ComPort.isConnected()){
-       //     X_Ray_ComPort = new Socket(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
-        //    System.out.println(X_Ray_ComPort.toString());
+            X_Ray_ComPort = new Socket(NETWORK.X_RAY_IP, NETWORK.X_RAY_PORT);
+            System.out.println(X_Ray_ComPort.toString());
         }
         if (W_Ray_ComPort == null || !W_Ray_ComPort.isConnected()){
-
-                W_Ray_ComPort = new Socket(NETWORK.W_RAY_IP, NETWORK.W_RAY_PORT);
-
+            W_Ray_ComPort = new Socket(NETWORK.W_RAY_IP, NETWORK.W_RAY_PORT);
             System.out.println(W_Ray_ComPort.toString());
+        }
+        if (Y_Ray_ComPort == null || !Y_Ray_ComPort.isConnected()){
+            Y_Ray_ComPort = new Socket(NETWORK.Y_RAY_IP, NETWORK.Y_RAY_PORT);
+            System.out.println(Y_Ray_ComPort.toString());
         }
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,11 +60,7 @@ public class toServer {
     }
 
     //Getter and Setter Methods
-    public Socket getX_Ray_ComPort() {
-        return X_Ray_ComPort;
-    }
-
-
-    public Socket getW_Ray_ComPort() { return W_Ray_ComPort;
-    }
+    public Socket getX_Ray_ComPort() { return X_Ray_ComPort;   }
+    public Socket getW_Ray_ComPort() { return W_Ray_ComPort;   }
+    public Socket getY_Ray_ComPort() { return Y_Ray_ComPort;   }
 }

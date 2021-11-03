@@ -9,13 +9,12 @@ public class MotorTestVersuchsreiheEins {
 
 
     @Test
-    public void MotorTestVersuchsreiheEins() {
+    public void MotorTestVersuchsreiheEins_ErsterTest() {
         toServer t = null;
         //Database db = new Database();
 
             t = new toServer();
         try {
-            while(true) {
                 int i = 0;
                 while (i < 30) {
                     t.schreibeNachricht(t.getX_Ray_ComPort(), "A");
@@ -29,11 +28,43 @@ public class MotorTestVersuchsreiheEins {
                     i--;
                     sleep(200);
                 }
-            }
         }catch(Exception e){
-
+            e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void MotorTestVersuchsreiheOneStepXWagen() {
+        toServer t = null;
+        //Database db = new Database();
+
+        t = new toServer();
+        try {
+            for (int i = 0; i < 8; i++){
+                t.schreibeNachricht(t.getX_Ray_ComPort(), "A");
+                System.out.print(t.leseNachricht(t.getX_Ray_ComPort()));
+                sleep(300);
+            }
+        } catch (IOException | InterruptedException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+    @Test
+    public void MotorTestVersuchsreiheOneStepYWagen() {
+        toServer t = null;
+        //Database db = new Database();
+
+        t = new toServer();
+        try {
+            for (int i = 0; i < 8; i++){
+                t.schreibeNachricht(t.getY_Ray_ComPort(), "A");
+                System.out.print(t.leseNachricht(t.getY_Ray_ComPort()));
+                sleep(300);
+            }
+        } catch (IOException | InterruptedException ioException) {
+            ioException.printStackTrace();
+        }
     }
 }
 

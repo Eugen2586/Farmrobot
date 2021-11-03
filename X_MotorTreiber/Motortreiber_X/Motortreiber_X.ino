@@ -4,10 +4,6 @@
 const int ENABLE = D0;
 const int PULS = D2;
 const int DIR =  D1;
-//const int Ausgabe = D4;
-//const int AnschlagA = D6;
-//const int AnschlagD = D7;
-//const int analogPin = A0;
 #include "Motortreiber.h"
 
 // Constant Zone
@@ -62,19 +58,7 @@ void loop() {
         
         char c = client.read();
         Serial.println(c);
-        if(c == 'V'){ //-> Anpassung der Variable auf die Reagiert werden soll auf V
-          //Hier zum Beispiel
-          doc["T"] = "Wassersensor";
-          doc["V"] = analogRead(A0);
-          char message[200];
-          serializeJson(doc, message);
-          client.println(message);
-          Serial.println("Feuchtigkeit gemessen: ");
-          Serial.println(analogRead(A0));
-          }
-        else if(c == 'L'){
-          Serial.write("Ich will deinen Scheiß befehl nicht ausführen");
-        }else if(c == 'A'){
+        if(c == 'A'){
           //Änderung zur Motor Ansteuerung in Motortreiber.h
           //Eingepflegt JKA und CKU -> 07.01.2021
           dirA(1000);
