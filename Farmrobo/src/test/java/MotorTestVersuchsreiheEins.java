@@ -41,7 +41,7 @@ public class MotorTestVersuchsreiheEins {
 
         t = new toServer();
         try {
-            for (int i = 0; i < 8; i++){
+            for (int i = 0; i < 6; i++){
                 t.schreibeNachricht(t.getX_Ray_ComPort(), "A");
                 System.out.print(t.leseNachricht(t.getX_Ray_ComPort()));
                 sleep(300);
@@ -57,8 +57,8 @@ public class MotorTestVersuchsreiheEins {
 
         t = new toServer();
         try {
-            for (int i = 0; i < 8; i++){
-                t.schreibeNachricht(t.getY_Ray_ComPort(), "A");
+            for (int i = 0; i < 12; i++){
+                t.schreibeNachricht(t.getY_Ray_ComPort(), "D");
                 System.out.print(t.leseNachricht(t.getY_Ray_ComPort()));
                 sleep(300);
             }
