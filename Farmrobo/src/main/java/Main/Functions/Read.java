@@ -21,7 +21,11 @@ public class Read {
             while ((zeile = in.readLine()) != null) {
                 s +=  zeile;
             }
+            in.close();
+            file.delete();
+            return s;
         } catch (Exception e) {
+            //not needed to catch, cause not every task gets a new File.
         } finally {
             if (in != null)
                 try {

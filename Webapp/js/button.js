@@ -57,7 +57,7 @@ function sendingFunction(){
 
 setInterval(function() {
   sendingFunction()
-}, 200);
+}, 80);
 
 socket.onclose = function(event) {
   if (event.wasClean) {} else {

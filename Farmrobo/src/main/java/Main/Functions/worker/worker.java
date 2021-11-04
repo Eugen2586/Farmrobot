@@ -37,34 +37,41 @@ public class worker{
             toServer x = null;
                 x = new toServer();
             while(ifWork()) {
-
                 k = getNext();
-                if(k != null) {
-                    System.out.println("einen Task abgearbeitet!");
-                    if (compX() != 0) {
+                try {
+                    if (k.getX() != 0 || k.getY() != 0 || k.getZ() != 0) {
+                        System.out.println(k.getX());
+                        if (k.getX() != 0) {
+                            try {
+                                System.out.print(k.getX() < 0 ? "A" : "D");
+                                x.schreibeNachricht(x.getY_Ray_ComPort(), k.getX() < 0 ? "A" : "D");
+                                System.out.println("XRichtung" + x.leseNachricht(x.getY_Ray_ComPort()));
+                            } catch (IOException ioException) {
+                              ioException.printStackTrace();
+                           }
+                        }
+                        if (k.getY() != 0) {
+                            try {
+                                x.schreibeNachricht(x.getX_Ray_ComPort(), k.getY() > 0 ? "A" : "D");
+                                System.out.println("YRichtung" + x.leseNachricht(x.getX_Ray_ComPort()));
+                            } catch (IOException ioException) {
+                                ioException.printStackTrace();
+                            }
+                        }
+                        if (k.getZ() != 0) {
+
+                        }
+                    } else {
                         try {
-                            x.schreibeNachricht(x.getX_Ray_ComPort(), compX() < 0 ? "S":"W");
-                            System.out.println("" + x.leseNachricht(x.getX_Ray_ComPort()));
-                        } catch (IOException ioException) {
-                            ioException.printStackTrace();
+                            sleep(20);
+                        } catch (InterruptedException interruptedException) {
+                            interruptedException.printStackTrace();
+                            System.out.println("Beim (Task-)Sleepen verhaspelt");
                         }
                     }
-                    if (compY() != 0) {
-
-                    }
-                    if (compZ() != 0) {
-
-                    }
+                } catch(Exception e){
                 }
-                else {
-                    try {
-                        sleep(80);
-                    } catch (InterruptedException interruptedException) {
-                        interruptedException.printStackTrace();
-                        System.out.println("Beim (Task-)Sleepen verhaspelt");
-                    }
                 }
-            }
         };
 
         task1.run();
@@ -81,27 +88,37 @@ public class worker{
 
     protected void dateieinlesenWorker(){
         Runnable task2 = () -> {
+            System.out.println("Daten eingelesen");
             ArrayList<String> tasklist = new ArrayList<>();
             while(true) {
-                for (int i = 1; i < 7; i++) {
-                    String h = new Read().ladeDatei(String.valueOf(i) + ".control");
-                    System.out.println(h);
-                    if(!h.equals("")) {
-                        int x = 0, y = 0, z = 0;
-                        if(h.equals("A")) {
-                            x = 1;
-                        }if(h.equals("D")){
-                            x = -1;
+                try {
+                    for (int i = 1; i < 7; i++) {
+                        String h = new Read().ladeDatei(String.valueOf(i) + ".control");
+                        if (!h.equals("")) {
+                            int x = 0, y = 0, z = 0;
+                            if (h.equals("W")) {
+                                x = 1;
+                            }
+                            if (h.equals("S")) {
+                                x = -1;
+                            }
+                            if (h.equals("A")) {
+                                y = 1;
+                            }
+                            if (h.equals("D")) {
+                                y = -1;
+                            }
+                            dotasking(new Koodinates((e.getX() + x), e.getY() + y, e.getZ() + z, "", ""));
                         }
-                        dotasking(new Koodinates((e.getX() + x), e.getY()+y, e.getZ()+z, "", ""));
+                        try {
+                            sleep(30);
+                        } catch (InterruptedException interruptedException) {
+                            interruptedException.printStackTrace();
+                            System.out.println("Ich wurde beim Schlafen gestört.");
+                        }
                     }
-                    i++;
-                    try {
-                        sleep(100);
-                    } catch (InterruptedException interruptedException) {
-                        interruptedException.printStackTrace();
-                        System.out.println("Ich wurde beim Schlafen gestört.");
-                    }
+                }catch (Exception e){
+
                 }
             }
         };
@@ -126,23 +143,23 @@ public class worker{
         return k;
     }
 
-    protected int compX() {
-        if(k.getX() == e.getX()) {
-            return 0;
+    protected boolean compX(Koodinates k) {
+        if(k.getX() != 0){
+            return true;
         }
-            return k.getX() - e.getX();
+        return false;
     }
-    protected int compY() {
-        if(k.getY() == e.getY()) {
-            return 0;
+    protected boolean compY(Koodinates k) {
+        if(k.getY() != 0){
+            return true;
         }
-        return k.getY() - e.getY();
+        return false;
     }
-    protected int compZ() {
-        if(k.getZ() == e.getZ()) {
-            return 0;
+    protected boolean compZ(Koodinates k) {
+        if(k.getZ() != 0){
+            return true;
         }
-        return k.getZ() - e.getZ();
+        return false;
     }
     public boolean ifWork(){
         return true;

@@ -20,7 +20,6 @@ public class Tasks {
     }
 
     public void add(Koodinates k){
-        System.out.println(k.toString());
         tasks.add(k);
     }
 
@@ -30,7 +29,6 @@ public class Tasks {
         }
         Koodinates k = (Koodinates) tasks.get(0);
         tasks.remove(k); //Todo Vorsichtig hier wird eigentlich der Wert heraus gelöscht.
-        System.out.println(k.toString());
         return k;
     }
     public void getControls(){
