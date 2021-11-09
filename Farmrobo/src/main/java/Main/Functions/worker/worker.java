@@ -59,7 +59,14 @@ public class worker{
                             }
                         }
                         if (k.getZ() != 0) {
-
+                            try {
+                                String t =  k.getZ() > 0 ? "Q" : "E";
+                                System.out.println(t);
+                                x.schreibeNachricht(x.getZ_Ray_ComPort(),t);
+                                System.out.println("ZRichtung" + x.leseNachricht(x.getZ_Ray_ComPort()));
+                            } catch (IOException ioException) {
+                                ioException.printStackTrace();
+                            }
                         }
                     } else {
                         try {
@@ -107,6 +114,12 @@ public class worker{
                             }
                             if (h.equals("D")) {
                                 y = -1;
+                            }
+                            if (h.equals("Q")) {
+                                z = 1;
+                            }
+                            if (h.equals("E")) {
+                                z = -1;
                             }
                             dotasking(new Koodinates((e.getX() + x), e.getY() + y, e.getZ() + z, "", ""));
                         }

@@ -14,7 +14,7 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
 // Idee: int primSteps = 100; // Laenge eines Steps / Rechteckwellenanzahl (waere denkbar)
 
  const int PERIODLENGHT = 500; //Periodlenght of one rectangular wave (estimated)
- const int LENGTHUNIT = 1000; //Defines a standard length
+ const int LENGTHUNIT = 100; //Defines a standard length
 
  void doStuff(){
   if(digitalRead(DIR_X) != 0){
@@ -82,7 +82,8 @@ void DIR_ZA(int steps) { //nach Links fahren
       digitalWrite(PULS_Z,LOW);
       delayMicroseconds(PERIODLENGHT/2);
       yield();
-  }
+    }
+    digitalWrite(DIR_Z, LOW);
 }
 void DIR_ZD(int steps) {
     digitalWrite(ENABLE_Z, LOW);
@@ -94,7 +95,8 @@ void DIR_ZD(int steps) {
       digitalWrite(PULS_Z,LOW);
       delayMicroseconds(PERIODLENGHT/2);
       yield();
-  }
+    }
+    digitalWrite(DIR_Z, LOW);
 }
 
  void initMotors(){

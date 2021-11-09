@@ -63,4 +63,6 @@ public class toServer {
     public Socket getX_Ray_ComPort() { return X_Ray_ComPort;   }
     public Socket getW_Ray_ComPort() { return W_Ray_ComPort;   }
     public Socket getY_Ray_ComPort() { return Y_Ray_ComPort;   }
+    public Socket getZ_Ray_ComPort() { return Y_Ray_ComPort;   }
+
 }

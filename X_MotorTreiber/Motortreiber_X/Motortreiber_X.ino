@@ -2,12 +2,12 @@
 #include <ArduinoJson.h>  
 
 const int ENABLE_X = D0;
-const int PULS_X = D2;
 const int DIR_X =  D1;
+const int PULS_X = D2;
 const int ENABLE_Z = D3;
-const int PULS_Z = D4;
+const int DIR_Z =  D4;
 //D5 wird bewusst freigehalten D5
-const int DIR_Z =  D6;
+const int PULS_Z = D6;
 
 #include "Motortreiber.h"
 
@@ -72,7 +72,7 @@ void loop() {
             client.println(position);
             break;
           case 'Q':
-            DIR_ZD(LENGTHUNIT);
+            DIR_ZA(LENGTHUNIT);
             client.println(position);
             break;
           case 'E':
