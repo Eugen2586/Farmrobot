@@ -58,19 +58,19 @@ void loop() {
         
         char c = client.read();
         Serial.println(c);
-        if(c == 'A'){
-          //Änderung zur Motor Ansteuerung in Motortreiber.h
-          //Eingepflegt JKA und CKU -> 07.01.2021
-          dirA(1000);
-          client.println(position);
-        }else if(c == 'D'){
-          //Änderung zur Motor Ansteuerung in Motortreiber.h
-          //Eingepflegt JKA und CKU -> 07.01.2021
-          dirD(1000);
-          client.println(position);
-        }else{
-         Serial.write(c);
-        }
+        switch ( c ){
+          case 'A':
+            dirA(1000);
+            client.println(position);
+            break;
+          case 'D':
+            dirD(1000);
+            client.println(position);  
+            break;
+          default:
+            Serial.write(c);
+            break;
+          }
       }
       //delay(10);
     }
