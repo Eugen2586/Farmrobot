@@ -53,18 +53,18 @@ void loop() {
   if (client) {
  
     while (client.connected()) {
-         Serial.write(client.available());
+      Serial.write(client.available());
       while (client.available()>0) {
         
         char c = client.read();
         Serial.println(c);
         switch ( c ){
           case 'A':
-            dirA(1000);
+            dirA(LENGTHUNIT);
             client.println(position);
             break;
           case 'D':
-            dirD(1000);
+            dirD(LENGTHUNIT);
             client.println(position);  
             break;
           default:
