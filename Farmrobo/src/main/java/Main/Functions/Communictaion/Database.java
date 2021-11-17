@@ -4,6 +4,7 @@ import Constants.AktualKoodinates;
 import Constants.DATABASE;
 import Constants.NETWORK;
 import Main.Functions.Koodinates;
+import Main.Model.Pflanze;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -98,12 +99,19 @@ public class Database {
                 if( table.equals("SpecificTable")){
                     o.add(specificTable(reSe));
                 }
+                if(table.equals("PflanzenPos")){
+                    o.add(getPlants(reSe));
+                }
             }
             return o.toArray();
         }catch(Exception e){
             e.printStackTrace();
             return null;
         }
+    }
+
+    private Pflanze getPlants(ResultSet reSe) throws SQLException {
+        return new Pflanze( reSe.getInt("x"), reSe.getInt("y"), reSe.getString("bez") );
     }
 
     //füge hier einfach die anderen Tabellen als Objekte hinzu!

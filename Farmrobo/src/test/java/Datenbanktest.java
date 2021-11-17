@@ -6,12 +6,21 @@ import org.junit.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import static java.lang.Thread.sleep;
+
 public class Datenbanktest {
 
     @Test
     public void doEntrance(){
         TimerForSensors tfs = new TimerForSensors();
         tfs.run();
+        while(true) {
+            try {
+                sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Test

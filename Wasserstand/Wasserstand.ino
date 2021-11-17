@@ -70,7 +70,6 @@ void loop() {
           //Hier zum Beispiel
           doc["T"] = "WA_E";
           doc["V"] = (int)getWaterLimit();
-          Serial.println((int)getWaterLimit());
           char message[200];
           serializeJson(doc, message);
           Serial.println(message);
