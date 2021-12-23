@@ -14,4 +14,6 @@ public class NETWORK {
     // Für den Anschluss des YWagens
     public static final String Y_RAY_IP = "192.168.188.27";
     public static final int Y_RAY_PORT = 9012;
+    public static final String H_RAY_IP = "192.168.188.30";
+    public static final int H_RAY_PORT = 9012;
 }

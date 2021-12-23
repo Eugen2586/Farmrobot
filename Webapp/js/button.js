@@ -2,16 +2,22 @@
 let send = 'nop';
 
 document.getElementById("wasserbtn").onmousedown = function(){
-  socket.send('{"type":"water"}');
+  send = 'w';
 }
-
+document.getElementById("wasserbtn").onmousedown = function(){
+  send = 'nop';
+}
+let oneh = true;
+document.getElementById("hakbtn").onmouseup = function(){
+  send = 'nop';
+}
 document.getElementById("hakbtn").onmousedown = function(){
-  socket.send('{"type":"hake","value":"True"}');
+    send = 'h'
 }
 
 document.getElementById("saatbtn").onmousedown = function(){
   let value = document.getElementById("frucht").getAttribute('value');
-  socket.send( '{"type":"saat","value":"' + value + '"}');
+  send = ( '{"type":"saat","value":"' + value + '"}');
 }
 
 document.getElementById("A").onmousedown = function(){
@@ -52,7 +58,15 @@ document.getElementById("E").onmouseup = function(){
 }
 
 function sendingFunction(){
+  if(oneh === true && send === 'h') {
     socket.send(send);
+    oneh = false;
+  } else if(oneh === false && send === 'h'){
+    socket.send('nop');
+  }else{
+    socket.send(send);
+    oneh = true;
+  }
 }
 
 setInterval(function() {

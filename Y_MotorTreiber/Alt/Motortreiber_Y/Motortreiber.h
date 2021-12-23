@@ -14,7 +14,33 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
 // Idee: int primSteps = 100; // Laenge eines Steps / Rechteckwellenanzahl (waere denkbar)
 
  const int PERIODLENGHT = 500; //Periodlenght of one rectangular wave (estimated)
- const int LENGTHUNIT = 1000; //Defines a standard length
+ const int LENGTHUNIT = 30; //Defines a standard length
+
+ boolean doRequestforEnding(char t){
+      WiFiClient client;
+      String line;
+      const char* host ="192.168.188.32";
+      const int httpPort = 9012;
+      if (!client.connect(host, httpPort)) {
+        Serial.println("connection failed");
+        return false;
+      }
+      client.print(String(t));
+      String h = "";
+      Serial.print(client.available());
+      while (client.available()) {
+         h = h+  client.readString();     
+      }
+      Serial.print(h);
+      if(line.equals("y,")){
+        Serial.println("tru erreicht");
+        return true;
+      }
+      if(line.equals("n,")){
+          Serial.println("fals erreicht");
+        return false;
+      }
+  }
 
  void doStuff(){
   if(digitalRead(DIR) != 0){
@@ -24,7 +50,7 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
   }
   
   }
-
+/*
  ICACHE_RAM_ATTR void positionFunction(){
   yield();
   currMillis = millis(); //
@@ -44,18 +70,27 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
    prevMillis = currMillis;
    
 }
-
+*/
 void dirA(int steps) { //nach Links fahren
+    Serial.print("Fahre ");
     digitalWrite(ENABLE, LOW);
     digitalWrite(DIR,LOW); //Direction
-    for(int stepCount = 0; stepCount <= steps; stepCount++){ //Create rectangular wave
+    Serial.print("nach direktion A");
+    for(int stepCount = 0; stepCount < steps; stepCount++){ //Create rectangular wave
+      Serial.print("x");
       digitalWrite(PULS,HIGH);
       delayMicroseconds(PERIODLENGHT/2);
       yield();
       digitalWrite(PULS,LOW);
       delayMicroseconds(PERIODLENGHT/2);
+      if(!doRequestforEnding('A')){
+        Serial.print("Ende erreicht!");
+        return;
+      }
+      position++;
       yield();
   }
+  Serial.println("Alle Schritte abgearbeitet.");
 }
 void dirD(int steps) {
     digitalWrite(ENABLE, LOW);
@@ -66,6 +101,9 @@ void dirD(int steps) {
       yield();
       digitalWrite(PULS,LOW);
       delayMicroseconds(PERIODLENGHT/2);
+      if(!doRequestforEnding('D')){
+        return;
+      }
       yield();
   }
 }
@@ -77,7 +115,6 @@ void dirD(int steps) {
   position = 0;
   
 }
-
 
 
 #endif

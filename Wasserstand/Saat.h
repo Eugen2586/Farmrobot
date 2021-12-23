@@ -9,5 +9,6 @@ void initSPins(){
 
 void shootS(int t){
     digitalWrite(D3,LOW); 
+    mill = millis();
   }
 #endif

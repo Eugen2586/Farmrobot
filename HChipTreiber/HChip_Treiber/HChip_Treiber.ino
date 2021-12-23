@@ -1,11 +1,12 @@
 #include <ESP8266WiFi.h>  //ESP Type
 #include <ArduinoJson.h>  
 
-const int ENABLE = D0;
-const int PULS = D2;
-const int DIR =  D1;
-#include "Motortreiber.h"
+const int ENABLE_Z = D4;
+const int DIR_Z =  D3;
+//D5 wird bewusst freigehalten D5
+const int PULS_Z = D2;
 
+#include "Motortreiber.h"
 // Constant Zone
 //Orginal Maschine
 const char* ssid = "FRITZ!Box 7330";
@@ -17,13 +18,12 @@ const char* password = "03438357071785070961";
 //const char* ssid = "Chr.Network";
 //const char* password = "2570419532734084";
 StaticJsonDocument<200> doc;
- 
 WiFiServer wifiServer(9012);
  
-void setup() {
+void setup(){ 
   initMotors();
   pinMode(A0, INPUT);
-  pinMode(D3, INPUT);
+  //pinMode(D3, INPUT);
   
   digitalWrite(D0,LOW); 
   digitalWrite(D1,LOW);
@@ -42,8 +42,6 @@ void setup() {
   Serial.print("Connected to WiFi. IP:");
   Serial.println(WiFi.localIP());
   wifiServer.begin();
-  //MotorStuff
-  //attachInterrupt(digitalPinToInterrupt(D4), positionFunction, CHANGE);
 }
  
 void loop() {
@@ -53,22 +51,18 @@ void loop() {
   if (client) {
  
     while (client.connected()) {
-      Serial.write(client.available());
+         Serial.write(client.available());
       while (client.available()>0) {
-        
         char c = client.read();
         Serial.println(c);
         switch ( c ){
-          case 'A':
-            dirA(LENGTHUNIT);
-            client.println(position);
-            break;
-          case 'D':
-            dirD(LENGTHUNIT);
-            client.println(position);  
+          case 'w':
+            harkeDenPunkt();
+            client.println(getZ());
             break;
           case 'G':
-            
+            zurGrundpositionZ();
+            client.println(getZ());
             break;
           default:
             Serial.write(c);

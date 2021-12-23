@@ -1,5 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <ArduinoJson.h>
+long mill = millis();
 #include "Pumpensteuerung.h"
 WiFiClient client;
 #include "Saat.h"
@@ -18,7 +19,7 @@ const char* password = "03438357071785070961";
 StaticJsonDocument<200> doc;
  
 WiFiServer wifiServer(9012);
-long mill = millis();
+
 
 
 void setup() {
@@ -46,20 +47,20 @@ void loop() {
   yield();
   boolean geschaltet = false;
   client = wifiServer.available();
-  if(millis() - mill > 250){
+  if(millis() - mill > 850){
     digitalWrite(D1, HIGH);
     digitalWrite(D3, HIGH);
   }
   if (client) {
     while (client.connected()) {
-       if(millis() - mill > 250){
+       if(millis() - mill > 800){
           digitalWrite(D1, HIGH);
           digitalWrite(D3, HIGH);
        }
       yield();
       Serial.write(client.available());
       while (client.available()>0) {
-        if(millis() - mill > 250){
+        if(millis() - mill > 850){
           digitalWrite(D1, HIGH);
           digitalWrite(D3, HIGH);
         }
@@ -89,23 +90,14 @@ void loop() {
           String t(water, 2);
           Serial.println(t);
           if( water < 60.0 ){
-            if(geschaltet == true){
-              getW(240);
-            }else{
-              getW(210);
-            }
+              getW();
           }
           geschaltet = true;
           client.println("W");
        }else if(c == 'S'){
           //Für den Saat-Prozess
           yield();
-          if(geschaltet == true){
-            shootS(240);
-          }else{
-            shootS(210);
-          }
-          geschaltet = true;
+          shootS(240);
           client.print("S");
        }else{
        }

@@ -39,7 +39,7 @@ public class worker{
             while(ifWork()) {
                 k = getNext();
                 try {
-                    if (k.getX() != 0 || k.getY() != 0 || k.getZ() != 0) {
+                    if (k.getX() != 0 || k.getY() != 0 || k.getZ() != 0 || (!k.getT().equals(""))) {
                         System.out.println(k.getX());
                         if (k.getX() != 0) {
                             try {
@@ -68,9 +68,36 @@ public class worker{
                                 ioException.printStackTrace();
                             }
                         }
+                        if(!k.getT().equals("")){
+                            try {
+                                String t = k.getT();
+                                switch (t) {
+                                    case "w":
+                                        x.schreibeNachricht(x.getW_Ray_ComPort(), "W");
+                                        x.leseNachricht(x.getH_Ray_ComPort());
+                                        break;
+                                    case "h":
+                                        for(int steps = 0; steps < 250; steps++) {
+                                            x.schreibeNachricht(x.getZ_Ray_ComPort(), "Q");
+                                            System.out.println("ZRichtung" + x.leseNachricht(x.getZ_Ray_ComPort()));
+                                        }
+                                        x.schreibeNachricht(x.getH_Ray_ComPort(), "w");
+                                        x.leseNachricht(x.getH_Ray_ComPort());
+                                        for(int steps = 0; steps < 350; steps++) {
+                                            x.schreibeNachricht(x.getZ_Ray_ComPort(), "E");
+                                            System.out.println("-ZRichtung" + x.leseNachricht(x.getZ_Ray_ComPort()));
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }catch(Exception e){
+
+                            }
+                        }
                     } else {
                         try {
-                            sleep(20);
+                            sleep(10);
                         } catch (InterruptedException interruptedException) {
                             interruptedException.printStackTrace();
                             System.out.println("Beim (Task-)Sleepen verhaspelt");
@@ -101,6 +128,7 @@ public class worker{
                 try {
                     for (int i = 1; i < 7; i++) {
                         String h = new Read().ladeDatei(String.valueOf(i) + ".control");
+                        String t = "";
                         if (!h.equals("")) {
                             int x = 0, y = 0, z = 0;
                             if (h.equals("W")) {
@@ -121,10 +149,16 @@ public class worker{
                             if (h.equals("E")) {
                                 z = -1;
                             }
-                            dotasking(new Koodinates((e.getX() + x), e.getY() + y, e.getZ() + z, "", ""));
+                            if( h.equals("w")){// Wasserpumpe einschalten
+                                t = "w";
+                            }
+                            if( h.equals("h")){// Harke ausfahren und einfahren
+                                t = "h";
+                            }
+                            dotasking(new Koodinates((e.getX() + x), e.getY() + y, e.getZ() + z, t, ""));
                         }
                         try {
-                            sleep(30);
+                            sleep(20);
                         } catch (InterruptedException interruptedException) {
                             interruptedException.printStackTrace();
                             System.out.println("Ich wurde beim Schlafen gestört.");
@@ -174,6 +208,14 @@ public class worker{
         }
         return false;
     }
+
+    protected boolean compDoing(Koodinates k){
+        if(k.getT().equals("")){
+            return false;
+        }
+        return true;
+    }
+
     public boolean ifWork(){
         return true;
     }

@@ -10,6 +10,7 @@ public class toServer {
     static Socket X_Ray_ComPort = null;
     static Socket W_Ray_ComPort = null;
     static Socket Y_Ray_ComPort = null;
+    static Socket H_Ray_ComPort = null;
 
     //Method Areas
 
@@ -27,6 +28,11 @@ public class toServer {
             Y_Ray_ComPort = new Socket(NETWORK.Y_RAY_IP, NETWORK.Y_RAY_PORT);
             System.out.println(Y_Ray_ComPort.toString());
         }
+        if (H_Ray_ComPort == null || !H_Ray_ComPort.isConnected()){
+            H_Ray_ComPort = new Socket(NETWORK.H_RAY_IP, NETWORK.H_RAY_PORT);
+            System.out.println(H_Ray_ComPort.toString());
+        }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -65,4 +71,7 @@ public class toServer {
     public Socket getY_Ray_ComPort() { return Y_Ray_ComPort;   }
     public Socket getZ_Ray_ComPort() { return Y_Ray_ComPort;   }
 
+    public Socket getH_Ray_ComPort() {
+        return H_Ray_ComPort;
+    }
 }

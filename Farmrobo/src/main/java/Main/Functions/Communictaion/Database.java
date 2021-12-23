@@ -89,7 +89,6 @@ public class Database {
 
             //Execute SQL Query
             ResultSet reSe = myStat.executeQuery("select * from " + table );
-
             /*
             Remember should implement Object in every Used Class to could get all the Variables Back.
             */

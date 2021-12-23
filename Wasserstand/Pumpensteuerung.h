@@ -29,8 +29,9 @@ float getWaterLimit(){
     return(entfernung);
   }
 
-void getW(int t){
+void getW(){
   digitalWrite(D1,LOW);
+  mill = millis();
 }
 
 #endif

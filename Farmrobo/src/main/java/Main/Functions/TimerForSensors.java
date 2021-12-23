@@ -57,9 +57,9 @@ public class TimerForSensors implements Runnable{
             if(i == 10) {
                 //Grundposition erreichen
                 while(!toGrundposition()){ System.out.println("Grundposition ausfuehren!"); }
-                ArrayList<Pflanze> pfar = new ArrayList<>();
+                Pflanze pfar[];
                 Database d = new Database();
-                d.readAllFromTable("PflanzenPos");
+                pfar = (Pflanze[]) d.readAllFromTable("PflanzenPos");
                 //Lade Pflanzendaten von der Datenbank!
                 //Lade Positionsdaten von der Datenbank!
                 for (Pflanze p: pfar) {
