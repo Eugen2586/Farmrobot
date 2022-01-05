@@ -11,7 +11,7 @@ public class PositionenAbfahren {
     public static class toServer {
         //Deklarations
         static Socket A_Ray_ComPort = null;
-        final static String  A_RAY_IP = "192.168.188.28";
+        final static String  A_RAY_IP = "192.168.100.38";
         final static int A_RAY_PORT = 9012;
 
 

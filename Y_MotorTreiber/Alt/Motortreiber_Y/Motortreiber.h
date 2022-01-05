@@ -17,28 +17,29 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
  const int LENGTHUNIT = 30; //Defines a standard length
 
  boolean doRequestforEnding(char t){
-      WiFiClient client;
+      WiFiClient client1;
       String line;
-      const char* host ="192.168.188.32";
+      //bei Jonas
+      const char* host ="192.168.100.58";
+      //im Gewächshaus
+      //const char* host ="192.168.188.32";
       const int httpPort = 9012;
-      if (!client.connect(host, httpPort)) {
+      if (!client1.connect(host, httpPort)) {
         Serial.println("connection failed");
         return false;
       }
-      client.print(String(t));
+      client1.print(String(t));
       String h = "";
-      Serial.print(client.available());
-      while (client.available()) {
-         h = h+  client.readString();     
-      }
-      Serial.print(h);
-      if(line.equals("y,")){
-        Serial.println("tru erreicht");
-        return true;
-      }
-      if(line.equals("n,")){
-          Serial.println("fals erreicht");
+      h = client1.readStringUntil(',');
+      Serial.print("Zeichen: ");   
+      Serial.println(h);
+      if(h.equals("y")){
+        Serial.println("true erreicht");
         return false;
+      }
+      if(h.equals("n")){
+        Serial.println("false erreicht");
+        return true;
       }
   }
 
@@ -72,19 +73,17 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
 }
 */
 void dirA(int steps) { //nach Links fahren
-    Serial.print("Fahre ");
     digitalWrite(ENABLE, LOW);
     digitalWrite(DIR,LOW); //Direction
-    Serial.print("nach direktion A");
     for(int stepCount = 0; stepCount < steps; stepCount++){ //Create rectangular wave
-      Serial.print("x");
       digitalWrite(PULS,HIGH);
       delayMicroseconds(PERIODLENGHT/2);
       yield();
       digitalWrite(PULS,LOW);
       delayMicroseconds(PERIODLENGHT/2);
-      if(!doRequestforEnding('A')){
-        Serial.print("Ende erreicht!");
+      boolean betrieb = doRequestforEnding('A');
+      if(betrieb){
+        Serial.print(betrieb);
         return;
       }
       position++;
@@ -101,7 +100,9 @@ void dirD(int steps) {
       yield();
       digitalWrite(PULS,LOW);
       delayMicroseconds(PERIODLENGHT/2);
-      if(!doRequestforEnding('D')){
+      boolean betrieb = doRequestforEnding('D');
+      if(betrieb){
+        Serial.print(betrieb);
         return;
       }
       yield();
