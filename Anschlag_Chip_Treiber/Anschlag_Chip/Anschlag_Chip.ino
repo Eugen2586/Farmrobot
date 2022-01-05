@@ -21,8 +21,10 @@ ICACHE_RAM_ATTR void lowd(){
 
 // Constant Zone
 //-> Client für die Signalübertragung
-const char* ssid = "FRITZ!Box 7330";
-const char* password = "03438357071785070961";
+const char* ssid = "JKallweidt_Home";
+const char* password = "47064827496195704080";
+//const char* ssid = "FRITZ!Box 7330";
+//const char* password = "03438357071785070961";
 //In der Smartphone Zone
 //const char* ssid = "Galaxy S1065b3";
 //const char* password = "123456789";
@@ -78,11 +80,13 @@ void loop() {
  
   WiFiClient client = wifiServer.available();
   if (client) {
+    Serial.println("Client zugeschaltet");
     while (client.connected()) {
       Serial.write(client.available());
       yield();
       while (client.available()>0) {
         char c = client.read();
+        Serial.print("Anfrage: ");
         Serial.println(c);
         switch ( c ){
           case 'G':
@@ -94,22 +98,22 @@ void loop() {
              };
             if(A == false){
               client.println("n,");
-              Serial.println("n,");
+              Serial.println("Antwort: n,");
               client.stop();
             }else{
               client.println("y,");
-              Serial.println("y,");
+              Serial.println("Antwort: y,");
               client.stop();
             }
             break;
           case 'D':
             if(D == false){
-              client.println("n");
-              Serial.println("n");
+              client.println("n,");
+              Serial.println("Antwort: n,");
               client.stop();
             }else{
-              client.println("y");
-              Serial.println("y");
+              client.println("y,");
+              Serial.println("Antwort: y,");
               client.stop();
             }
             break;
@@ -119,7 +123,7 @@ void loop() {
             break;
           }
       }
-      //delay(10);
+      delay(100);
     }
     client.stop();
     Serial.println("Client disconnected");
