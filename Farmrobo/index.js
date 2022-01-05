@@ -29,7 +29,7 @@ wss.on('connection', function connection(ws) {
     }
     console.log(message.toString());
     int++;
-    if(int > 7){
+    if(int > 4){
       int = 0;
     }
     console.log(new Date().toJSON().toString());

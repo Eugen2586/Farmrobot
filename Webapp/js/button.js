@@ -4,7 +4,7 @@ let send = 'nop';
 document.getElementById("wasserbtn").onmousedown = function(){
   send = 'w';
 }
-document.getElementById("wasserbtn").onmousedown = function(){
+document.getElementById("wasserbtn").onmouseup = function(){
   send = 'nop';
 }
 let oneh = true;

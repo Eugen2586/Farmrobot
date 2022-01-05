@@ -41,18 +41,18 @@ public class worker{
                 try {
                     if (k.getX() != 0 || k.getY() != 0 || k.getZ() != 0 || (!k.getT().equals(""))) {
                         System.out.println(k.getX());
-                        if (k.getX() != 0) {
+                        if (k.getY() != 0) {
                             try {
-                                System.out.print(k.getX() < 0 ? "A" : "D");
+                                System.out.print(k.getY() < 0 ? "A" : "D");
                                 x.schreibeNachricht(x.getY_Ray_ComPort(), k.getX() < 0 ? "A" : "D");
                                 System.out.println("XRichtung" + x.leseNachricht(x.getY_Ray_ComPort()));
                             } catch (IOException ioException) {
                               ioException.printStackTrace();
                            }
                         }
-                        if (k.getY() != 0) {
+                        if (k.getX() != 0) {
                             try {
-                                x.schreibeNachricht(x.getX_Ray_ComPort(), k.getY() > 0 ? "A" : "D");
+                                x.schreibeNachricht(x.getX_Ray_ComPort(), k.getX() > 0 ? "A" : "D");
                                 System.out.println("YRichtung" + x.leseNachricht(x.getX_Ray_ComPort()));
                             } catch (IOException ioException) {
                                 ioException.printStackTrace();
@@ -73,7 +73,7 @@ public class worker{
                                 String t = k.getT();
                                 switch (t) {
                                     case "w":
-                                        x.schreibeNachricht(x.getW_Ray_ComPort(), "W");
+                                        x.schreibeNachricht(x.getH_Ray_ComPort(), "W");
                                         x.leseNachricht(x.getH_Ray_ComPort());
                                         break;
                                     case "h":
