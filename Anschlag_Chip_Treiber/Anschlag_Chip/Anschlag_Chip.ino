@@ -1,7 +1,21 @@
+/*
+* Anschlagsprüfuns Code
+* zum Überprüfen der Position des Fargestells des Roboters
+* Geprüft wird, ob einer der verbauten Endanschlagsschalter erreicht wurde.
+* Zum Fahren in eine gewünschte Richtung muss vom ausführenden Client 
+* zunächst hier eine Freigabeerlaubnis eingeholt werden. 
+* für Board: "Node32s"
+*
+*Version 1.0
+*vom 13.012022
+*
+*Autoren:
+*CKU & JK
+*/
 #include <WiFi.h>  //ESP Type
 #include <ArduinoJson.h>  
 
-boolean debug = false;
+boolean debug = true;
 boolean A = false;
 boolean D = false;
 
