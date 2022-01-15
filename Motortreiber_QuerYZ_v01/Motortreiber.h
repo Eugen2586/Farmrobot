@@ -139,7 +139,10 @@ void DIR_ZD(int steps) {
   pinMode(EndYD, INPUT );
   pinMode(EndYA, INPUT );
   position = 0;
-  
+  digitalWrite(ENABLE_Y, LOW);
+  digitalWrite(DIR_Y, LOW);
+  digitalWrite(ENABLE_Z, LOW);
+  digitalWrite(DIR_Z, LOW);
 }
 
 void zurGrundpositionZ(){

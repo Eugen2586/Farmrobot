@@ -29,8 +29,6 @@ WiFiServer wifiServer(9012);
  
 void setup() {
   initMotors();
-  digitalWrite(D0,LOW); 
-  digitalWrite(D1,LOW);
   
   if(debug){
     Serial.begin(115200);

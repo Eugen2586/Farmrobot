@@ -96,12 +96,7 @@ public class worker{
                             }
                         }
                     } else {
-                        try {
-                            sleep(10);
-                        } catch (InterruptedException interruptedException) {
-                            interruptedException.printStackTrace();
-                            System.out.println("Beim (Task-)Sleepen verhaspelt");
-                        }
+                        //sleep(10);
                     }
                 } catch(Exception e){
                 }
@@ -157,12 +152,7 @@ public class worker{
                             }
                             dotasking(new Koodinates((e.getX() + x), e.getY() + y, e.getZ() + z, t, ""));
                         }
-                        try {
-                            sleep(20);
-                        } catch (InterruptedException interruptedException) {
-                            interruptedException.printStackTrace();
-                            System.out.println("Ich wurde beim Schlafen gestört.");
-                        }
+                        //sleep(20);
                     }
                 }catch (Exception e){
 

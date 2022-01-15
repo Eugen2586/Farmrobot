@@ -24,7 +24,7 @@ public class Wasserpumpe {
                     t.schreibeNachricht(t.getW_Ray_ComPort(), "W");
                     System.out.print(t.leseNachricht(t.getW_Ray_ComPort()));
                     i++;
-                    sleep(200);
+                    //sleep(200);
                 }
                 i = 0;
                 //Test für die Saatmaschine
@@ -32,7 +32,7 @@ public class Wasserpumpe {
                     t.schreibeNachricht(t.getW_Ray_ComPort(), "S");
                     System.out.print(t.leseNachricht(t.getW_Ray_ComPort()));
                     i++;
-                    sleep(200);
+                    //sleep(200);
                 }
             }
         }catch(Exception e){

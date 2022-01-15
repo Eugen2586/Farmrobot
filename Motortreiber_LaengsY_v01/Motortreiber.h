@@ -126,7 +126,8 @@ void dirD(int steps) {
   pinMode(DIR, OUTPUT); //Direction
   pinMode(PULS, OUTPUT); //Pulse
   position = 0;
-  
+  digitalWrite(ENABLE,LOW);
+  digitalWrite(DIR,LOW);
 }
 
 

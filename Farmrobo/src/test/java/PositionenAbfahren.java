@@ -3,6 +3,8 @@ import org.junit.Test;
 import Constants.NETWORK;
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 
 import static java.lang.Thread.sleep;
 
@@ -59,9 +61,11 @@ public class PositionenAbfahren {
     public void anfahrenGrundstellung(){
         toServer t = new toServer();
         try {
-            for(int i = 0; i < 100; i++) {
+            for(int i = 0; i < 10000; i++) {
+                String g =  LocalDateTime.now().toString();
+                System.out.println( i +". start     " + g);
                 t.schreibeNachricht(t.getA_Ray_ComPort(), "A");
-                sleep(100);
+                //sleep(100);
                 String h = new String();
                 h = t.leseNachricht(t.getA_Ray_ComPort());
                 h = h.replace("\n", "");
@@ -77,13 +81,12 @@ public class PositionenAbfahren {
                         h.contains("7")||
                         h.contains("8")||
                         h.contains("9")){
-                    System.out.println( i +". "+ h);
+                    String p =  LocalDateTime.now().toString();
+                    System.out.println( i +". stop "+ h + "  " + p);
                 }
             }
         } catch (IOException e) {
             //assert(false);
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
