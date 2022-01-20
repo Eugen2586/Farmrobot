@@ -1,6 +1,9 @@
 #include <ESP8266WiFi.h>  //ESP Type
 #include <ArduinoJson.h>  
-
+//bei Jonas
+//const char* host1 ="192.168.100.58";
+//im Gewächshaus
+const char* host1 ="192.168.188.32";
 
 //debug
 boolean debug = false;
@@ -12,11 +15,11 @@ const int DIR =  D1;
 
 // Constant Zone
 //Netzwerk Jonas:
-const char* ssid = "JKallweidt_Home";
-const char* password = "47064827496195704080";
+//const char* ssid = "JKallweidt_Home";
+//const char* password = "47064827496195704080";
 //Orginal Maschine
-//const char* ssid = "FRITZ!Box 7330";
-//const char* password = "03438357071785070961";
+const char* ssid = "FRITZ!Box 7330";
+const char* password = "03438357071785070961";
 //In der Smartphone Zone
 //const char* ssid = "Galaxy S1065b3";
 //const char* password = "123456789";

@@ -19,12 +19,8 @@ int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
  boolean doRequestforEnding(char t){
       WiFiClient client1;
       String line;
-      //bei Jonas
-      const char* host ="192.168.100.58";
-      //im Gewächshaus
-      //const char* host ="192.168.188.32";
       const int httpPort = 9012;
-      if (!client1.connect(host, httpPort)) {
+      if (!client1.connect(host1, httpPort)) {
         if(debug){
         Serial.println("connection failed");
         }

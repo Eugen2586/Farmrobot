@@ -26,10 +26,10 @@ ICACHE_RAM_ATTR void lowd(){D = false;}
 
 // Constant Zone
 //-> Client für die Signalübertragung
-const char* ssid = "JKallweidt_Home";
-const char* password = "47064827496195704080";
-//const char* ssid = "FRITZ!Box 7330";
-//const char* password = "03438357071785070961";
+//const char* ssid = "JKallweidt_Home";
+//const char* password = "47064827496195704080";
+const char* ssid = "FRITZ!Box 7330";
+const char* password = "03438357071785070961";
 //In der Smartphone Zone
 //const char* ssid = "Galaxy S1065b3";
 //const char* password = "123456789";
@@ -38,8 +38,10 @@ const char* password = "47064827496195704080";
 //const char* password = "2570419532734084";
 StaticJsonDocument<200> doc;
 WiFiServer wifiServer(9012);
-const int SensorA = 34;
+const int SensorA = 33;
+const int SensorA2 = 32;
 const int SensorD = 35;
+const int SensorD2 = 34;
 
 
 void setup() {
@@ -70,7 +72,7 @@ void loop() {
         switch ( c ){
           case 'G': //Grundpositiom
           case 'A': //nach links fahren
-             if(digitalRead(SensorA) == HIGH){
+             if(digitalRead(SensorA) == HIGH && digitalRead(SensorA2) == HIGH){
                 A = true;
              }else{
                 A = false;
@@ -90,6 +92,11 @@ void loop() {
             }
             break;
           case 'D': //nach rechts fahren
+            if(digitalRead(SensorD) == HIGH && digitalRead(SensorD2) == HIGH){
+                D = true;
+             }else{
+                D = false;
+             };
             if(D == false){
               client.println("n,");
               if(debug){

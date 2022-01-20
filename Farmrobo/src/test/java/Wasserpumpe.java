@@ -21,6 +21,7 @@ public class Wasserpumpe {
 
                 //Test für die Wasserpumpe
                 while (i < 60) {
+                    //Wassserpumpe ansteuern
                     t.schreibeNachricht(t.getW_Ray_ComPort(), "W");
                     System.out.print(t.leseNachricht(t.getW_Ray_ComPort()));
                     i++;
@@ -29,6 +30,7 @@ public class Wasserpumpe {
                 i = 0;
                 //Test für die Saatmaschine
                 while (i < 60) {
+                    //Saatsteuerung
                     t.schreibeNachricht(t.getW_Ray_ComPort(), "S");
                     System.out.print(t.leseNachricht(t.getW_Ray_ComPort()));
                     i++;

@@ -29,8 +29,8 @@ wss.on('connection', function connection(ws) {
     }
     console.log(message.toString());
     int++;
-    if(int > 4){
-      int = 0;
+    if(int > 5){
+      int = 1;
     }
     console.log(new Date().toJSON().toString());
     fs.writeFile(int.toString() + '.control', message.toString(), function (err) {
