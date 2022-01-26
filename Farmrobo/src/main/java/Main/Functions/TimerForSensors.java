@@ -38,7 +38,7 @@ public class TimerForSensors implements Runnable{
                     }
                 }
             };
-            timeline.scheduleAtFixedRate(t, 1000, 1000);//Er wird hiermit sekündlich ausgeführt.
+            timeline.scheduleAtFixedRate(t, 1000, 20000);//Er wird hiermit sekündlich ausgeführt.
 
         }
         public void timerDo() throws IOException, SQLException {

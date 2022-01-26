@@ -16,7 +16,7 @@ public class SensorTimer {
     }
     private void startSensors(){
         Timer caretaker = new Timer();
-        caretaker.schedule( action, 1000, 5000);
+        caretaker.schedule( action, 5000, 5000);
     }
 
     }
