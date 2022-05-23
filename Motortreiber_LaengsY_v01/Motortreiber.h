@@ -10,11 +10,11 @@ const long intervalI = 500; //Uebergabeintervalllaenge
 long interval = 0;
 unsigned long prevMillisI = 0; //Zeitpunkt der letzten Zeitmessung
 unsigned long currMillisI = 0; //aktuelle Zeitmessung
-int steps = 20;   //Uebergabeparameter steps, anzahl der Rechteckwellen
+int steps = 800;   //Uebergabeparameter steps, anzahl der Rechteckwellen
 // Idee: int primSteps = 100; // Laenge eines Steps / Rechteckwellenanzahl (waere denkbar)
 
- const int PERIODLENGHT = 500; //Periodlenght of one rectangular wave (estimated)
- const int LENGTHUNIT = 3; //Defines a standard length
+ const int PERIODLENGHT = 800; //Periodlenght of one rectangular wave (estimated)
+ const int LENGTHUNIT = 450; //Defines a standard length
 
  boolean doRequestforEnding(char t){
       WiFiClient client1;

@@ -9,8 +9,8 @@ uint8_t DHTPin = D2;
 // Initialize DHT sensor.
 DHT dht(DHTPin, DHTTYPE); 
 
-//const char* ssid = "FRITZ!Box 7330";
-//const char* password = "03438357071785070961";
+const char* ssid = "FRITZ!Box 7330";
+const char* password = "03438357071785070961";
 
 //const char* ssid = "FRITZ!Box 7430 MM";
 //const char* password = "36002357151783325689";
@@ -19,8 +19,8 @@ DHT dht(DHTPin, DHTTYPE);
 //const char* password = "123456789";
 
 // Constant Zone
-const char* ssid = "Chr.Network";
-const char* password = "2570419532734084";
+//const char* ssid = "Chr.Network";
+//const char* password = "2570419532734084";
 StaticJsonDocument<200> doc;
  
 WiFiServer wifiServer(9012);

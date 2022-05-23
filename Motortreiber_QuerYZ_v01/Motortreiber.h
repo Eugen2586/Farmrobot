@@ -69,13 +69,13 @@ unsigned long currMillisI = 0; //aktuelle Zeitmessung
 
 // X-Richtungs Methoden:
 void DIR_YA(int steps) { //nach Links fahren
-    digitalWrite(ENABLE_X, LOW); //Motor freigeben
-    digitalWrite(DIR_X,LOW); //DIR_Xection vorgeben
+    digitalWrite(ENABLE_Y, LOW); //Motor freigeben
+    digitalWrite(DIR_Y,LOW); //DIR_Xection vorgeben
     for(int stepCount = 0; stepCount <= steps; stepCount++){ //Create rectangular wave
-      digitalWrite(PULS_X,HIGH); 
+      digitalWrite(PULS_Y,HIGH); 
       delayMicroseconds(PERIODLENGHT/2);
       yield();
-      digitalWrite(PULS_X,LOW);
+      digitalWrite(PULS_Y,LOW);
       delayMicroseconds(PERIODLENGHT/2);
       yield();
       yend = false;
@@ -83,16 +83,16 @@ void DIR_YA(int steps) { //nach Links fahren
   }
 }
 void DIR_YD(int steps) {
-    digitalWrite(ENABLE_X, LOW); //Motor freigeben
-    digitalWrite(DIR_X,HIGH); //DIR_Xection vorgeben
+    digitalWrite(ENABLE_Y, LOW); //Motor freigeben
+    digitalWrite(DIR_Y,HIGH); //DIR_Xection vorgeben
     for(int stepCount = 0; stepCount <= steps; stepCount++){ //Create rectangular wave
       if(yend){
         return;
       }
-      digitalWrite(PULS_X,HIGH);
+      digitalWrite(PULS_Y,HIGH);
       delayMicroseconds(PERIODLENGHT/2);
       yield();
-      digitalWrite(PULS_X,LOW);
+      digitalWrite(PULS_Y,LOW);
       delayMicroseconds(PERIODLENGHT/2);
       yield();
       ybew(1);

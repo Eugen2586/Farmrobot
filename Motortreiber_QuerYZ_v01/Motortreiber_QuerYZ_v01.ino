@@ -15,11 +15,11 @@ const int EndYA = D3;
 #include "Motortreiber.h"
 // Constant Zone
 //Orginal Maschine
-const char* ssid = "FRITZ!Box 7330";
-const char* password = "03438357071785070961";
+//const char* ssid = "FRITZ!Box 7330";
+//const char* password = "03438357071785070961";
 //In der Smartphone Zone
-//const char* ssid = "Galaxy S1065b3";
-//const char* password = "123456789";
+const char* ssid = "cku";
+const char* password = "123456789";
 //Bei Christian
 //const char* ssid = "Chr.Network";
 //const char* password = "2570419532734084";

@@ -3,7 +3,7 @@
 //bei Jonas
 //const char* host1 ="192.168.100.58";
 //im Gewächshaus
-const char* host1 ="192.168.188.32";
+const char* host1 ="192.168.188.37"; // IP Adresse geändert! CKU -> 17.02.2022
 
 //debug
 boolean debug = false;
